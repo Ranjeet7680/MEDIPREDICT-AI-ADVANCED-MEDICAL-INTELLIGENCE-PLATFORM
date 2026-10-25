@@ -1,189 +1,240 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#040914" />
-      <stop offset="40%" stop-color="#071322" />
-      <stop offset="80%" stop-color="#0b1b30" />
-      <stop offset="100%" stop-color="#040914" />
+    <!-- Deep Space Medical Gradients -->
+    <linearGradient id="hdrBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="35%" stop-color="#061224" />
+      <stop offset="70%" stop-color="#0a1930" />
+      <stop offset="100%" stop-color="#030712" />
     </linearGradient>
 
-    <!-- Teal Glow Gradient -->
-    <linearGradient id="tealGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00e5ff" />
-      <stop offset="50%" stop-color="#00b4d8" />
-      <stop offset="100%" stop-color="#10b981" />
-    </linearGradient>
-
-    <!-- Text Fill Gradient -->
-    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Multi-Color Title Gradient -->
+    <linearGradient id="hdrTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="50%" stop-color="#e0f2fe" />
-      <stop offset="100%" stop-color="#38bdf8" />
+      <stop offset="25%" stop-color="#e0f2fe" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="75%" stop-color="#00e5ff" />
+      <stop offset="100%" stop-color="#34d399" />
     </linearGradient>
 
-    <!-- Radial Ambient Glow -->
-    <radialGradient id="radialCyan" cx="50%" cy="40%" r="50%">
-      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.18" />
-      <stop offset="60%" stop-color="#0077b6" stop-opacity="0.05" />
+    <!-- Glowing Waveform Gradient -->
+    <linearGradient id="hdrWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2" />
+      <stop offset="30%" stop-color="#00e5ff" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#10b981" stop-opacity="1" />
+      <stop offset="85%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Ambient Spotlights -->
+    <radialGradient id="hdrSpotCyan" cx="25%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.16" />
+      <stop offset="60%" stop-color="#0284c7" stop-opacity="0.04" />
       <stop offset="100%" stop-color="#000000" stop-opacity="0" />
     </radialGradient>
 
-    <radialGradient id="radialEmerald" cx="85%" cy="80%" r="40%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15" />
+    <radialGradient id="hdrSpotEmerald" cx="80%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.14" />
+      <stop offset="60%" stop-color="#059669" stop-opacity="0.03" />
       <stop offset="100%" stop-color="#000000" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Filter Glow -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
+    <radialGradient id="hdrSpotViolet" cx="50%" cy="10%" r="40%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Crisp Filters -->
+    <filter id="hdrGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
 
-    <filter id="deepGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
+    <filter id="hdrSuperGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
 
-    <!-- CSS Keyframe Animations -->
+    <filter id="hdrCardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Keyframe Animations -->
     <style>
-      @keyframes pulseDot {
+      @keyframes hdrPulse {
         0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.6); opacity: 0.4; }
+        50% { transform: scale(1.4); opacity: 0.4; }
       }
-      @keyframes ecgScan {
-        0% { stroke-dashoffset: 1200; }
+      @keyframes hdrRadarPing {
+        0% { r: 3px; opacity: 1; stroke-width: 2px; }
+        100% { r: 16px; opacity: 0; stroke-width: 0.5px; }
+      }
+      @keyframes hdrEcgScroll {
+        0% { stroke-dashoffset: 1400; }
         100% { stroke-dashoffset: 0; }
       }
-      @keyframes floatParticle {
-        0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
-        50% { transform: translateY(-12px) translateX(8px); opacity: 0.8; }
+      @keyframes hdrFloatSlow {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(-7px) translateX(4px); }
       }
-      @keyframes beaconWave {
-        0% { r: 4px; opacity: 1; }
-        100% { r: 18px; opacity: 0; }
-      }
-      @keyframes shimmerBorder {
-        0% { stroke-dashoffset: 600; }
+      @keyframes hdrShimmer {
+        0% { stroke-dashoffset: 400; }
         100% { stroke-dashoffset: 0; }
       }
-
-      .ecg-path {
-        stroke-dasharray: 1200;
-        animation: ecgScan 6s linear infinite;
+      .hdr-ecg {
+        stroke-dasharray: 1400;
+        animation: hdrEcgScroll 7s linear infinite;
       }
-      .particle-1 { animation: floatParticle 4s ease-in-out infinite; }
-      .particle-2 { animation: floatParticle 6s ease-in-out infinite 1.5s; }
-      .particle-3 { animation: floatParticle 5s ease-in-out infinite 3s; }
-      .beacon-ring { animation: beaconWave 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
-      .pulse-pill { animation: pulseDot 2s ease-in-out infinite; }
+      .hdr-dot-ping { animation: hdrPulse 2s ease-in-out infinite; }
+      .hdr-radar-ring { animation: hdrRadarPing 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+      .hdr-float-1 { animation: hdrFloatSlow 5s ease-in-out infinite; }
+      .hdr-float-2 { animation: hdrFloatSlow 6.5s ease-in-out infinite 1s; }
+      .hdr-float-3 { animation: hdrFloatSlow 5.5s ease-in-out infinite 2.5s; }
     </style>
   </defs>
 
-  <!-- Background Base -->
-  <rect width="1200" height="360" fill="url(#bgGrad)" />
-  <rect width="1200" height="360" fill="url(#radialCyan)" />
-  <rect width="1200" height="360" fill="url(#radialEmerald)" />
+  <!-- Canvas Background -->
+  <rect width="1200" height="400" rx="16" fill="url(#hdrBg)" />
+  <rect width="1200" height="400" rx="16" fill="url(#hdrSpotCyan)" />
+  <rect width="1200" height="400" rx="16" fill="url(#hdrSpotEmerald)" />
+  <rect width="1200" height="400" rx="16" fill="url(#hdrSpotViolet)" />
 
-  <!-- Subtle Circuit / Telemetry Grid Lines -->
-  <g stroke="#1e293b" stroke-width="0.8" opacity="0.4">
-    <line x1="0" y1="60" x2="1200" y2="60" />
-    <line x1="0" y1="120" x2="1200" y2="120" />
-    <line x1="0" y1="180" x2="1200" y2="180" />
-    <line x1="0" y1="240" x2="1200" y2="240" />
+  <!-- Precise Coordinate Grid Lines -->
+  <g stroke="#172554" stroke-width="0.8" opacity="0.32">
+    <line x1="0" y1="50" x2="1200" y2="50" />
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="150" x2="1200" y2="150" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="250" x2="1200" y2="250" />
     <line x1="0" y1="300" x2="1200" y2="300" />
-    <line x1="150" y1="0" x2="150" y2="360" />
-    <line x1="300" y1="0" x2="300" y2="360" />
-    <line x1="450" y1="0" x2="450" y2="360" />
-    <line x1="600" y1="0" x2="600" y2="360" />
-    <line x1="750" y1="0" x2="750" y2="360" />
-    <line x1="900" y1="0" x2="900" y2="360" />
-    <line x1="1050" y1="0" x2="1050" y2="360" />
+    <line x1="0" y1="350" x2="1200" y2="350" />
+    <line x1="100" y1="0" x2="100" y2="400" />
+    <line x1="200" y1="0" x2="200" y2="400" />
+    <line x1="300" y1="0" x2="300" y2="400" />
+    <line x1="400" y1="0" x2="400" y2="400" />
+    <line x1="500" y1="0" x2="500" y2="400" />
+    <line x1="600" y1="0" x2="600" y2="400" />
+    <line x1="700" y1="0" x2="700" y2="400" />
+    <line x1="800" y1="0" x2="800" y2="400" />
+    <line x1="900" y1="0" x2="900" y2="400" />
+    <line x1="1000" y1="0" x2="1000" y2="400" />
+    <line x1="1100" y1="0" x2="1100" y2="400" />
   </g>
 
-  <!-- Floating Ambient Particles -->
-  <circle cx="180" cy="140" r="3" fill="#00e5ff" class="particle-1" filter="url(#glow)" />
-  <circle cx="980" cy="90" r="2.5" fill="#10b981" class="particle-2" filter="url(#glow)" />
-  <circle cx="1060" cy="220" r="3.5" fill="#38bdf8" class="particle-3" filter="url(#glow)" />
-  <circle cx="120" cy="280" r="2" fill="#00e5ff" class="particle-2" />
-  <circle cx="620" cy="40" r="2" fill="#a78bfa" class="particle-1" />
-
-  <!-- Outer Tech Border Frame -->
-  <rect x="20" y="20" width="1160" height="320" rx="16" fill="none" stroke="#1e3a5f" stroke-width="1.2" opacity="0.6" />
-  <rect x="20" y="20" width="1160" height="320" rx="16" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="120 400" opacity="0.8" />
-
-  <!-- Corner Tech Brackets -->
-  <path d="M 20 50 L 20 20 L 50 20" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
-  <path d="M 1150 20 L 1180 20 L 1180 50" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
-  <path d="M 20 310 L 20 340 L 50 340" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
-  <path d="M 1150 340 L 1180 340 L 1180 310" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
-
-  <!-- Top Category Pill Badge -->
-  <g transform="translate(600, 62)">
-    <rect x="-170" y="-14" width="340" height="28" rx="14" fill="#0f2744" stroke="#00b4d8" stroke-width="1" opacity="0.9" />
-    <!-- Pulsing Green Dot inside Badge -->
-    <circle cx="-145" cy="0" r="4" fill="#10b981" class="pulse-pill" />
-    <circle cx="-145" cy="0" r="8" fill="none" stroke="#10b981" stroke-width="1" class="beacon-ring" />
-    <text x="-130" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1.5">ENTERPRISE MEDICAL INTELLIGENCE ECOSYSTEM</text>
+  <!-- Ambient Telemetry Crosshairs -->
+  <g stroke="#38bdf8" stroke-width="1" opacity="0.4">
+    <path d="M 95 90 L 105 90 M 100 85 L 100 95" />
+    <path d="M 1095 90 L 1105 90 M 1100 85 L 1100 95" />
+    <path d="M 95 310 L 105 310 M 100 305 L 100 315" />
+    <path d="M 1095 310 L 1105 310 M 1100 305 L 1100 315" />
   </g>
 
-  <!-- Main Brand Title -->
-  <g transform="translate(600, 140)">
-    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="52" font-weight="900" fill="url(#textGrad)" letter-spacing="4" filter="url(#deepGlow)">
+  <!-- Outer Cyber Frame -->
+  <rect x="18" y="18" width="1164" height="364" rx="14" fill="none" stroke="#1e3a5f" stroke-width="1.2" opacity="0.7" />
+  <!-- Accent Border Dashes -->
+  <rect x="18" y="18" width="1164" height="364" rx="14" fill="none" stroke="#00e5ff" stroke-width="1.6" stroke-dasharray="100 300" opacity="0.85" />
+
+  <!-- Corner Glowing Brackets -->
+  <path d="M 18 55 L 18 18 L 55 18" fill="none" stroke="#00e5ff" stroke-width="3" stroke-linecap="round" filter="url(#hdrGlow)" />
+  <path d="M 1145 18 L 1182 18 L 1182 55" fill="none" stroke="#00e5ff" stroke-width="3" stroke-linecap="round" filter="url(#hdrGlow)" />
+  <path d="M 18 345 L 18 382 L 55 382" fill="none" stroke="#00e5ff" stroke-width="3" stroke-linecap="round" filter="url(#hdrGlow)" />
+  <path d="M 1145 382 L 1182 382 L 1182 345" fill="none" stroke="#00e5ff" stroke-width="3" stroke-linecap="round" filter="url(#hdrGlow)" />
+
+  <!-- Floating Biometric Particles -->
+  <circle cx="150" cy="120" r="3" fill="#00e5ff" class="hdr-float-1" filter="url(#hdrGlow)" />
+  <circle cx="280" cy="70" r="2.5" fill="#38bdf8" class="hdr-float-2" />
+  <circle cx="940" cy="110" r="3.5" fill="#10b981" class="hdr-float-3" filter="url(#hdrGlow)" />
+  <circle cx="1040" cy="170" r="2" fill="#a855f7" class="hdr-float-1" />
+  <circle cx="820" cy="60" r="2.5" fill="#00e5ff" class="hdr-float-2" />
+
+  <!-- ==================== TOP BADGE ==================== -->
+  <g transform="translate(600, 64)">
+    <rect x="-195" y="-15" width="390" height="30" rx="15" fill="#0c233c" stroke="#00b4d8" stroke-width="1.2" opacity="0.95" />
+    <!-- Radar Ping Indicator -->
+    <circle cx="-168" cy="0" r="4.5" fill="#10b981" class="hdr-dot-ping" />
+    <circle cx="-168" cy="0" r="10" fill="none" stroke="#10b981" class="hdr-radar-ring" />
+    <text x="-150" y="4.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#38bdf8" letter-spacing="1.8">
+      ENTERPRISE MEDICAL INTELLIGENCE ECOSYSTEM
+    </text>
+  </g>
+
+  <!-- ==================== MAIN BRAND TITLE ==================== -->
+  <g transform="translate(600, 142)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="54" font-weight="900" fill="url(#hdrTitleGrad)" letter-spacing="5" filter="url(#hdrSuperGlow)">
       MEDIPREDICT AI
     </text>
   </g>
 
-  <!-- Tagline -->
-  <g transform="translate(600, 185)">
-    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#94a3b8" letter-spacing="2">
-      Intelligent Healthcare. Earlier Insights. Better Decisions.
+  <!-- ==================== TAGLINE & VISION ==================== -->
+  <g transform="translate(600, 188)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16.5" font-weight="600" fill="#94a3b8" letter-spacing="2.2">
+      Intelligent Healthcare &bull; Earlier Insights &bull; Better Decisions
+    </text>
+    <text text-anchor="middle" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400" fill="#64748b" letter-spacing="1">
+      Clinical AI Agents &bull; Continuous Hardware Telemetry &bull; Machine Learning Diagnostics &bull; Zero-Trust DPDP
     </text>
   </g>
 
-  <!-- Animated Real-time ECG / PPG Telemetry Waveform -->
-  <g transform="translate(60, 240)">
-    <!-- Baseline Guide -->
-    <line x1="0" y1="20" x2="1080" y2="20" stroke="#1e293b" stroke-width="1" stroke-dasharray="4 4" />
-    <!-- Dynamic ECG Waveform -->
-    <path class="ecg-path" d="M 0 20 L 120 20 L 135 12 L 145 28 L 155 20 L 180 20 L 195 -18 L 210 52 L 225 -2 L 235 20 L 260 20 L 280 15 L 300 20 L 420 20 L 435 12 L 445 28 L 455 20 L 480 20 L 495 -18 L 510 52 L 525 -2 L 535 20 L 560 20 L 580 15 L 600 20 L 720 20 L 735 12 L 745 28 L 755 20 L 780 20 L 795 -18 L 810 52 L 825 -2 L 835 20 L 860 20 L 880 15 L 900 20 L 1080 20"
-          fill="none" stroke="url(#tealGlow)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+  <!-- ==================== ANIMATED ECG / PPG TELEMETRY STREAM ==================== -->
+  <g transform="translate(70, 256)">
+    <!-- Baseline Reference Track -->
+    <line x1="0" y1="20" x2="1060" y2="20" stroke="#1e293b" stroke-width="1.2" stroke-dasharray="6 6" />
+
+    <!-- Continuous High-Fidelity Waveform -->
+    <path class="hdr-ecg" d="M 0 20 L 100 20 L 115 14 L 125 26 L 135 20 L 160 20 L 175 -22 L 190 56 L 205 -4 L 215 20 L 240 20 L 260 15 L 280 20 L 360 20 L 375 14 L 385 26 L 395 20 L 420 20 L 435 -22 L 450 56 L 465 -4 L 475 20 L 500 20 L 520 15 L 540 20 L 620 20 L 635 14 L 645 26 L 655 20 L 680 20 L 695 -22 L 710 56 L 725 -4 L 735 20 L 760 20 L 780 15 L 800 20 L 880 20 L 895 14 L 905 26 L 915 20 L 940 20 L 955 -22 L 970 56 L 985 -4 L 995 20 L 1020 20 L 1040 15 L 1060 20"
+          fill="none" stroke="url(#hdrWaveGrad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#hdrGlow)" />
   </g>
 
-  <!-- Bottom Metric / Status Badges -->
-  <g transform="translate(100, 305)">
-    <!-- Pill 1: Multi-Agent System -->
+  <!-- ==================== 4 COCKPIT METRIC CAPSULES ==================== -->
+  <g transform="translate(60, 324)">
+    <!-- Capsule 1: Multi-Agent System -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="220" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
-      <circle cx="16" cy="13" r="4" fill="#10b981" class="pulse-pill" />
-      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">Supervisor + 6 Domain Agents</text>
+      <rect width="255" height="38" rx="10" fill="#081b30" stroke="#00e5ff" stroke-width="1.2" filter="url(#hdrCardShadow)" />
+      <!-- Icon: Brain/Network -->
+      <circle cx="22" cy="19" r="10" fill="#0369a1" />
+      <path d="M 18 19 L 26 19 M 22 15 L 22 23" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+      <text x="38" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Multi-Agent System</text>
+      <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8">Supervisor + 6 Domain Agents</text>
+      <circle cx="240" cy="19" r="3.5" fill="#10b981" class="hdr-dot-ping" />
     </g>
 
-    <!-- Pill 2: Connected Ingestion -->
-    <g transform="translate(250, 0)">
-      <rect x="0" y="0" width="240" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
-      <circle cx="16" cy="13" r="4" fill="#00e5ff" class="pulse-pill" />
-      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">Section 10 Standard Ingestion</text>
+    <!-- Capsule 2: Section 10 Telemetry Engine -->
+    <g transform="translate(275, 0)">
+      <rect width="255" height="38" rx="10" fill="#081b30" stroke="#10b981" stroke-width="1.2" filter="url(#hdrCardShadow)" />
+      <!-- Icon: Biosensor / Wave -->
+      <circle cx="22" cy="19" r="10" fill="#047857" />
+      <path d="M 17 21 L 20 16 L 23 22 L 27 17" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="38" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Connected Biosensors</text>
+      <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#34d399">Section 10 Standard Ingestion</text>
+      <circle cx="240" cy="19" r="3.5" fill="#00e5ff" class="hdr-dot-ping" />
     </g>
 
-    <!-- Pill 3: Machine Learning -->
-    <g transform="translate(520, 0)">
-      <rect x="0" y="0" width="220" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
-      <circle cx="16" cy="13" r="4" fill="#a855f7" class="pulse-pill" />
-      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">GradientBoosting AUC: 0.962</text>
+    <!-- Capsule 3: ML Research Lab -->
+    <g transform="translate(550, 0)">
+      <rect width="255" height="38" rx="10" fill="#081b30" stroke="#a855f7" stroke-width="1.2" filter="url(#hdrCardShadow)" />
+      <!-- Icon: Model ROC -->
+      <circle cx="22" cy="19" r="10" fill="#6b21a8" />
+      <path d="M 17 23 C 18 16, 21 16, 26 15" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
+      <text x="38" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">ML Research Lab</text>
+      <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#c084fc">GradientBoost ROC-AUC: 0.962</text>
+      <circle cx="240" cy="19" r="3.5" fill="#a855f7" class="hdr-dot-ping" />
     </g>
 
-    <!-- Pill 4: Zero-Trust Governance -->
-    <g transform="translate(770, 0)">
-      <rect x="0" y="0" width="230" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
-      <circle cx="16" cy="13" r="4" fill="#38bdf8" class="pulse-pill" />
-      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">Zero-Trust DPDP Act Governance</text>
+    <!-- Capsule 4: Zero-Trust Governance -->
+    <g transform="translate(825, 0)">
+      <rect width="255" height="38" rx="10" fill="#081b30" stroke="#f43f5e" stroke-width="1.2" filter="url(#hdrCardShadow)" />
+      <!-- Icon: Shield -->
+      <circle cx="22" cy="19" r="10" fill="#9f1239" />
+      <path d="M 22 14 L 27 16 L 27 21 C 27 24 22 26 22 26 C 22 26 17 24 17 21 L 17 16 Z" fill="none" stroke="#ffffff" stroke-width="1.3" />
+      <text x="38" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Zero-Trust Governance</text>
+      <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fda4af">DPDP Act 2023 &bull; AES-256 Rest</text>
+      <circle cx="240" cy="19" r="3.5" fill="#f43f5e" class="hdr-dot-ping" />
     </g>
   </g>
 </svg>
