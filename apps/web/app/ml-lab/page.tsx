@@ -162,6 +162,8 @@ export default function MLLabPage() {
 
   useEffect(() => {
     loadMLData();
+    // Run initial benchmark prediction on mount
+    api.predictRisk(predictFormData).then(setPredictionResult).catch(() => {});
   }, []);
 
   const handleRunInference = async (e: React.FormEvent) => {

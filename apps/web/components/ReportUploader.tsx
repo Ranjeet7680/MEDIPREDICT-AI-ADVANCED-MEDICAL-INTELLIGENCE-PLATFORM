@@ -154,7 +154,15 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
         </div>
 
         {activeTab === "file" ? (
-          <div className="border-2 border-dashed border-border hover:border-primary/50 transition-colors rounded-xl p-8 text-center bg-surface-low/30 dark:bg-surface-variant/10">
+          <div className="relative overflow-hidden border-2 border-dashed border-border hover:border-primary/50 transition-colors rounded-xl p-8 text-center bg-surface-low/30 dark:bg-surface-variant/10">
+            {isUploading && (
+              <div className="absolute inset-0 bg-surface-low/90 dark:bg-[#1a2e38]/90 backdrop-blur-xs flex flex-col items-center justify-center p-4 z-10 animate-in fade-in">
+                <div className="w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent absolute top-0 animate-scan shadow-[0_0_15px_#00e5ff]" />
+                <Loader2 className="w-8 h-8 text-primary animate-spin mb-2" />
+                <span className="text-xs font-bold text-foreground">Multi-Pass OCR & Biomarker Parsing...</span>
+                <span className="text-[10px] text-muted-foreground mt-0.5">Extracting reference intervals, test values, and validating units</span>
+              </div>
+            )}
             <input
               type="file"
               id="file-upload"

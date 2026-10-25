@@ -43,6 +43,35 @@ export default function DashboardPage() {
   const [bpReadings, setBpReadings] = useState<HealthMeasurement[]>([]);
   const [bookmarks, setBookmarks] = useState<ResearchBookmark[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showLogModal, setShowLogModal] = useState(false);
+  const [vitalToast, setVitalToast] = useState<string | null>(null);
+  const [newVital, setNewVital] = useState({
+    metric_type: "blood_pressure",
+    value: 120,
+    secondary_value: 80,
+    unit: "mmHg",
+  });
+
+  const handleLogVital = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const logged = await api.logMetric({
+        metric_type: newVital.metric_type,
+        value: Number(newVital.value),
+        secondary_value: newVital.secondary_value ? Number(newVital.secondary_value) : undefined,
+        unit: newVital.unit,
+        source: "manual_dashboard",
+      });
+      if (newVital.metric_type === "blood_pressure") {
+        setBpReadings((prev) => [logged, ...prev]);
+      }
+      setShowLogModal(false);
+      setVitalToast(`Recorded ${newVital.metric_type.replace('_', ' ')}: ${newVital.value} ${newVital.unit}`);
+      setTimeout(() => setVitalToast(null), 3000);
+    } catch {
+      setShowLogModal(false);
+    }
+  };
 
   useEffect(() => {
     const loadDashboardData = async () => {
@@ -97,7 +126,15 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setShowLogModal(true)}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition-all border border-white/30 shadow-xs"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Log Vital</span>
+              </button>
               <Link
                 href="/reports"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-primary text-xs font-semibold hover:bg-white/90 transition-all shadow-xs"
@@ -114,6 +151,19 @@ export default function DashboardPage() {
               </Link>
             </div>
           </div>
+
+          {/* Quick Vital Toast Notification */}
+          {vitalToast && (
+            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs flex items-center justify-between animate-in fade-in">
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                {vitalToast}
+              </span>
+              <button onClick={() => setVitalToast(null)} className="text-[11px] underline font-semibold">
+                Dismiss
+              </button>
+            </div>
+          )}
 
           {/* Safety Disclaimer Banner */}
           <SafetyNotice type="clinical_disclaimer" />
@@ -299,6 +349,100 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
+
+          {/* Quick Vital Logging Modal */}
+          {showLogModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in">
+              <div className="w-full max-w-sm rounded-2xl bg-white dark:bg-[#1a2e38] p-5 border border-border shadow-2xl space-y-4">
+                <div className="flex items-center justify-between pb-2 border-b border-border">
+                  <h4 className="text-sm font-bold text-foreground flex items-center gap-2">
+                    <Activity className="w-4 h-4 text-primary" />
+                    <span>Record Vital Measurement</span>
+                  </h4>
+                  <button
+                    onClick={() => setShowLogModal(false)}
+                    className="text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    &times;
+                  </button>
+                </div>
+
+                <form onSubmit={handleLogVital} className="space-y-3 text-xs">
+                  <div>
+                    <label className="block font-semibold text-muted-foreground mb-1">Measurement Type</label>
+                    <select
+                      value={newVital.metric_type}
+                      onChange={(e) => {
+                        const type = e.target.value;
+                        const defaultUnit = type === "blood_pressure" ? "mmHg" : type === "heart_rate" ? "bpm" : type === "glucose" ? "mg/dL" : "%";
+                        setNewVital({ ...newVital, metric_type: type, unit: defaultUnit });
+                      }}
+                      className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground"
+                    >
+                      <option value="blood_pressure">Blood Pressure (Systolic / Diastolic)</option>
+                      <option value="heart_rate">Heart Rate (Pulse)</option>
+                      <option value="glucose">Blood Glucose (Fasting)</option>
+                      <option value="spo2">Oxygen Saturation (SpO2)</option>
+                    </select>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="block font-semibold text-muted-foreground mb-1">
+                        {newVital.metric_type === "blood_pressure" ? "Systolic (Primary)" : "Value"}
+                      </label>
+                      <input
+                        type="number"
+                        required
+                        value={newVital.value}
+                        onChange={(e) => setNewVital({ ...newVital, value: parseFloat(e.target.value) || 0 })}
+                        className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground font-mono"
+                      />
+                    </div>
+                    {newVital.metric_type === "blood_pressure" && (
+                      <div>
+                        <label className="block font-semibold text-muted-foreground mb-1">Diastolic</label>
+                        <input
+                          type="number"
+                          required
+                          value={newVital.secondary_value}
+                          onChange={(e) => setNewVital({ ...newVital, secondary_value: parseFloat(e.target.value) || 0 })}
+                          className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground font-mono"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block font-semibold text-muted-foreground mb-1">Unit</label>
+                    <input
+                      type="text"
+                      required
+                      value={newVital.unit}
+                      onChange={(e) => setNewVital({ ...newVital, unit: e.target.value })}
+                      className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground font-mono"
+                    />
+                  </div>
+
+                  <div className="flex justify-end gap-2 pt-2 border-t border-border">
+                    <button
+                      type="button"
+                      onClick={() => setShowLogModal(false)}
+                      className="px-3 py-1.5 rounded-lg border border-border text-xs font-medium text-muted-foreground hover:bg-surface-low"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-4 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-container"
+                    >
+                      Save Vital
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
         </main>
       </div>
     </div>

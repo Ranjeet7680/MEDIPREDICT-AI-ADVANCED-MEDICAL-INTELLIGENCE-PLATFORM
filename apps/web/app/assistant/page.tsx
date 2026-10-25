@@ -571,11 +571,40 @@ export default function AssistantPage() {
                 );
               })
             )}
+            {isSending && (
+              <div className="flex items-start gap-3 animate-in fade-in">
+                <div className="w-8 h-8 rounded-xl bg-primary text-white flex items-center justify-center shrink-0 shadow-sm animate-pulse">
+                  <Bot className="w-4 h-4" />
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white dark:bg-[#1a2e38] border border-border/80 shadow-xs space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-primary">
+                    <Sparkles className="w-3.5 h-3.5 animate-spin" />
+                    <span>Multi-Agent Supervisor synthesizing PubMed citations & guidelines...</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 pt-1">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:-0.15s]"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary animate-bounce"></div>
+                  </div>
+                </div>
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
 
           {/* Chat Input Bar */}
           <div className="p-4 border-t border-border bg-white dark:bg-[#1a2e38]">
+            {isListening && (
+              <div className="flex items-center justify-center gap-1 py-1.5 px-3 bg-red-500/10 border border-red-500/20 rounded-lg text-xs text-red-500 font-semibold mb-2 animate-in fade-in max-w-4xl mx-auto">
+                <span>Listening to your medical question...</span>
+                <div className="flex items-center gap-0.5 ml-2 h-4">
+                  <div className="w-1 bg-red-500 rounded-full animate-wave [animation-delay:0ms]"></div>
+                  <div className="w-1 bg-red-500 rounded-full animate-wave [animation-delay:150ms]"></div>
+                  <div className="w-1 bg-red-500 rounded-full animate-wave [animation-delay:300ms]"></div>
+                  <div className="w-1 bg-red-500 rounded-full animate-wave [animation-delay:450ms]"></div>
+                </div>
+              </div>
+            )}
             <form
               onSubmit={(e) => {
                 e.preventDefault();

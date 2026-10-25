@@ -77,6 +77,40 @@ module.exports = {
         sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
+      keyframes: {
+        "pulse-slow": {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.85", transform: "scale(1.02)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        glow: {
+          "0%": { boxShadow: "0 0 5px rgba(0, 180, 216, 0.2)" },
+          "100%": { boxShadow: "0 0 20px rgba(0, 180, 216, 0.6)" },
+        },
+        radar: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        scan: {
+          "0%, 100%": { top: "0%" },
+          "50%": { top: "100%" },
+        },
+        wave: {
+          "0%": { height: "4px" },
+          "100%": { height: "24px" },
+        },
+      },
+      animation: {
+        "pulse-slow": "pulse-slow 3s ease-in-out infinite",
+        shimmer: "shimmer 2.5s linear infinite",
+        glow: "glow 2s ease-in-out infinite alternate",
+        radar: "radar 8s linear infinite",
+        scan: "scan 2.5s ease-in-out infinite",
+        wave: "wave 1.2s ease-in-out infinite alternate",
+      },
     },
   },
   plugins: [],

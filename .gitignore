@@ -5,14 +5,13 @@ __pycache__/
 *.so
 .Python
 env/
+venv/
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -25,6 +24,10 @@ wheels/
 htmlcov/
 *.sqlite3
 test_medipredict.db
+
+# Ensure frontend web lib directory is never ignored
+!apps/web/lib/
+!apps/web/lib/**
 
 # Node & Next.js
 node_modules/

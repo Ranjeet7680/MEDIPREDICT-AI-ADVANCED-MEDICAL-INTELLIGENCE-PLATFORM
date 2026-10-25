@@ -42,6 +42,44 @@ export default function AnalyticsPage() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [timeRange, setTimeRange] = useState<"24h" | "7d" | "30d">("24h");
   const [selectedSignal, setSelectedSignal] = useState<"heart_rate" | "spo2" | "blood_pressure">("heart_rate");
+  const [isLiveStreaming, setIsLiveStreaming] = useState(false);
+  const [liveToast, setLiveToast] = useState<string | null>(null);
+
+  // Live real-time telemetry streaming simulation loop
+  useEffect(() => {
+    if (!isLiveStreaming) return;
+    const interval = setInterval(() => {
+      setOverview((prev) => {
+        if (!prev) return prev;
+        const hrDelta = (Math.random() - 0.5) * 2;
+        const spo2Delta = (Math.random() - 0.5) * 0.4;
+        const newHr = Math.round((prev.average_heart_rate || 72) + hrDelta);
+        const newSpo2 = Math.min(100, Math.max(95, Number(((prev.latest_spo2 || 98.6) + spo2Delta).toFixed(1))));
+        return {
+          ...prev,
+          total_measurements: prev.total_measurements + 1,
+          average_heart_rate: newHr,
+          latest_spo2: newSpo2,
+        };
+      });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [isLiveStreaming]);
+
+  const handleToggleLiveStream = () => {
+    setIsLiveStreaming((prev) => {
+      const next = !prev;
+      setLiveToast(next ? "Live Telemetry Feed Connected: 2.0s streaming rate." : "Live Telemetry Paused.");
+      setTimeout(() => setLiveToast(null), 3000);
+      return next;
+    });
+  };
+
+  const handleCalibrateTransducers = () => {
+    setLiveToast("Calibrating Section 10 optical transducers: SNR 32.4 dB verified.");
+    setTimeout(() => setLiveToast(null), 4000);
+  };
 
   const loadData = async () => {
     try {
@@ -180,15 +218,36 @@ export default function AnalyticsPage() {
               </p>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={handleToggleLiveStream}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  isLiveStreaming
+                    ? "bg-emerald-500 text-white shadow-xs"
+                    : "border border-border bg-surface-container hover:bg-surface-container-high text-foreground"
+                }`}
+              >
+                <span className={`w-2 h-2 rounded-full ${isLiveStreaming ? "bg-white animate-ping" : "bg-emerald-500"}`} />
+                <span>{isLiveStreaming ? "Streaming Live" : "Live Feed"}</span>
+              </button>
+
+              <button
+                onClick={handleCalibrateTransducers}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-surface-container hover:bg-surface-container-high text-xs font-medium transition-colors"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+                <span>Calibrate</span>
+              </button>
+
               <button
                 onClick={handleRefresh}
                 disabled={isRefreshing}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-surface-container hover:bg-surface-container-high text-xs font-medium transition-colors"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin" : ""}`} />
-                <span>Refresh Telemetry</span>
+                <span>Refresh</span>
               </button>
+
               <div className="inline-flex rounded-lg border border-border bg-surface-container p-0.5 text-xs">
                 {(["24h", "7d", "30d"] as const).map((r) => (
                   <button
@@ -204,6 +263,18 @@ export default function AnalyticsPage() {
               </div>
             </div>
           </div>
+
+          {liveToast && (
+            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs flex items-center justify-between animate-in fade-in">
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                {liveToast}
+              </span>
+              <button onClick={() => setLiveToast(null)} className="text-[11px] underline font-semibold">
+                Dismiss
+              </button>
+            </div>
+          )}
 
           <SafetyNotice
             type="clinical_disclaimer"

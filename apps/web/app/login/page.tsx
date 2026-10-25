@@ -56,13 +56,23 @@ export default function LoginPage() {
             <p className="font-semibold text-primary">Demo Clinician Account</p>
             <p className="text-[11px] text-muted-foreground">demo@medipredict.ai</p>
           </div>
-          <button
-            type="button"
-            onClick={fillDemoAccount}
-            className="px-3 py-1.5 rounded-lg bg-primary text-white font-semibold text-xs hover:bg-primary-container transition-all shadow-xs"
-          >
-            Auto-Fill
-          </button>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={fillDemoAccount}
+              className="px-2.5 py-1.5 rounded-lg border border-primary/40 text-primary font-semibold text-xs hover:bg-primary/10 transition-all"
+            >
+              Fill
+            </button>
+            <button
+              type="button"
+              onClick={() => login("demo@medipredict.ai", "MedicalAI2026!")}
+              className="px-3 py-1.5 rounded-lg bg-primary text-white font-semibold text-xs hover:bg-primary-container transition-all shadow-xs flex items-center gap-1"
+            >
+              <span>Instant Enter</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
+          </div>
         </div>
 
         {error && (
