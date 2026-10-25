@@ -1,0 +1,306 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import {
+  Activity,
+  AlertTriangle,
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  CheckCircle2,
+  Clock,
+  Dna,
+  FileCheck2,
+  FileText,
+  HeartPulse,
+  HelpCircle,
+  MessageSquare,
+  Microscope,
+  Plus,
+  ShieldAlert,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
+  UploadCloud,
+} from "lucide-react";
+import AppHeader from "@/components/AppHeader";
+import AppSidebar from "@/components/AppSidebar";
+import HealthTrendChart from "@/components/HealthTrendChart";
+import MedicalStatusBadge from "@/components/MedicalStatusBadge";
+import MetricCard from "@/components/MetricCard";
+import SafetyNotice from "@/components/SafetyNotice";
+import { CardSkeleton, TableSkeleton } from "@/components/SkeletonLoader";
+import { api } from "@/lib/api";
+import { useAuth } from "@/lib/auth";
+import { formatDate } from "@/lib/utils";
+import { HealthMeasurement, HealthMetricSummary, MedicalReport, ResearchBookmark } from "@/types";
+
+export default function DashboardPage() {
+  const { user, isLoading: authLoading } = useAuth();
+  const [reports, setReports] = useState<MedicalReport[]>([]);
+  const [metricsSummary, setMetricsSummary] = useState<HealthMetricSummary[]>([]);
+  const [bpReadings, setBpReadings] = useState<HealthMeasurement[]>([]);
+  const [bookmarks, setBookmarks] = useState<ResearchBookmark[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadDashboardData = async () => {
+      try {
+        const [reps, summary, bp, bm] = await Promise.all([
+          api.listReports(),
+          api.getMetricsSummary(),
+          api.listMetrics("blood_pressure"),
+          api.listBookmarks(),
+        ]);
+        setReports(reps);
+        setMetricsSummary(summary);
+        setBpReadings(bp);
+        setBookmarks(bm);
+      } catch (err) {
+        console.error("Dashboard data load error:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (user) {
+      loadDashboardData();
+    }
+  }, [user]);
+
+  // Derived stats
+  const totalReports = reports.length;
+  const abnormalFlags = reports.reduce((acc, r) => acc + (r.abnormal_count || 0), 0);
+  const pendingReviews = reports.filter((r) => r.requires_verification).length;
+
+  return (
+    <div className="min-h-screen flex flex-col bg-surface text-foreground">
+      <AppHeader />
+
+      <div className="flex-1 flex">
+        <AppSidebar />
+
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl">
+          {/* Welcome Panel */}
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-primary to-primary-container text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[11px] font-semibold">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Clinical Intelligence Workspace</span>
+              </div>
+              <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
+                Welcome, {user?.full_name || "Healthcare Professional"}
+              </h1>
+              <p className="text-xs text-white/80 max-w-xl">
+                Review verified laboratory measurements, consult evidence-grounded medical AI, and monitor clinical parameters.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Link
+                href="/reports"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-primary text-xs font-semibold hover:bg-white/90 transition-all shadow-xs"
+              >
+                <UploadCloud className="w-4 h-4" />
+                <span>Upload Lab Report</span>
+              </Link>
+              <Link
+                href="/assistant"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary-container text-white border border-white/20 text-xs font-semibold hover:bg-white/10 transition-all"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Ask AI Assistant</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Safety Disclaimer Banner */}
+          <SafetyNotice type="clinical_disclaimer" />
+
+          {/* Quick Metrics Bar */}
+          {isLoading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <MetricCard
+                title="Laboratory Panels"
+                value={totalReports}
+                unit="reports"
+                status={totalReports > 0 ? "normal" : undefined}
+                icon={FileText}
+                subtitle={`${totalReports} verified records`}
+              />
+              <MetricCard
+                title="Abnormal Flags"
+                value={abnormalFlags}
+                unit="biomarkers"
+                status={abnormalFlags > 0 ? "elevated" : "normal"}
+                icon={AlertTriangle}
+                subtitle={abnormalFlags > 0 ? "Requires clinical review" : "All within reference"}
+              />
+              <MetricCard
+                title="Pending Verifications"
+                value={pendingReviews}
+                unit="reports"
+                status={pendingReviews > 0 ? "elevated" : "normal"}
+                icon={CheckCircle2}
+                subtitle="Human-in-the-loop audit"
+              />
+              <MetricCard
+                title="Saved Literature"
+                value={bookmarks.length}
+                unit="citations"
+                status="normal"
+                icon={BookOpen}
+                subtitle="PubMed & Guideline items"
+              />
+            </div>
+          )}
+
+          {/* Longitudinal Chart & Lab Summary Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Blood Pressure & Health Trends */}
+            <div className="lg:col-span-7 p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm space-y-3">
+              <div className="flex items-center justify-between pb-2 border-b border-border">
+                <div>
+                  <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
+                    <HeartPulse className="w-4 h-4 text-primary" /> Longitudinal Blood Pressure (mmHg)
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    Systolic (solid) & Diastolic (dashed) resting records over time
+                  </p>
+                </div>
+                <Link
+                  href="/health-metrics"
+                  className="text-xs text-primary font-semibold hover:underline inline-flex items-center gap-1"
+                >
+                  View All Metrics <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {isLoading ? (
+                <div className="h-64 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+                </div>
+              ) : bpReadings.length > 0 ? (
+                <HealthTrendChart
+                  data={bpReadings}
+                  unit="mmHg"
+                  metricName="Blood Pressure"
+                  isDualValue={true}
+                  primaryLabel="Systolic"
+                  secondaryLabel="Diastolic"
+                />
+              ) : (
+                <div className="h-64 flex flex-col items-center justify-center text-center p-6 bg-surface-low/30 rounded-xl border border-dashed border-border text-xs">
+                  <HeartPulse className="w-8 h-8 text-primary mb-2 opacity-50" />
+                  <p className="font-semibold text-foreground">No Health Measurements Yet</p>
+                  <p className="text-muted-foreground max-w-xs mt-1 mb-3">
+                    Start tracking your blood pressure, glucose, or heart rate to view trends.
+                  </p>
+                  <Link
+                    href="/health-metrics"
+                    className="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-container"
+                  >
+                    Log First Reading
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Recent Laboratory Reports */}
+            <div className="lg:col-span-5 p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm flex flex-col justify-between space-y-4">
+              <div>
+                <div className="flex items-center justify-between pb-2 border-b border-border mb-3">
+                  <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
+                    <FileCheck2 className="w-4 h-4 text-primary" /> Recent Lab Reports
+                  </h3>
+                  <Link
+                    href="/reports"
+                    className="text-xs text-primary font-semibold hover:underline"
+                  >
+                    All Reports
+                  </Link>
+                </div>
+
+                {isLoading ? (
+                  <TableSkeleton />
+                ) : reports.length > 0 ? (
+                  <div className="space-y-2.5">
+                    {reports.slice(0, 3).map((r) => (
+                      <Link
+                        key={r.id}
+                        href="/reports"
+                        className="block p-3 rounded-xl border border-border bg-surface-low/40 hover:bg-surface-low transition-colors"
+                      >
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-bold text-xs text-foreground truncate max-w-[200px]">
+                            {r.title}
+                          </span>
+                          <span className="text-[10px] text-muted-foreground">
+                            {formatDate(r.report_date)}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-muted-foreground line-clamp-2 mb-2">
+                          {r.summary || "Extracted laboratory blood markers."}
+                        </p>
+                        <div className="flex items-center justify-between text-[10px]">
+                          <span className="font-medium text-foreground">
+                            {r.measurement_count} tests extracted
+                          </span>
+                          {r.abnormal_count > 0 ? (
+                            <MedicalStatusBadge flag="elevated" />
+                          ) : (
+                            <MedicalStatusBadge flag="normal" />
+                          )}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="p-8 text-center bg-surface-low/30 rounded-xl border border-dashed border-border text-xs">
+                    <FileText className="w-8 h-8 text-primary mb-2 opacity-50 mx-auto" />
+                    <p className="font-semibold text-foreground">No Laboratory Reports Uploaded</p>
+                    <p className="text-muted-foreground mt-1 mb-3">
+                      Upload a PDF or paste lab values to analyze reference intervals and flags.
+                    </p>
+                    <Link
+                      href="/reports"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold"
+                    >
+                      <Plus className="w-3.5 h-3.5" /> Upload Report
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Research Model Shortcut Card */}
+              <div className="p-3.5 rounded-xl bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border border-teal-200 text-xs flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <p className="font-bold text-teal-900 dark:text-teal-300 flex items-center gap-1.5">
+                    <Microscope className="w-3.5 h-3.5 text-primary" /> Celiac Risk Stratification Model
+                  </p>
+                  <p className="text-[11px] text-teal-800/80 dark:text-teal-400">
+                    Validated Scikit-Learn pipeline (AUROC: 0.9424).
+                  </p>
+                </div>
+                <Link
+                  href="/assistant"
+                  className="px-2.5 py-1 rounded-lg bg-primary text-white text-[11px] font-semibold hover:bg-primary-container shrink-0"
+                >
+                  Run Model
+                </Link>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}

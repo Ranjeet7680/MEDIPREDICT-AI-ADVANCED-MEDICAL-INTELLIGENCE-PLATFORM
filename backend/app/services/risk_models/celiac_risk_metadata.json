@@ -1,0 +1,120 @@
+{
+  "model_name": "GradientBoosting",
+  "version": "1.0.0",
+  "dataset_name": "Celiac Disease Serology & Clinical Manifestations",
+  "sample_count": 2206,
+  "features": [
+    "Age",
+    "Gender",
+    "Diabetes",
+    "Diabetes Type",
+    "Diarrhoea",
+    "Abdominal",
+    "Short_Stature",
+    "Sticky_Stool",
+    "Weight_loss",
+    "IgA",
+    "IgG",
+    "IgM"
+  ],
+  "numeric_features": [
+    "Age",
+    "IgA",
+    "IgG",
+    "IgM"
+  ],
+  "categorical_features": [
+    "Gender",
+    "Diabetes",
+    "Diabetes Type",
+    "Diarrhoea",
+    "Abdominal",
+    "Short_Stature",
+    "Sticky_Stool",
+    "Weight_loss"
+  ],
+  "metrics": {
+    "cv_auc_mean": 0.9578820914689663,
+    "cv_auc_std": 0.015114785257548271,
+    "test_auc": 0.9423655195456064,
+    "test_accuracy": 0.9524886877828054,
+    "test_precision": 0.9484536082474226,
+    "test_recall": 0.997289972899729,
+    "test_f1": 0.9722589167767504,
+    "brier_score": 0.04074307601500969,
+    "confusion_matrix": [
+      [
+        53,
+        20
+      ],
+      [
+        1,
+        368
+      ]
+    ]
+  },
+  "all_model_evaluations": {
+    "LogisticRegression_Baseline": {
+      "cv_auc_mean": 0.9252974948015442,
+      "cv_auc_std": 0.011483966957132483,
+      "test_auc": 0.8725359171399933,
+      "test_accuracy": 0.9479638009049773,
+      "test_precision": 0.9481865284974094,
+      "test_recall": 0.991869918699187,
+      "test_f1": 0.9695364238410596,
+      "brier_score": 0.05424999346853079,
+      "confusion_matrix": [
+        [
+          53,
+          20
+        ],
+        [
+          3,
+          366
+        ]
+      ]
+    },
+    "RandomForest": {
+      "cv_auc_mean": 0.9497003781056549,
+      "cv_auc_std": 0.017735459353817377,
+      "test_auc": 0.9362401158258158,
+      "test_accuracy": 0.9570135746606335,
+      "test_precision": 0.9510309278350515,
+      "test_recall": 1.0,
+      "test_f1": 0.9749009247027741,
+      "brier_score": 0.041929000785676566,
+      "confusion_matrix": [
+        [
+          54,
+          19
+        ],
+        [
+          0,
+          369
+        ]
+      ]
+    },
+    "GradientBoosting": {
+      "cv_auc_mean": 0.9578820914689663,
+      "cv_auc_std": 0.015114785257548271,
+      "test_auc": 0.9423655195456064,
+      "test_accuracy": 0.9524886877828054,
+      "test_precision": 0.9484536082474226,
+      "test_recall": 0.997289972899729,
+      "test_f1": 0.9722589167767504,
+      "brier_score": 0.04074307601500969,
+      "confusion_matrix": [
+        [
+          53,
+          20
+        ],
+        [
+          1,
+          368
+        ]
+      ]
+    }
+  },
+  "license": "Open Medical Research Data / CC-BY-NC 4.0",
+  "clinical_limitation": "Screening tool for exploratory risk stratification. Must not be used as a standalone diagnostic device. Clinical confirmation requires anti-tTG IgA / EMA antibody testing and small bowel endoscopic biopsy interpreted by a licensed gastroenterologist."
+}

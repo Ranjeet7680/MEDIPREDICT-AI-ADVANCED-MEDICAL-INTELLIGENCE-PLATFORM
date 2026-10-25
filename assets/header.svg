@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040914" />
+      <stop offset="40%" stop-color="#071322" />
+      <stop offset="80%" stop-color="#0b1b30" />
+      <stop offset="100%" stop-color="#040914" />
+    </linearGradient>
+
+    <!-- Teal Glow Gradient -->
+    <linearGradient id="tealGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff" />
+      <stop offset="50%" stop-color="#00b4d8" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Text Fill Gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Radial Ambient Glow -->
+    <radialGradient id="radialCyan" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#0077b6" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="radialEmerald" cx="85%" cy="80%" r="40%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Filter Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="deepGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- CSS Keyframe Animations -->
+    <style>
+      @keyframes pulseDot {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.6); opacity: 0.4; }
+      }
+      @keyframes ecgScan {
+        0% { stroke-dashoffset: 1200; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes floatParticle {
+        0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+        50% { transform: translateY(-12px) translateX(8px); opacity: 0.8; }
+      }
+      @keyframes beaconWave {
+        0% { r: 4px; opacity: 1; }
+        100% { r: 18px; opacity: 0; }
+      }
+      @keyframes shimmerBorder {
+        0% { stroke-dashoffset: 600; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      .ecg-path {
+        stroke-dasharray: 1200;
+        animation: ecgScan 6s linear infinite;
+      }
+      .particle-1 { animation: floatParticle 4s ease-in-out infinite; }
+      .particle-2 { animation: floatParticle 6s ease-in-out infinite 1.5s; }
+      .particle-3 { animation: floatParticle 5s ease-in-out infinite 3s; }
+      .beacon-ring { animation: beaconWave 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+      .pulse-pill { animation: pulseDot 2s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" fill="url(#radialCyan)" />
+  <rect width="1200" height="360" fill="url(#radialEmerald)" />
+
+  <!-- Subtle Circuit / Telemetry Grid Lines -->
+  <g stroke="#1e293b" stroke-width="0.8" opacity="0.4">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="150" y1="0" x2="150" y2="360" />
+    <line x1="300" y1="0" x2="300" y2="360" />
+    <line x1="450" y1="0" x2="450" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+    <line x1="750" y1="0" x2="750" y2="360" />
+    <line x1="900" y1="0" x2="900" y2="360" />
+    <line x1="1050" y1="0" x2="1050" y2="360" />
+  </g>
+
+  <!-- Floating Ambient Particles -->
+  <circle cx="180" cy="140" r="3" fill="#00e5ff" class="particle-1" filter="url(#glow)" />
+  <circle cx="980" cy="90" r="2.5" fill="#10b981" class="particle-2" filter="url(#glow)" />
+  <circle cx="1060" cy="220" r="3.5" fill="#38bdf8" class="particle-3" filter="url(#glow)" />
+  <circle cx="120" cy="280" r="2" fill="#00e5ff" class="particle-2" />
+  <circle cx="620" cy="40" r="2" fill="#a78bfa" class="particle-1" />
+
+  <!-- Outer Tech Border Frame -->
+  <rect x="20" y="20" width="1160" height="320" rx="16" fill="none" stroke="#1e3a5f" stroke-width="1.2" opacity="0.6" />
+  <rect x="20" y="20" width="1160" height="320" rx="16" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="120 400" opacity="0.8" />
+
+  <!-- Corner Tech Brackets -->
+  <path d="M 20 50 L 20 20 L 50 20" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
+  <path d="M 1150 20 L 1180 20 L 1180 50" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
+  <path d="M 20 310 L 20 340 L 50 340" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
+  <path d="M 1150 340 L 1180 340 L 1180 310" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow)" />
+
+  <!-- Top Category Pill Badge -->
+  <g transform="translate(600, 62)">
+    <rect x="-170" y="-14" width="340" height="28" rx="14" fill="#0f2744" stroke="#00b4d8" stroke-width="1" opacity="0.9" />
+    <!-- Pulsing Green Dot inside Badge -->
+    <circle cx="-145" cy="0" r="4" fill="#10b981" class="pulse-pill" />
+    <circle cx="-145" cy="0" r="8" fill="none" stroke="#10b981" stroke-width="1" class="beacon-ring" />
+    <text x="-130" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1.5">ENTERPRISE MEDICAL INTELLIGENCE ECOSYSTEM</text>
+  </g>
+
+  <!-- Main Brand Title -->
+  <g transform="translate(600, 140)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="52" font-weight="900" fill="url(#textGrad)" letter-spacing="4" filter="url(#deepGlow)">
+      MEDIPREDICT AI
+    </text>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(600, 185)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#94a3b8" letter-spacing="2">
+      Intelligent Healthcare. Earlier Insights. Better Decisions.
+    </text>
+  </g>
+
+  <!-- Animated Real-time ECG / PPG Telemetry Waveform -->
+  <g transform="translate(60, 240)">
+    <!-- Baseline Guide -->
+    <line x1="0" y1="20" x2="1080" y2="20" stroke="#1e293b" stroke-width="1" stroke-dasharray="4 4" />
+    <!-- Dynamic ECG Waveform -->
+    <path class="ecg-path" d="M 0 20 L 120 20 L 135 12 L 145 28 L 155 20 L 180 20 L 195 -18 L 210 52 L 225 -2 L 235 20 L 260 20 L 280 15 L 300 20 L 420 20 L 435 12 L 445 28 L 455 20 L 480 20 L 495 -18 L 510 52 L 525 -2 L 535 20 L 560 20 L 580 15 L 600 20 L 720 20 L 735 12 L 745 28 L 755 20 L 780 20 L 795 -18 L 810 52 L 825 -2 L 835 20 L 860 20 L 880 15 L 900 20 L 1080 20"
+          fill="none" stroke="url(#tealGlow)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+  </g>
+
+  <!-- Bottom Metric / Status Badges -->
+  <g transform="translate(100, 305)">
+    <!-- Pill 1: Multi-Agent System -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="220" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
+      <circle cx="16" cy="13" r="4" fill="#10b981" class="pulse-pill" />
+      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">Supervisor + 6 Domain Agents</text>
+    </g>
+
+    <!-- Pill 2: Connected Ingestion -->
+    <g transform="translate(250, 0)">
+      <rect x="0" y="0" width="240" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
+      <circle cx="16" cy="13" r="4" fill="#00e5ff" class="pulse-pill" />
+      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">Section 10 Standard Ingestion</text>
+    </g>
+
+    <!-- Pill 3: Machine Learning -->
+    <g transform="translate(520, 0)">
+      <rect x="0" y="0" width="220" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
+      <circle cx="16" cy="13" r="4" fill="#a855f7" class="pulse-pill" />
+      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">GradientBoosting AUC: 0.962</text>
+    </g>
+
+    <!-- Pill 4: Zero-Trust Governance -->
+    <g transform="translate(770, 0)">
+      <rect x="0" y="0" width="230" height="26" rx="13" fill="#0c1e36" stroke="#1e3a5f" stroke-width="1" />
+      <circle cx="16" cy="13" r="4" fill="#38bdf8" class="pulse-pill" />
+      <text x="28" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#e2e8f0">Zero-Trust DPDP Act Governance</text>
+    </g>
+  </g>
+</svg>
