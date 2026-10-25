@@ -174,10 +174,10 @@
   <!-- ==================== TAGLINE & VISION ==================== -->
   <g transform="translate(600, 188)">
     <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16.5" font-weight="600" fill="#94a3b8" letter-spacing="2.2">
-      Intelligent Healthcare &bull; Earlier Insights &bull; Better Decisions
+      Intelligent Healthcare &#8226; Earlier Insights &#8226; Better Decisions
     </text>
     <text text-anchor="middle" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400" fill="#64748b" letter-spacing="1">
-      Clinical AI Agents &bull; Continuous Hardware Telemetry &bull; Machine Learning Diagnostics &bull; Zero-Trust DPDP
+      Clinical AI Agents &#8226; Continuous Hardware Telemetry &#8226; Machine Learning Diagnostics &#8226; Zero-Trust DPDP
     </text>
   </g>
 
@@ -233,7 +233,7 @@
       <circle cx="22" cy="19" r="10" fill="#9f1239" />
       <path d="M 22 14 L 27 16 L 27 21 C 27 24 22 26 22 26 C 22 26 17 24 17 21 L 17 16 Z" fill="none" stroke="#ffffff" stroke-width="1.3" />
       <text x="38" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Zero-Trust Governance</text>
-      <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fda4af">DPDP Act 2023 &bull; AES-256 Rest</text>
+      <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fda4af">DPDP Act 2023 &#8226; AES-256 Rest</text>
       <circle cx="240" cy="19" r="3.5" fill="#f43f5e" class="hdr-dot-ping" />
     </g>
   </g>

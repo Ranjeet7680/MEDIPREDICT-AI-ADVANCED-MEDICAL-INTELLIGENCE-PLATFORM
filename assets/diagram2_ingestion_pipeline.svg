@@ -96,7 +96,7 @@
     <rect x="0" y="-14" width="28" height="28" rx="6" fill="#10b981" filter="url(#d2Glow)" />
     <text x="7" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" fill="#ffffff">02</text>
     <text x="40" y="3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="800" fill="#ffffff" letter-spacing="0.5">Connected Healthcare Device Ingestion &amp; Sensor Harmonization</text>
-    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">ESP32 MAX30102 &bull; Apple HealthKit / Health Connect &bull; Bounds Verification &bull; WebSocket Realtime Telemetry</text>
+    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">ESP32 MAX30102 &#8226; Apple HealthKit / Health Connect &#8226; Bounds Verification &#8226; WebSocket Realtime Telemetry</text>
   </g>
 
   <!-- Telemetry Throughput Pill -->
@@ -133,7 +133,7 @@
   <g transform="translate(40, 95)">
     <!-- Phase Header -->
     <rect width="195" height="28" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#a7f3d0" letter-spacing="0.5">STAGE 1 &bull; HARDWARE SENSORS</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#a7f3d0" letter-spacing="0.5">STAGE 1 &#8226; HARDWARE SENSORS</text>
 
     <!-- Source 1: ESP32 + MAX30102 -->
     <g transform="translate(0, 38)">
@@ -143,8 +143,8 @@
       <text x="36" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">ESP32 + MAX30102</text>
       <text x="36" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#34d399">PPG Optical Biosensor</text>
       <line x1="12" y1="42" x2="183" y2="42" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; I2C Bus @ 400kHz Fast Mode</text>
-      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; IR/Red LED Dual Ratio (SpO2)</text>
+      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; I2C Bus @ 400kHz Fast Mode</text>
+      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; IR/Red LED Dual Ratio (SpO2)</text>
       <!-- Simulated Pulse Line -->
       <path d="M 14 88 L 60 88 L 65 78 L 70 96 L 75 84 L 80 88 L 180 88" fill="none" stroke="#10b981" stroke-width="1.2" class="ecg-anim" />
     </g>
@@ -157,8 +157,8 @@
       <text x="36" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">Apple / Google Health</text>
       <text x="36" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8">Mobile Health OS Bridge</text>
       <line x1="12" y1="42" x2="183" y2="42" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Sleep architecture &amp; resting HR</text>
-      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Continuous step &amp; caloric burn</text>
+      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Sleep architecture &amp; resting HR</text>
+      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Continuous step &amp; caloric burn</text>
       <rect x="14" y="80" width="105" height="13" rx="2" fill="#082f49" />
       <text x="18" y="89" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#38bdf8">BATCH REST SYNC</text>
     </g>
@@ -169,10 +169,10 @@
       <circle cx="20" cy="22" r="9" fill="#082f49" stroke="#38bdf8" stroke-width="1" />
       <text x="20" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="900" fill="#38bdf8">3</text>
       <text x="36" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">Raspberry Pi Gateway</text>
-      <text x="36" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#7dd3fc">MQTT Broker &bull; BLE GATT</text>
+      <text x="36" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#7dd3fc">MQTT Broker &#8226; BLE GATT</text>
       <line x1="12" y1="42" x2="183" y2="42" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Local edge buffer &amp; cache</text>
-      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; BLE Central GATT collector</text>
+      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Local edge buffer &amp; cache</text>
+      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; BLE Central GATT collector</text>
       <rect x="14" y="80" width="112" height="13" rx="2" fill="#082f49" />
       <text x="18" y="89" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#7dd3fc">MQTT v5.0 PROTOCOL</text>
     </g>
@@ -183,10 +183,10 @@
       <circle cx="20" cy="22" r="9" fill="#451a03" stroke="#f59e0b" stroke-width="1" />
       <text x="20" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="900" fill="#f59e0b">4</text>
       <text x="36" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">Manual Log &amp; Vitals</text>
-      <text x="36" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fbbf24">Web App Modal &bull; REST API</text>
+      <text x="36" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fbbf24">Web App Modal &#8226; REST API</text>
       <line x1="12" y1="42" x2="183" y2="42" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Blood Pressure (mmHg) cuff</text>
-      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Fasting blood glucose (mg/dL)</text>
+      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Blood Pressure (mmHg) cuff</text>
+      <text x="14" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Fasting blood glucose (mg/dL)</text>
       <rect x="14" y="80" width="118" height="13" rx="2" fill="#451a03" />
       <text x="18" y="89" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#fde68a">FASTAPI /v1/METRICS</text>
     </g>
@@ -196,7 +196,7 @@
   <!-- ==================== PHASE 2: INGESTION PERIMETER & SECURITY ==================== -->
   <g transform="translate(265, 95)">
     <rect width="200" height="28" rx="6" fill="#082f49" stroke="#00e5ff" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#38bdf8" letter-spacing="0.5">STAGE 2 &bull; SECURITY GATEWAY</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#38bdf8" letter-spacing="0.5">STAGE 2 &#8226; SECURITY GATEWAY</text>
 
     <!-- Big Gateway Container -->
     <rect y="38" width="200" height="460" rx="12" fill="url(#cardGradD2)" stroke="#00e5ff" stroke-width="1.6" filter="url(#d2Glow)" />
@@ -206,8 +206,8 @@
     <g transform="translate(14, 56)">
       <rect width="172" height="85" rx="8" fill="#081e33" stroke="#0284c7" stroke-width="1" />
       <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">TLS 1.3 Perimeter</text>
-      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; AES-256 GCM Cipher</text>
-      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Mutual mTLS Auth (Optional)</text>
+      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; AES-256 GCM Cipher</text>
+      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Mutual mTLS Auth (Optional)</text>
       <rect x="12" y="60" width="85" height="14" rx="2" fill="#0369a1" />
       <text x="16" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#ffffff">E2E ENCRYPTED</text>
     </g>
@@ -216,8 +216,8 @@
     <g transform="translate(14, 156)">
       <rect width="172" height="85" rx="8" fill="#081e33" stroke="#0284c7" stroke-width="1" />
       <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Token Rate Limiter</text>
-      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; 120 req/min per sensor</text>
-      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; DoS / Flooding shield</text>
+      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; 120 req/min per sensor</text>
+      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; DoS / Flooding shield</text>
       <rect x="12" y="60" width="95" height="14" rx="2" fill="#082f49" />
       <text x="16" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#38bdf8">LEAKY BUCKET ALG</text>
     </g>
@@ -226,8 +226,8 @@
     <g transform="translate(14, 256)">
       <rect width="172" height="85" rx="8" fill="#081e33" stroke="#0284c7" stroke-width="1" />
       <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Device JWT &amp; API Key</text>
-      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Device Registry table</text>
-      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; User ownership binding</text>
+      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Device Registry table</text>
+      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; User ownership binding</text>
       <rect x="12" y="60" width="95" height="14" rx="2" fill="#064e3b" />
       <text x="16" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#34d399">VERIFIED BEARER</text>
     </g>
@@ -236,9 +236,9 @@
     <g transform="translate(14, 356)">
       <rect width="172" height="120" rx="8" fill="#052e16" stroke="#10b981" stroke-width="1.2" />
       <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">FastAPI Ingest Worker</text>
-      <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; POST /api/v1/devices/ingest</text>
-      <text x="12" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Non-blocking Async I/O</text>
-      <text x="12" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Pydantic model validation</text>
+      <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; POST /api/v1/devices/ingest</text>
+      <text x="12" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Non-blocking Async I/O</text>
+      <text x="12" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Pydantic model validation</text>
       <rect x="12" y="85" width="145" height="20" rx="4" fill="#065f46" />
       <text x="16" y="99" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#ffffff">LATENCY: 18ms AVG</text>
     </g>
@@ -248,7 +248,7 @@
   <!-- ==================== PHASE 3: HARMONIZATION & VALIDATION ==================== -->
   <g transform="translate(495, 95)">
     <rect width="220" height="28" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#c7d2fe" letter-spacing="0.5">STAGE 3 &bull; HARMONIZATION ENGINE</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#c7d2fe" letter-spacing="0.5">STAGE 3 &#8226; HARMONIZATION ENGINE</text>
 
     <!-- Big Harmonization Container -->
     <rect y="38" width="220" height="460" rx="12" fill="url(#cardGradD2)" stroke="#818cf8" stroke-width="1.6" filter="url(#d2Glow)" />
@@ -259,8 +259,8 @@
       <circle cx="18" cy="18" r="7" fill="#312e81" stroke="#818cf8" stroke-width="1" />
       <text x="18" y="21" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="900" fill="#ffffff">#</text>
       <text x="32" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">SHA-256 Hash Deduper</text>
-      <text x="12" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Prevents duplicate sensor packets</text>
-      <text x="12" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; In-memory Redis sliding set</text>
+      <text x="12" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Prevents duplicate sensor packets</text>
+      <text x="12" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; In-memory Redis sliding set</text>
       <rect x="12" y="64" width="110" height="13" rx="2" fill="#312e81" />
       <text x="16" y="73" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#c7d2fe">IDEMPOTENCY VERIFIED</text>
     </g>
@@ -269,9 +269,9 @@
     <g transform="translate(15, 156)">
       <rect width="190" height="95" rx="8" fill="#131b38" stroke="#6366f1" stroke-width="1" />
       <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Bounds Verification</text>
-      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Heart Rate: 30 &ndash; 220 bpm</text>
-      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; SpO2: 60% &ndash; 100% saturation</text>
-      <text x="12" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Blood Pressure: 50 &ndash; 260 mmHg</text>
+      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Heart Rate: 30 &#8211; 220 bpm</text>
+      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; SpO2: 60% &#8211; 100% saturation</text>
+      <text x="12" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Blood Pressure: 50 &#8211; 260 mmHg</text>
       <rect x="12" y="72" width="125" height="13" rx="2" fill="#312e81" />
       <text x="16" y="81" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#c7d2fe">CLINICAL PHYSIOLOGY GATES</text>
     </g>
@@ -280,8 +280,8 @@
     <g transform="translate(15, 266)">
       <rect width="190" height="85" rx="8" fill="#131b38" stroke="#6366f1" stroke-width="1" />
       <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Unit Standardization</text>
-      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; mg/dL &harr; mmol/L conversion</text>
-      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; ISO 8601 UTC timestamp alignment</text>
+      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; mg/dL &#8596; mmol/L conversion</text>
+      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; ISO 8601 UTC timestamp alignment</text>
       <rect x="12" y="62" width="115" height="13" rx="2" fill="#312e81" />
       <text x="16" y="71" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#c7d2fe">UCUM STANDARD UNITS</text>
     </g>
@@ -290,9 +290,9 @@
     <g transform="translate(15, 366)">
       <rect width="190" height="110" rx="8" fill="#131b38" stroke="#6366f1" stroke-width="1" />
       <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Z-Score Noise Filter</text>
-      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Motion artifact rejection</text>
-      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Moving 5-point median smooth</text>
-      <text x="12" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Flags anomalous rapid spikes</text>
+      <text x="12" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Motion artifact rejection</text>
+      <text x="12" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Moving 5-point median smooth</text>
+      <text x="12" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Flags anomalous rapid spikes</text>
       <rect x="12" y="78" width="135" height="20" rx="4" fill="#312e81" />
       <text x="16" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#c7d2fe">SNR IMPROVEMENT: +18dB</text>
     </g>
@@ -302,7 +302,7 @@
   <!-- ==================== PHASE 4: STORAGE & EVENT ROUTING ==================== -->
   <g transform="translate(745, 95)">
     <rect width="200" height="28" rx="6" fill="#3b0764" stroke="#c084fc" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#f3e8ff" letter-spacing="0.5">STAGE 4 &bull; ROUTING &amp; STORAGE</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#f3e8ff" letter-spacing="0.5">STAGE 4 &#8226; ROUTING &amp; STORAGE</text>
 
     <!-- Path A: WebSocket Bus -->
     <g transform="translate(0, 38)">
@@ -310,11 +310,11 @@
       <text x="14" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ffffff">WebSocket Live Stream</text>
       <text x="14" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8">FastAPI /ws/telemetry</text>
       <line x1="12" y1="46" x2="188" y2="46" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Sub-50ms glass-to-glass latency</text>
-      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Broadcasts to Next.js clients</text>
-      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Binary JSON frame compression</text>
+      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Sub-50ms glass-to-glass latency</text>
+      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Broadcasts to Next.js clients</text>
+      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Binary JSON frame compression</text>
       <rect x="14" y="105" width="130" height="20" rx="4" fill="#082f49" />
-      <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">HOT DATA &bull; REAL-TIME</text>
+      <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">HOT DATA &#8226; REAL-TIME</text>
     </g>
 
     <!-- Path B: TimescaleDB / Hypertable -->
@@ -323,11 +323,11 @@
       <text x="14" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ffffff">PostgreSQL Time-Series</text>
       <text x="14" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#34d399">TimescaleDB Hypertables</text>
       <line x1="12" y1="46" x2="188" y2="46" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; 1-day automatic hyper-chunks</text>
-      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; 90% columnar compression</text>
-      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Fast rollup aggregates (1h/1d)</text>
+      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; 1-day automatic hyper-chunks</text>
+      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; 90% columnar compression</text>
+      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Fast rollup aggregates (1h/1d)</text>
       <rect x="14" y="105" width="130" height="20" rx="4" fill="#064e3b" />
-      <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#6ee7b7">WARM DATA &bull; PERSISTENT</text>
+      <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#6ee7b7">WARM DATA &#8226; PERSISTENT</text>
     </g>
 
     <!-- Path C: Supabase Realtime CDC -->
@@ -336,11 +336,11 @@
       <text x="14" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ffffff">Supabase Realtime CDC</text>
       <text x="14" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#c084fc">Postgres WAL Replication</text>
       <line x1="12" y1="46" x2="188" y2="46" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Change Data Capture triggers</text>
-      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Row Level Security (RLS) check</text>
-      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Cross-device instant sync</text>
+      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Change Data Capture triggers</text>
+      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Row Level Security (RLS) check</text>
+      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Cross-device instant sync</text>
       <rect x="14" y="105" width="130" height="20" rx="4" fill="#3b0764" />
-      <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#e9d5ff">COLD/AUDIT &bull; SYNC</text>
+      <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#e9d5ff">COLD/AUDIT &#8226; SYNC</text>
     </g>
   </g>
 
@@ -348,7 +348,7 @@
   <!-- ==================== PHASE 5: CLINICAL CONSUMERS ==================== -->
   <g transform="translate(975, 95)">
     <rect width="185" height="28" rx="6" fill="#4c0519" stroke="#f43f5e" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#fecdd3" letter-spacing="0.5">STAGE 5 &bull; ACTION DISPATCH</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#fecdd3" letter-spacing="0.5">STAGE 5 &#8226; ACTION DISPATCH</text>
 
     <!-- Consumer 1: Live Web Vitals UI -->
     <g transform="translate(0, 38)">
@@ -358,9 +358,9 @@
       <text x="36" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">Live Web Vitals</text>
       <text x="36" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8">Next.js Dashboard</text>
       <line x1="12" y1="46" x2="173" y2="46" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Real-time ECG waveform</text>
-      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Pulse rate &amp; SpO2 tiles</text>
-      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Zero-point calibration</text>
+      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Real-time ECG waveform</text>
+      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Pulse rate &amp; SpO2 tiles</text>
+      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Zero-point calibration</text>
       <rect x="14" y="105" width="125" height="20" rx="4" fill="#082f49" />
       <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">PATIENT / CLINICIAN UI</text>
     </g>
@@ -373,9 +373,9 @@
       <text x="36" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">Monitoring Agent</text>
       <text x="36" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#7dd3fc">Autonomous Watchdog</text>
       <line x1="12" y1="46" x2="173" y2="46" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Telemetry trend regression</text>
-      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Tachycardia / Desat alerts</text>
-      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Correlates with report labs</text>
+      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Telemetry trend regression</text>
+      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Tachycardia / Desat alerts</text>
+      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Correlates with report labs</text>
       <rect x="14" y="105" width="125" height="20" rx="4" fill="#082f49" />
       <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#7dd3fc">DIAGNOSTIC TRIAGE</text>
     </g>
@@ -386,11 +386,11 @@
       <circle cx="20" cy="22" r="8" fill="#4c0519" stroke="#f43f5e" stroke-width="1" />
       <text x="20" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="900" fill="#f43f5e">!</text>
       <text x="36" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ffffff">Emergency Escalation</text>
-      <text x="36" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fb7185">SMS &bull; Push &bull; Attending</text>
+      <text x="36" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#fb7185">SMS &#8226; Push &#8226; Attending</text>
       <line x1="12" y1="46" x2="173" y2="46" stroke="#1e3a5f" stroke-width="0.8" />
-      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Immediate SMS / WebPush</text>
-      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Clinician priority paging</text>
-      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&bull; Audit event recorded</text>
+      <text x="14" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Immediate SMS / WebPush</text>
+      <text x="14" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Clinician priority paging</text>
+      <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#cbd5e1">&#8226; Audit event recorded</text>
       <rect x="14" y="105" width="125" height="20" rx="4" fill="#4c0519" />
       <text x="18" y="119" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#fecdd3">EMERGENCY DISPATCH</text>
     </g>
@@ -399,6 +399,6 @@
   <!-- Footer Certification & Architecture Note -->
   <g transform="translate(48, 672)">
     <circle cx="4" cy="-4" r="3" fill="#10b981" />
-    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">STANDARDS: IEEE 11073 Point-of-Care Medical Device Communication &bull; HL7 FHIR Observation Schema &bull; TLS 1.3 Transport &bull; DPDP Act 2023 Compliant</text>
+    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">STANDARDS: IEEE 11073 Point-of-Care Medical Device Communication &#8226; HL7 FHIR Observation Schema &#8226; TLS 1.3 Transport &#8226; DPDP Act 2023 Compliant</text>
   </g>
 </svg>

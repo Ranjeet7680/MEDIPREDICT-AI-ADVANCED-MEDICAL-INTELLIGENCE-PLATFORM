@@ -92,7 +92,7 @@
     <rect x="0" y="-14" width="28" height="28" rx="6" fill="#0284c7" filter="url(#d4Glow)" />
     <text x="7" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" fill="#ffffff">04</text>
     <text x="40" y="3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="800" fill="#ffffff" letter-spacing="0.5">Clinical Laboratory Report Decomposition &amp; PubMed RAG Grounding</text>
-    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Multi-Pass OCR &bull; LOINC Standard Mapping &bull; PubMed Vector RAG &bull; Side-by-Side Clinician Verification</text>
+    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Multi-Pass OCR &#8226; LOINC Standard Mapping &#8226; PubMed Vector RAG &#8226; Side-by-Side Clinician Verification</text>
   </g>
 
   <!-- Extraction Accuracy Pill -->
@@ -123,7 +123,7 @@
   <!-- ==================== PILLAR 1: REPORT INGESTION & MULTI-PASS OCR ==================== -->
   <g transform="translate(40, 95)">
     <rect width="215" height="28" rx="6" fill="#082f49" stroke="#0284c7" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#38bdf8" letter-spacing="0.5">1 &bull; MULTI-PASS OCR</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#38bdf8" letter-spacing="0.5">1 &#8226; MULTI-PASS OCR</text>
 
     <!-- Big Container -->
     <rect y="38" width="215" height="495" rx="12" fill="url(#cardGradD4)" stroke="#00e5ff" stroke-width="1.5" filter="url(#d4Glow)" />
@@ -150,16 +150,16 @@
     <!-- OCR Techniques List -->
     <g transform="translate(16, 185)">
       <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Preprocessing Engine</text>
-      <text x="0" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; OpenCV adaptive thresholding</text>
-      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Deskewing &amp; bilateral noise filter</text>
-      <text x="0" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Table border &amp; cell detection</text>
+      <text x="0" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; OpenCV adaptive thresholding</text>
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Deskewing &amp; bilateral noise filter</text>
+      <text x="0" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Table border &amp; cell detection</text>
 
       <line x1="0" y1="72" x2="183" y2="72" stroke="#1e3a5f" stroke-width="1" />
 
       <text x="0" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Dual OCR Architecture</text>
-      <text x="0" y="106" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Primary: PyMuPDF Direct Vector</text>
-      <text x="0" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Secondary: Tesseract OCR (PSM 6)</text>
-      <text x="0" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&bull; Fallback: Gemini Vision Multimodal</text>
+      <text x="0" y="106" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Primary: PyMuPDF Direct Vector</text>
+      <text x="0" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Secondary: Tesseract OCR (PSM 6)</text>
+      <text x="0" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#cbd5e1">&#8226; Fallback: Gemini Vision Multimodal</text>
 
       <rect y="150" width="183" height="24" rx="4" fill="#082f49" stroke="#0284c7" stroke-width="1" />
       <text x="8" y="166" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">RAW TOKENS EXTRACTED: 412</text>
@@ -170,7 +170,7 @@
   <!-- ==================== PILLAR 2: LAYOUT & BIOMARKER DECOMPOSITION ==================== -->
   <g transform="translate(275, 95)">
     <rect width="215" height="28" rx="6" fill="#042f2e" stroke="#10b981" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#6ee7b7" letter-spacing="0.5">2 &bull; BIOMARKER PARSER</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#6ee7b7" letter-spacing="0.5">2 &#8226; BIOMARKER PARSER</text>
 
     <!-- Big Container -->
     <rect y="38" width="215" height="495" rx="12" fill="url(#cardGradD4)" stroke="#10b981" stroke-width="1.5" filter="url(#d4Glow)" />
@@ -183,8 +183,8 @@
       <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Hemoglobin A1c</text>
       <text x="12" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="900" fill="#f43f5e">7.1 %</text>
       <text x="65" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Ref: 4.0 - 5.6 %</text>
-      <text x="12" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Method: HPLC Automated</text>
-      <text x="12" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#6ee7b7">Confidence: 99.1% &bull; Row 14</text>
+      <text x="12" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Method: HPLC Automated</text>
+      <text x="12" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#6ee7b7">Confidence: 99.1% &#8226; Row 14</text>
     </g>
 
     <!-- Parsed Biomarker Card 2: Creatinine -->
@@ -195,8 +195,8 @@
       <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Serum Creatinine</text>
       <text x="12" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="900" fill="#f59e0b">1.42 mg/dL</text>
       <text x="110" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Ref: 0.7 - 1.3</text>
-      <text x="12" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Jaffe Enzymatic Assay</text>
-      <text x="12" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#6ee7b7">Confidence: 98.7% &bull; Row 18</text>
+      <text x="12" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Jaffe Enzymatic Assay</text>
+      <text x="12" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#6ee7b7">Confidence: 98.7% &#8226; Row 18</text>
     </g>
 
     <!-- Parsed Biomarker Card 3: eGFR -->
@@ -207,8 +207,8 @@
       <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff">Estimated GFR</text>
       <text x="12" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="900" fill="#10b981">88 mL/min</text>
       <text x="95" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Ref: &gt; 60</text>
-      <text x="12" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; CKD-EPI 2021 Equation</text>
-      <text x="12" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#6ee7b7">Confidence: 97.9% &bull; Row 21</text>
+      <text x="12" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; CKD-EPI 2021 Equation</text>
+      <text x="12" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#6ee7b7">Confidence: 97.9% &#8226; Row 21</text>
     </g>
 
     <rect x="14" y="375" width="187" height="26" rx="5" fill="#064e3b" />
@@ -219,7 +219,7 @@
   <!-- ==================== PILLAR 3: LOINC / SNOMED TERMINOLOGY ==================== -->
   <g transform="translate(510, 95)">
     <rect width="215" height="28" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#c7d2fe" letter-spacing="0.5">3 &bull; CLINICAL TERMINOLOGY</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#c7d2fe" letter-spacing="0.5">3 &#8226; CLINICAL TERMINOLOGY</text>
 
     <!-- Big Container -->
     <rect y="38" width="215" height="495" rx="12" fill="url(#cardGradD4)" stroke="#818cf8" stroke-width="1.5" filter="url(#d4Glow)" />
@@ -248,7 +248,7 @@
     <g transform="translate(14, 246)">
       <rect width="187" height="155" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
       <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#ffffff">Side-by-Side Verification</text>
-      <text x="12" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">BBox Crop &harr; Extracted JSON</text>
+      <text x="12" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">BBox Crop &#8596; Extracted JSON</text>
       <line x1="12" y1="42" x2="175" y2="42" stroke="#1e3a5f" stroke-width="1" />
       
       <!-- BBox Snippet -->
@@ -267,7 +267,7 @@
   <!-- ==================== PILLAR 4: VECTOR RAG & EVIDENCE GROUNDING ==================== -->
   <g transform="translate(745, 95)">
     <rect width="215" height="28" rx="6" fill="#3b0764" stroke="#c084fc" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#f3e8ff" letter-spacing="0.5">4 &bull; PUBMED RAG GROUNDING</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#f3e8ff" letter-spacing="0.5">4 &#8226; PUBMED RAG GROUNDING</text>
 
     <!-- Big Container -->
     <rect y="38" width="215" height="495" rx="12" fill="url(#cardGradD4)" stroke="#c084fc" stroke-width="1.5" filter="url(#d4Glow)" />
@@ -276,8 +276,8 @@
     <g transform="translate(14, 56)">
       <rect width="187" height="90" rx="8" fill="#240e38" stroke="#a855f7" stroke-width="1" />
       <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#ffffff">BioLinkBERT Embeddings</text>
-      <text x="12" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#e9d5ff">&bull; 768-dimensional clinical space</text>
-      <text x="12" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#e9d5ff">&bull; pgvector cosine distance index</text>
+      <text x="12" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#e9d5ff">&#8226; 768-dimensional clinical space</text>
+      <text x="12" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#e9d5ff">&#8226; pgvector cosine distance index</text>
       <rect x="12" y="58" width="135" height="18" rx="3" fill="#3b0764" />
       <text x="16" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#f3e8ff">COSINE SIMILARITY: 0.912</text>
     </g>
@@ -290,14 +290,14 @@
       <!-- Citation 1 -->
       <g transform="translate(12, 28)">
         <rect width="163" height="34" rx="4" fill="#3b0764" />
-        <text x="8" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#c084fc">PMID: 33444218 &bull; ADA 2024</text>
+        <text x="8" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#c084fc">PMID: 33444218 &#8226; ADA 2024</text>
         <text x="8" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" fill="#e9d5ff">Standards of Medical Care in Diabetes</text>
       </g>
 
       <!-- Citation 2 -->
       <g transform="translate(12, 68)">
         <rect width="163" height="34" rx="4" fill="#3b0764" />
-        <text x="8" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#c084fc">PMID: 31215442 &bull; KDIGO</text>
+        <text x="8" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#c084fc">PMID: 31215442 &#8226; KDIGO</text>
         <text x="8" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" fill="#e9d5ff">Clinical Practice for Diabetes &amp; CKD</text>
       </g>
     </g>
@@ -306,11 +306,11 @@
     <g transform="translate(14, 285)">
       <rect width="187" height="115" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.2" />
       <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#ffffff">Hallucination Verification</text>
-      <text x="12" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Grounding score: 0.94 / 1.00</text>
-      <text x="12" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Claim-to-source link verified</text>
-      <text x="12" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&bull; Non-diagnostic framing enforced</text>
+      <text x="12" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Grounding score: 0.94 / 1.00</text>
+      <text x="12" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Claim-to-source link verified</text>
+      <text x="12" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#a7f3d0">&#8226; Non-diagnostic framing enforced</text>
       <rect x="12" y="75" width="145" height="22" rx="4" fill="#042f2e" stroke="#34d399" stroke-width="1" />
-      <text x="16" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#34d399">EVIDENCE PASS &bull; ZERO RISK</text>
+      <text x="16" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#34d399">EVIDENCE PASS &#8226; ZERO RISK</text>
     </g>
   </g>
 
@@ -318,7 +318,7 @@
   <!-- ==================== PILLAR 5: CLINICIAN REVIEW QUEUE ==================== -->
   <g transform="translate(980, 95)">
     <rect width="180" height="28" rx="6" fill="#4c0519" stroke="#f43f5e" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#fecdd3" letter-spacing="0.5">5 &bull; CLINICAL QUEUE</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#fecdd3" letter-spacing="0.5">5 &#8226; CLINICAL QUEUE</text>
 
     <!-- Big Container -->
     <rect y="38" width="180" height="495" rx="12" fill="url(#cardGradD4)" stroke="#f43f5e" stroke-width="1.5" filter="url(#d4Glow)" />
@@ -327,9 +327,9 @@
     <g transform="translate(12, 56)">
       <rect width="156" height="105" rx="8" fill="#1e1320" stroke="#f43f5e" stroke-width="1" />
       <text x="10" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#ffffff">Patient Summary</text>
-      <text x="10" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#fda4af">&bull; HbA1c is above standard (7.1%)</text>
-      <text x="10" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#fda4af">&bull; Indicates higher 3-month sugar</text>
-      <text x="10" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#fda4af">&bull; Kidney filtration (eGFR) is healthy</text>
+      <text x="10" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#fda4af">&#8226; HbA1c is above standard (7.1%)</text>
+      <text x="10" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#fda4af">&#8226; Indicates higher 3-month sugar</text>
+      <text x="10" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#fda4af">&#8226; Kidney filtration (eGFR) is healthy</text>
       <rect x="10" y="74" width="115" height="16" rx="3" fill="#4c0519" />
       <text x="14" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#fecdd3">GRADE 6 READING LEVEL</text>
     </g>
@@ -338,9 +338,9 @@
     <g transform="translate(12, 172)">
       <rect width="156" height="115" rx="8" fill="#1e1320" stroke="#f43f5e" stroke-width="1" />
       <text x="10" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#ffffff">Physician Triage</text>
-      <text x="10" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&bull; Order fasting plasma glucose</text>
-      <text x="10" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&bull; Review Metformin titration</text>
-      <text x="10" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&bull; Schedule 3-month follow-up</text>
+      <text x="10" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&#8226; Order fasting plasma glucose</text>
+      <text x="10" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&#8226; Review Metformin titration</text>
+      <text x="10" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&#8226; Schedule 3-month follow-up</text>
       <rect x="10" y="78" width="136" height="22" rx="4" fill="#881337" />
       <text x="14" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#ffffff">CLINICIAN SIGN-OFF REQ</text>
     </g>
@@ -349,8 +349,8 @@
     <g transform="translate(12, 300)">
       <rect width="156" height="100" rx="8" fill="#082f49" stroke="#0284c7" stroke-width="1" />
       <text x="10" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#ffffff">HL7 FHIR v4 Bundle</text>
-      <text x="10" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#bae6fd">&bull; DiagnosticReport JSON</text>
-      <text x="10" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#bae6fd">&bull; LOINC Observation codes</text>
+      <text x="10" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#bae6fd">&#8226; DiagnosticReport JSON</text>
+      <text x="10" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#bae6fd">&#8226; LOINC Observation codes</text>
       <rect x="10" y="60" width="125" height="22" rx="4" fill="#0369a1" />
       <text x="14" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#ffffff">FHIR BUNDLE EXPORT</text>
     </g>
@@ -359,6 +359,6 @@
   <!-- Footer Certification & Architecture Note -->
   <g transform="translate(48, 672)">
     <circle cx="4" cy="-4" r="3" fill="#0284c7" />
-    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">STANDARDS: ISO 15189 Medical Laboratories Quality &bull; HL7 FHIR DiagnosticReport v4.0.1 &bull; BioLinkBERT PubMed Semantic RAG &bull; LOINC 2.76</text>
+    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">STANDARDS: ISO 15189 Medical Laboratories Quality &#8226; HL7 FHIR DiagnosticReport v4.0.1 &#8226; BioLinkBERT PubMed Semantic RAG &#8226; LOINC 2.76</text>
   </g>
 </svg>

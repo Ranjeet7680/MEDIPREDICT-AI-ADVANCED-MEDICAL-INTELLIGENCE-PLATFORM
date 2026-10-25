@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/header.svg" alt="MediPredict AI — Intelligent Healthcare. Earlier Insights. Better Decisions." width="100%" />
+  <img src="assets/header.svg" alt="MediPredict AI — Intelligent Healthcare. Earlier Insights. Better Decisions." width="100%" />
 </p>
 
 <p align="center">
@@ -50,7 +50,7 @@
 The MediPredict AI platform is engineered around a clean 4-tier microservices-ready architecture:
 
 <p align="center">
-  <img src="./assets/diagram5_fullstack_architecture.svg" alt="End-to-End Enterprise Full-Stack System Architecture" width="100%" />
+  <img src="assets/diagram5_fullstack_architecture.svg" alt="End-to-End Enterprise Full-Stack System Architecture" width="100%" />
 </p>
 
 ### Technology Stack Matrix
@@ -75,7 +75,7 @@ The MediPredict AI platform is engineered around a clean 4-tier microservices-re
 The multi-agent framework (`backend/app/services/agents/`) coordinates specialized clinical agents under an intelligent **Supervisor Orchestrator**:
 
 <p align="center">
-  <img src="./assets/diagram1_multi_agent.svg" alt="Autonomous Multi-Agent Clinical Intelligence Orchestration" width="100%" />
+  <img src="assets/diagram1_multi_agent.svg" alt="Autonomous Multi-Agent Clinical Intelligence Orchestration" width="100%" />
 </p>
 
 ### Domain Agent Responsibilities
@@ -95,7 +95,7 @@ The multi-agent framework (`backend/app/services/agents/`) coordinates specializ
 MediPredict AI implements the **Section 10 Unified Health Data Ingestion Standard** to normalize incoming telemetry from diverse microcontrollers, medical biosensors, and consumer smartwatches:
 
 <p align="center">
-  <img src="./assets/diagram2_ingestion_pipeline.svg" alt="Connected Healthcare & Section 10 Telemetry Ingestion Engine" width="100%" />
+  <img src="assets/diagram2_ingestion_pipeline.svg" alt="Connected Healthcare & Section 10 Telemetry Ingestion Engine" width="100%" />
 </p>
 
 ### A. Section 10 Unified Schema Specification
@@ -134,7 +134,7 @@ MediPredict AI implements the **Section 10 Unified Health Data Ingestion Standar
 Located in `medipredict-ai/ml/`, the machine learning pipeline trains, evaluates, tracks, and serves production-ready biomedical classification models:
 
 <p align="center">
-  <img src="./assets/diagram3_ml_research.svg" alt="Machine Learning Research Lab & Predictive Diagnostics" width="100%" />
+  <img src="assets/diagram3_ml_research.svg" alt="Machine Learning Research Lab & Predictive Diagnostics" width="100%" />
 </p>
 
 ### Model Performance Benchmark
@@ -156,7 +156,7 @@ Located in `medipredict-ai/ml/`, the machine learning pipeline trains, evaluates
 The laboratory report analyzer processes unstructured medical documents and grounds insights in verified clinical references:
 
 <p align="center">
-  <img src="./assets/diagram4_lab_report_rag.svg" alt="Clinical Laboratory Report Decomposition & PubMed RAG Grounding" width="100%" />
+  <img src="assets/diagram4_lab_report_rag.svg" alt="Clinical Laboratory Report Decomposition & PubMed RAG Grounding" width="100%" />
 </p>
 
 ### Pipeline Execution Flow

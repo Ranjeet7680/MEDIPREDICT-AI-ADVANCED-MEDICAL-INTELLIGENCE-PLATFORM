@@ -133,7 +133,7 @@
     <rect x="0" y="-14" width="28" height="28" rx="6" fill="#0284c7" filter="url(#d1Glow)" />
     <text x="7" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" fill="#ffffff">01</text>
     <text x="40" y="3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="800" fill="#ffffff" letter-spacing="0.5">Autonomous Multi-Agent Clinical Intelligence Orchestration</text>
-    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Supervisor Orchestrator &bull; 6 Specialized Medical Domain Agents &bull; Evidence-Grounded RAG &bull; HITL Safety Escalation</text>
+    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Supervisor Orchestrator &#8226; 6 Specialized Medical Domain Agents &#8226; Evidence-Grounded RAG &#8226; HITL Safety Escalation</text>
   </g>
 
   <!-- Live Status Badge (Top Right) -->
@@ -209,7 +209,7 @@
     <path d="M 28 14 L 38 18 L 38 27 C 38 32 28 36 28 36 C 28 36 18 32 18 27 L 18 18 Z" fill="#065f46" stroke="#10b981" stroke-width="1.2" />
     <path d="M 24 26 L 27 29 L 32 22" fill="none" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" />
     <text x="48" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#34d399" letter-spacing="0.5">AI CLINICAL SAFETY &amp; NON-DIAGNOSTIC GUARDRAIL</text>
-    <text x="48" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500" fill="#a7f3d0">Hallucination Verification (Score &gt;= 0.85) &bull; Emergency Red-Flag Triage &bull; Disclaimer Enforcement</text>
+    <text x="48" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500" fill="#a7f3d0">Hallucination Verification (Score &gt;= 0.85) &#8226; Emergency Red-Flag Triage &#8226; Disclaimer Enforcement</text>
   </g>
 
   <!-- ==================== 6 SPECIALIZED AGENT CARDS ==================== -->
@@ -222,10 +222,10 @@
     <circle cx="28" cy="30" r="14" fill="#082f49" stroke="#00e5ff" stroke-width="1.2" />
     <text x="28" y="35" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="900" fill="#00e5ff">i</text>
     <text x="50" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Medical Info Agent</text>
-    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#38bdf8">PubMed Clinical RAG &bull; Terminology</text>
+    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#38bdf8">PubMed Clinical RAG &#8226; Terminology</text>
     <line x1="16" y1="52" x2="234" y2="52" stroke="#1e3a5f" stroke-width="1" />
-    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Evidence-backed differential synthesis</text>
-    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Plain-language patient education</text>
+    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Evidence-backed differential synthesis</text>
+    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Plain-language patient education</text>
     <!-- Badge -->
     <rect x="18" y="91" width="115" height="14" rx="3" fill="#082f49" />
     <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#38bdf8">GEMINI 2.5 FLASH / GPT-4o</text>
@@ -242,10 +242,10 @@
     <line x1="26" y1="29" x2="31" y2="29" stroke="#34d399" stroke-width="1" />
     <line x1="26" y1="33" x2="31" y2="33" stroke="#34d399" stroke-width="1" />
     <text x="50" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Medical Report Agent</text>
-    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#34d399">Multimodal OCR &bull; Biomarker Parser</text>
+    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#34d399">Multimodal OCR &#8226; Biomarker Parser</text>
     <line x1="16" y1="52" x2="234" y2="52" stroke="#1e3a5f" stroke-width="1" />
-    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Tabular LOINC / SNOMED extraction</text>
-    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Reference interval abnormal flagging</text>
+    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Tabular LOINC / SNOMED extraction</text>
+    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Reference interval abnormal flagging</text>
     <!-- Badge -->
     <rect x="18" y="91" width="112" height="14" rx="3" fill="#064e3b" />
     <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6ee7b7">CONFIDENCE: 98.4% HIGH</text>
@@ -259,13 +259,13 @@
     <circle cx="28" cy="30" r="14" fill="#082f49" stroke="#38bdf8" stroke-width="1.2" />
     <path d="M 19 31 L 23 31 L 25 24 L 28 37 L 31 27 L 33 31 L 37 31" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
     <text x="50" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Health Monitoring Agent</text>
-    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#7dd3fc">Real-Time Telemetry &bull; Anomaly Alert</text>
+    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#7dd3fc">Real-Time Telemetry &#8226; Anomaly Alert</text>
     <line x1="16" y1="52" x2="234" y2="52" stroke="#1e3a5f" stroke-width="1" />
-    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; 2.0s streaming telemetry evaluator</text>
-    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Physiological Z-score outlier detector</text>
+    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; 2.0s streaming telemetry evaluator</text>
+    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Physiological Z-score outlier detector</text>
     <!-- Badge -->
     <rect x="18" y="91" width="118" height="14" rx="3" fill="#082f49" />
-    <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#7dd3fc">STREAM ACTIVE &bull; 120 HZ</text>
+    <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#7dd3fc">STREAM ACTIVE &#8226; 120 HZ</text>
   </g>
 
   <!-- 4. Medical Research Agent (Center-Right) -->
@@ -278,10 +278,10 @@
     <ellipse cx="28" cy="30" rx="9" ry="4" fill="none" stroke="#c084fc" stroke-width="1.2" transform="rotate(-30 28 30)" />
     <circle cx="28" cy="30" r="2" fill="#f3e8ff" />
     <text x="50" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Medical Research Agent</text>
-    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#c084fc">ClinicalTrials.gov &bull; PubMed API</text>
+    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#c084fc">ClinicalTrials.gov &#8226; PubMed API</text>
     <line x1="16" y1="52" x2="234" y2="52" stroke="#1e3a5f" stroke-width="1" />
-    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Cochrane review &amp; meta-study parser</text>
-    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Cross-study statistical synthesis</text>
+    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Cochrane review &amp; meta-study parser</text>
+    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Cross-study statistical synthesis</text>
     <!-- Badge -->
     <rect x="18" y="91" width="128" height="14" rx="3" fill="#3b0764" />
     <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#e9d5ff">100K+ TRIALS INDEXED</text>
@@ -299,13 +299,13 @@
     <line x1="34" y1="27" x2="36" y2="27" stroke="#fbbf24" stroke-width="1.2" />
     <line x1="34" y1="33" x2="36" y2="33" stroke="#fbbf24" stroke-width="1.2" />
     <text x="50" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Device Integration Agent</text>
-    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#fbbf24">ESP32 MAX30102 &bull; BLE GATT</text>
+    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#fbbf24">ESP32 MAX30102 &#8226; BLE GATT</text>
     <line x1="16" y1="52" x2="234" y2="52" stroke="#1e3a5f" stroke-width="1" />
-    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Apple HealthKit / Health Connect bridge</text>
-    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; SHA-256 deduplication &amp; calibration</text>
+    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Apple HealthKit / Health Connect bridge</text>
+    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; SHA-256 deduplication &amp; calibration</text>
     <!-- Badge -->
     <rect x="18" y="91" width="112" height="14" rx="3" fill="#451a03" />
-    <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#fde68a">I2C 400kHz &bull; MQTT EDGE</text>
+    <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#fde68a">I2C 400kHz &#8226; MQTT EDGE</text>
   </g>
 
   <!-- 6. Healthcare Workflow Agent (Bottom-Right) -->
@@ -317,10 +317,10 @@
     <circle cx="28" cy="26" r="4" fill="none" stroke="#fb7185" stroke-width="1.3" />
     <path d="M 21 37 C 21 32 35 32 35 37" fill="none" stroke="#fb7185" stroke-width="1.3" />
     <text x="50" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Healthcare Workflow Agent</text>
-    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#fb7185">FHIR Bundles &bull; Clinician Queue</text>
+    <text x="50" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#fb7185">FHIR Bundles &#8226; Clinician Queue</text>
     <line x1="16" y1="52" x2="234" y2="52" stroke="#1e3a5f" stroke-width="1" />
-    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; HL7 FHIR v4 Observation dispatch</text>
-    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&bull; Clinician triage review task routing</text>
+    <text x="18" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; HL7 FHIR v4 Observation dispatch</text>
+    <text x="18" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#cbd5e1">&#8226; Clinician triage review task routing</text>
     <!-- Badge -->
     <rect x="18" y="91" width="124" height="14" rx="3" fill="#4c0519" />
     <text x="22" y="101" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#fecdd3">HITL ESCALATION READY</text>
@@ -333,12 +333,12 @@
     <polygon points="28,14 38,32 18,32" fill="#881337" stroke="#f43f5e" stroke-width="1.2" />
     <text x="28" y="28" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="900" fill="#ffffff">!</text>
     <text x="48" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#fb7185" letter-spacing="0.5">HUMAN-IN-THE-LOOP (HITL) CLINICAL ESCALATION GATEWAY</text>
-    <text x="48" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500" fill="#fecdd3">Critical physiological flags automatically routed to attending physician &bull; Zero autonomous prescription</text>
+    <text x="48" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500" fill="#fecdd3">Critical physiological flags automatically routed to attending physician &#8226; Zero autonomous prescription</text>
   </g>
 
   <!-- Footer Certification & Architecture Note -->
   <g transform="translate(48, 672)">
     <circle cx="4" cy="-4" r="3" fill="#00e5ff" />
-    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">ARCHITECTURE: Multi-Agent Supervisor-Orchestrator Pattern &bull; StateGraph Execution &bull; ISO 13606 EHR Interoperability Aligned</text>
+    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">ARCHITECTURE: Multi-Agent Supervisor-Orchestrator Pattern &#8226; StateGraph Execution &#8226; ISO 13606 EHR Interoperability Aligned</text>
   </g>
 </svg>

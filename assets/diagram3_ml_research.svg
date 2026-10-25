@@ -99,14 +99,14 @@
     <rect x="0" y="-14" width="28" height="28" rx="6" fill="#6366f1" filter="url(#d3Glow)" />
     <text x="7" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" fill="#ffffff">03</text>
     <text x="40" y="3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="800" fill="#ffffff" letter-spacing="0.5">Machine Learning Clinical Risk Engine &amp; Explainable AI (SHAP)</text>
-    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Ensemble Gradient Boosting (LightGBM/XGBoost) &bull; ROC-AUC 0.962 &bull; Calibrated Probabilities &bull; MLflow Registry</text>
+    <text x="40" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Ensemble Gradient Boosting (LightGBM/XGBoost) &#8226; ROC-AUC 0.962 &#8226; Calibrated Probabilities &#8226; MLflow Registry</text>
   </g>
 
   <!-- Model Performance Metric Pill -->
   <g transform="translate(950, 32)">
     <rect width="200" height="30" rx="15" fill="#1e1b4b" stroke="#818cf8" stroke-width="1.2" />
     <circle cx="16" cy="15" r="4.5" fill="#818cf8" />
-    <text x="28" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#c7d2fe" letter-spacing="0.5">MODEL ROC-AUC: 0.962 &bull; 95% CI</text>
+    <text x="28" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#c7d2fe" letter-spacing="0.5">MODEL ROC-AUC: 0.962 &#8226; 95% CI</text>
   </g>
 
 
@@ -114,7 +114,7 @@
   <g transform="translate(40, 95)">
     <!-- Header -->
     <rect width="320" height="28" rx="6" fill="#082f49" stroke="#0284c7" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#38bdf8" letter-spacing="0.5">1 &bull; FEATURE INPUT &amp; ENSEMBLE ARCHITECTURE</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#38bdf8" letter-spacing="0.5">1 &#8226; FEATURE INPUT &amp; ENSEMBLE ARCHITECTURE</text>
 
     <!-- Patient Feature Vector Card -->
     <g transform="translate(0, 38)">
@@ -143,7 +143,7 @@
         <rect x="150" y="56" width="138" height="22" rx="4" fill="#082f49" />
         <text x="158" y="71" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="600" fill="#bae6fd">Total Chol: 224 mg/dL</text>
       </g>
-      <text x="16" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="500" fill="#94a3b8">&bull; Preprocessing: StandardScaler + Yeo-Johnson Transform</text>
+      <text x="16" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="500" fill="#94a3b8">&#8226; Preprocessing: StandardScaler + Yeo-Johnson Transform</text>
     </g>
 
     <!-- Ensemble Architecture Card -->
@@ -157,7 +157,7 @@
       <g transform="translate(16, 56)">
         <rect width="288" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
         <text x="10" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" fill="#ffffff">LightGBM</text>
-        <text x="75" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&bull; 500 trees &bull; leaf-wise &bull; lr: 0.03</text>
+        <text x="75" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&#8226; 500 trees &#8226; leaf-wise &#8226; lr: 0.03</text>
         <rect x="230" y="4" width="50" height="18" rx="3" fill="#312e81" />
         <text x="238" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#818cf8">W: 40%</text>
       </g>
@@ -166,7 +166,7 @@
       <g transform="translate(16, 88)">
         <rect width="288" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
         <text x="10" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" fill="#ffffff">XGBoost</text>
-        <text x="75" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&bull; Max depth: 6 &bull; L2 reg: 1.5</text>
+        <text x="75" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&#8226; Max depth: 6 &#8226; L2 reg: 1.5</text>
         <rect x="230" y="4" width="50" height="18" rx="3" fill="#312e81" />
         <text x="238" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#818cf8">W: 30%</text>
       </g>
@@ -175,7 +175,7 @@
       <g transform="translate(16, 120)">
         <rect width="288" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
         <text x="10" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" fill="#ffffff">CatBoost</text>
-        <text x="75" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&bull; Target encoding for comorbidities</text>
+        <text x="75" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&#8226; Target encoding for comorbidities</text>
         <rect x="230" y="4" width="50" height="18" rx="3" fill="#312e81" />
         <text x="238" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#818cf8">W: 20%</text>
       </g>
@@ -184,7 +184,7 @@
       <g transform="translate(16, 152)">
         <rect width="288" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
         <text x="10" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" fill="#ffffff">LogReg Baseline</text>
-        <text x="105" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&bull; Platt isotonic scaling</text>
+        <text x="105" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#c7d2fe">&#8226; Platt isotonic scaling</text>
         <rect x="230" y="4" width="50" height="18" rx="3" fill="#312e81" />
         <text x="238" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800" fill="#818cf8">W: 10%</text>
       </g>
@@ -195,11 +195,11 @@
       <rect width="320" height="85" rx="12" fill="url(#cardGradD3)" stroke="#10b981" stroke-width="1.5" filter="url(#d3Glow)" />
       <circle cx="24" cy="22" r="10" fill="#064e3b" stroke="#10b981" stroke-width="1.2" />
       <text x="24" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="900" fill="#10b981">M</text>
-      <text x="42" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ffffff">MLflow Registry &bull; v2.4.1</text>
+      <text x="42" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ffffff">MLflow Registry &#8226; v2.4.1</text>
       <text x="42" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#34d399">Production Staged Model Artifact</text>
       <line x1="14" y1="44" x2="306" y2="44" stroke="#1e3a5f" stroke-width="1" />
-      <text x="16" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Commit SHA: 8f24a1b &bull; Artifact size: 4.8MB</text>
-      <text x="16" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Cross-Validation: 5-Fold Stratified &bull; F1: 0.935</text>
+      <text x="16" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Commit SHA: 8f24a1b &#8226; Artifact size: 4.8MB</text>
+      <text x="16" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Cross-Validation: 5-Fold Stratified &#8226; F1: 0.935</text>
     </g>
   </g>
 
@@ -208,13 +208,13 @@
   <g transform="translate(385, 95)">
     <!-- Header -->
     <rect width="370" height="28" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#c7d2fe" letter-spacing="0.5">2 &bull; DISCRIMINATION PERFORMANCE &amp; METRICS</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#c7d2fe" letter-spacing="0.5">2 &#8226; DISCRIMINATION PERFORMANCE &amp; METRICS</text>
 
     <!-- ROC-AUC Curve Card -->
     <g transform="translate(0, 38)">
       <rect width="370" height="300" rx="12" fill="url(#cardGradD3)" stroke="#818cf8" stroke-width="1.5" filter="url(#d3Glow)" />
       <text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ffffff">Receiver Operating Characteristic (ROC)</text>
-      <text x="16" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="600" fill="#a5b4fc">Clinical Cohort N=12,450 Patients &bull; Test Set 20%</text>
+      <text x="16" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="600" fill="#a5b4fc">Clinical Cohort N=12,450 Patients &#8226; Test Set 20%</text>
 
       <!-- ROC Plotting Area -->
       <g transform="translate(50, 60)">
@@ -245,7 +245,7 @@
         <text x="-8" y="6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#64748b" text-anchor="end">1.0</text>
 
         <!-- Axis Titles -->
-        <text x="140" y="210" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#94a3b8" text-anchor="middle">1 &ndash; Specificity (False Positive Rate)</text>
+        <text x="140" y="210" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#94a3b8" text-anchor="middle">1 &#8211; Specificity (False Positive Rate)</text>
         <text x="-32" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#94a3b8" text-anchor="middle" transform="rotate(-90 -32 90)">Sensitivity (TPR)</text>
 
         <!-- Diagonal Reference (Random Guessing AUC=0.50) -->
@@ -266,8 +266,8 @@
         <!-- Optimal Callout -->
         <g transform="translate(42, 10)">
           <rect width="135" height="34" rx="4" fill="#082f49" stroke="#00e5ff" stroke-width="1" />
-          <text x="6" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">Optimal Cutoff &bull; J=0.872</text>
-          <text x="6" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#bae6fd">Sens: 92.4% &bull; Spec: 94.8%</text>
+          <text x="6" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">Optimal Cutoff &#8226; J=0.872</text>
+          <text x="6" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#bae6fd">Sens: 92.4% &#8226; Spec: 94.8%</text>
         </g>
       </g>
     </g>
@@ -307,7 +307,7 @@
   <g transform="translate(775, 95)">
     <!-- Header -->
     <rect width="385" height="28" rx="6" fill="#3b0764" stroke="#c084fc" stroke-width="1.2" />
-    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#f3e8ff" letter-spacing="0.5">3 &bull; EXPLAINABLE AI (SHAP) &amp; RISK ESTIMATION</text>
+    <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#f3e8ff" letter-spacing="0.5">3 &#8226; EXPLAINABLE AI (SHAP) &amp; RISK ESTIMATION</text>
 
     <!-- SHAP Waterfall / Feature Impact Card -->
     <g transform="translate(0, 38)">
@@ -356,7 +356,7 @@
         <rect y="16" width="115" height="8" rx="4" fill="#10b981" class="bar-anim" />
       </g>
 
-      <text x="16" y="222" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="500" fill="#94a3b8">TreeSHAP exact algorithm &bull; 24ms computation time &bull; Lundberg &amp; Lee 2017</text>
+      <text x="16" y="222" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="500" fill="#94a3b8">TreeSHAP exact algorithm &#8226; 24ms computation time &#8226; Lundberg &amp; Lee 2017</text>
     </g>
 
     <!-- Calibrated Risk Estimation & Interventions Card -->
@@ -377,19 +377,19 @@
       <!-- Risk Breakdown List -->
       <g transform="translate(140, 56)">
         <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#ffffff">Type 2 Diabetes Risk: 31.2%</text>
-        <text x="0" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Elevated by fasting glucose &amp; HbA1c</text>
+        <text x="0" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Elevated by fasting glucose &amp; HbA1c</text>
         
         <text x="0" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#ffffff">Hypertension Progression: 44.0%</text>
-        <text x="0" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&bull; Stage 1 systolic elevation verified</text>
+        <text x="0" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" fill="#94a3b8">&#8226; Stage 1 systolic elevation verified</text>
       </g>
 
       <!-- Non-Diagnostic Clinical Notice -->
       <g transform="translate(16, 136)">
         <rect width="353" height="64" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
-        <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">CLINICAL DECISION SUPPORT &bull; EVIDENCE-BASED GUIDANCE</text>
-        <text x="12" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&bull; Non-diagnostic risk estimation intended for physician review</text>
-        <text x="12" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&bull; Recommend confirmatory fasting plasma glucose &amp; 24-hr ambulatory BP</text>
-        <text x="12" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#10b981">&bull; Lifestyle intervention (DASH Diet) could reduce 10-yr risk by &minus;6.8%</text>
+        <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="800" fill="#38bdf8">CLINICAL DECISION SUPPORT &#8226; EVIDENCE-BASED GUIDANCE</text>
+        <text x="12" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&#8226; Non-diagnostic risk estimation intended for physician review</text>
+        <text x="12" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#cbd5e1">&#8226; Recommend confirmatory fasting plasma glucose &amp; 24-hr ambulatory BP</text>
+        <text x="12" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" fill="#10b981">&#8226; Lifestyle intervention (DASH Diet) could reduce 10-yr risk by &#8722;6.8%</text>
       </g>
     </g>
   </g>
@@ -397,6 +397,6 @@
   <!-- Footer Certification & Architecture Note -->
   <g transform="translate(48, 672)">
     <circle cx="4" cy="-4" r="3" fill="#818cf8" />
-    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">STANDARDS: TRIPOD Statement (Transparent Reporting of a multivariable prediction model) &bull; SHAP Unified Explainability &bull; Platt Calibration</text>
+    <text x="16" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b">STANDARDS: TRIPOD Statement (Transparent Reporting of a multivariable prediction model) &#8226; SHAP Unified Explainability &#8226; Platt Calibration</text>
   </g>
 </svg>
