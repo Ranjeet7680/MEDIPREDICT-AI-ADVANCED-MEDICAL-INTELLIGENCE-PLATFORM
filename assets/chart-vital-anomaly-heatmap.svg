@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="heatBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a151d" />
+      <stop offset="100%" stop-color="#142634" />
+    </linearGradient>
+  </defs>
+
+  <rect width="850" height="400" rx="14" fill="url(#heatBg)" stroke="#1e3a4a" stroke-width="2" />
+
+  <text x="40" y="38" fill="#4ef3e2" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1">🌊 HEATMAP: 7-DAY HOURLY PHYSIOLOGICAL ANOMALY FREQUENCY</text>
+  <text x="40" y="65" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="800">Nocturnal Hypoxemia (SpO2 &lt; 92%) &amp; Tachycardia Clustering</text>
+
+  <!-- Heatmap Grid -->
+  <!-- 7 Rows (Mon to Sun), 8 Time Buckets (00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00) -->
+  <!-- Cell width: 75px, Cell height: 32px -->
+  <g transform="translate(130, 95)">
+    <!-- Column Headers (Time Buckets) -->
+    <text x="37" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">00:00</text>
+    <text x="112" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">03:00</text>
+    <text x="187" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">06:00</text>
+    <text x="262" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">09:00</text>
+    <text x="337" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">12:00</text>
+    <text x="412" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">15:00</text>
+    <text x="487" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">18:00</text>
+    <text x="562" y="-12" fill="#8da3b0" font-family="monospace" font-size="10" text-anchor="middle">21:00</text>
+
+    <!-- Colors: 
+         0 (none): #112836
+         1 (low): #00635e
+         2 (med): #0f766e
+         3 (high): #d97706
+         4 (severe): #dc2626
+    -->
+
+    <!-- Row 0: Monday -->
+    <text x="-15" y="21" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Monday</text>
+    <rect x="0" y="0" width="70" height="28" rx="4" fill="#d97706" />
+    <rect x="75" y="0" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="150" y="0" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="225" y="0" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="300" y="0" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="375" y="0" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="450" y="0" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="525" y="0" width="70" height="28" rx="4" fill="#0f766e" />
+
+    <!-- Row 1: Tuesday -->
+    <text x="-15" y="56" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Tuesday</text>
+    <rect x="0" y="35" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="75" y="35" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="150" y="35" width="70" height="28" rx="4" fill="#d97706" />
+    <rect x="225" y="35" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="300" y="35" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="375" y="35" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="450" y="35" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="525" y="35" width="70" height="28" rx="4" fill="#d97706" />
+
+    <!-- Row 2: Wednesday -->
+    <text x="-15" y="91" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Wednesday</text>
+    <rect x="0" y="70" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="75" y="70" width="70" height="28" rx="4" fill="#d97706" />
+    <rect x="150" y="70" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="225" y="70" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="300" y="70" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="375" y="70" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="450" y="70" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="525" y="70" width="70" height="28" rx="4" fill="#00635e" />
+
+    <!-- Row 3: Thursday -->
+    <text x="-15" y="126" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Thursday</text>
+    <rect x="0" y="105" width="70" height="28" rx="4" fill="#d97706" />
+    <rect x="75" y="105" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="150" y="105" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="225" y="105" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="300" y="105" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="375" y="105" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="450" y="105" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="525" y="105" width="70" height="28" rx="4" fill="#0f766e" />
+
+    <!-- Row 4: Friday -->
+    <text x="-15" y="161" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Friday</text>
+    <rect x="0" y="140" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="75" y="140" width="70" height="28" rx="4" fill="#dc2626" />
+    <rect x="150" y="140" width="70" height="28" rx="4" fill="#d97706" />
+    <rect x="225" y="140" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="300" y="140" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="375" y="140" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="450" y="140" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="525" y="140" width="70" height="28" rx="4" fill="#dc2626" />
+
+    <!-- Row 5: Saturday -->
+    <text x="-15" y="196" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Saturday</text>
+    <rect x="0" y="175" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="75" y="175" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="150" y="175" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="225" y="175" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="300" y="175" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="375" y="175" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="450" y="175" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="525" y="175" width="70" height="28" rx="4" fill="#0f766e" />
+
+    <!-- Row 6: Sunday -->
+    <text x="-15" y="231" fill="#c4d5e0" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">Sunday</text>
+    <rect x="0" y="210" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="75" y="210" width="70" height="28" rx="4" fill="#0f766e" />
+    <rect x="150" y="210" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="225" y="210" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="300" y="210" width="70" height="28" rx="4" fill="#112836" />
+    <rect x="375" y="210" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="450" y="210" width="70" height="28" rx="4" fill="#00635e" />
+    <rect x="525" y="210" width="70" height="28" rx="4" fill="#00635e" />
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(130, 360)">
+    <text x="0" y="12" fill="#8da3b0" font-family="sans-serif" font-size="10" font-weight="600">ANOMALY DENSITY:</text>
+    <rect x="110" y="2" width="20" height="12" rx="2" fill="#112836" />
+    <text x="135" y="12" fill="#8da3b0" font-family="sans-serif" font-size="10">Zero (0)</text>
+    <rect x="195" y="2" width="20" height="12" rx="2" fill="#00635e" />
+    <text x="220" y="12" fill="#8da3b0" font-family="sans-serif" font-size="10">Mild (1-2)</text>
+    <rect x="290" y="2" width="20" height="12" rx="2" fill="#0f766e" />
+    <text x="315" y="12" fill="#8da3b0" font-family="sans-serif" font-size="10">Moderate (3-5)</text>
+    <rect x="410" y="2" width="20" height="12" rx="2" fill="#d97706" />
+    <text x="435" y="12" fill="#8da3b0" font-family="sans-serif" font-size="10">High (6-9)</text>
+    <rect x="510" y="2" width="20" height="12" rx="2" fill="#dc2626" />
+    <text x="535" y="12" fill="#8da3b0" font-family="sans-serif" font-size="10">Severe Panic (&gt; 10)</text>
+  </g>
+</svg>

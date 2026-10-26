@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070c18" />
+      <stop offset="100%" stop-color="#0e172a" />
+    </linearGradient>
+    <linearGradient id="mapCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="520" rx="14" fill="url(#bgGrad5)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Title & Subtitle -->
+  <text x="36" y="38" fill="#f8fafc" font-size="18" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">🗺️ India Regional Healthcare Geo-Intelligence &amp; Disease Seroprevalence</text>
+  <text x="36" y="60" fill="#94a3b8" font-size="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">Geographic Map Chart: Multi-Zone Epidemiological Risk, Biomarker Divergence &amp; Sentinel Telemetry Nodes</text>
+
+  <!-- Central Map Silhouette representation of India with regional zones -->
+  <g transform="translate(140, 85)">
+    <!-- Stylized India outline path -->
+    <path d="M 170 30 
+             L 190 20 L 210 35 L 200 65 L 220 90 L 245 105 L 235 130 
+             L 280 140 L 320 135 L 340 150 L 325 175 L 290 180 L 260 195 
+             L 250 240 L 235 280 L 210 330 L 180 370 L 175 350 L 160 300 
+             L 140 260 L 120 220 L 95 190 L 110 160 L 125 135 L 145 110 
+             L 150 70 Z" 
+          fill="#1e293b" stroke="#334155" stroke-width="2" />
+
+    <!-- North Zone fill -->
+    <path d="M 170 30 L 190 20 L 210 35 L 200 65 L 220 90 L 180 115 L 145 110 L 150 70 Z" 
+          fill="#ef4444" fill-opacity="0.35" stroke="#ef4444" stroke-width="1.5" />
+
+    <!-- West Zone fill -->
+    <path d="M 145 110 L 180 115 L 170 180 L 120 220 L 95 190 L 110 160 L 125 135 Z" 
+          fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1.5" />
+
+    <!-- Central Zone fill -->
+    <path d="M 180 115 L 235 130 L 220 210 L 170 180 Z" 
+          fill="#eab308" fill-opacity="0.3" stroke="#eab308" stroke-width="1.5" />
+
+    <!-- East Zone fill -->
+    <path d="M 235 130 L 280 140 L 260 195 L 220 210 Z" 
+          fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.5" />
+
+    <!-- North-East Zone fill -->
+    <path d="M 280 140 L 320 135 L 340 150 L 325 175 L 290 180 L 280 140 Z" 
+          fill="#a855f7" fill-opacity="0.4" stroke="#a855f7" stroke-width="1.5" />
+
+    <!-- South Zone fill -->
+    <path d="M 170 180 L 220 210 L 250 240 L 235 280 L 210 330 L 180 370 L 175 350 L 160 300 L 140 260 L 120 220 Z" 
+          fill="#06b6d4" fill-opacity="0.35" stroke="#06b6d4" stroke-width="1.5" />
+
+    <!-- Sentinel Node Markers (Telemetry Hubs) -->
+    <!-- Delhi Hub -->
+    <circle cx="180" cy="80" r="5" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="180" cy="80" r="11" fill="none" stroke="#ef4444" stroke-width="1" stroke-opacity="0.6" />
+
+    <!-- Mumbai Hub -->
+    <circle cx="130" cy="190" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="130" cy="190" r="11" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.6" />
+
+    <!-- Bengaluru / Chennai Hub -->
+    <circle cx="180" cy="300" r="5" fill="#06b6d4" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="180" cy="300" r="11" fill="none" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.6" />
+
+    <!-- Kolkata Hub -->
+    <circle cx="260" cy="180" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="260" cy="180" r="11" fill="none" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.6" />
+
+    <!-- Guwahati Hub -->
+    <circle cx="310" cy="155" r="5" fill="#a855f7" stroke="#ffffff" stroke-width="1.5" />
+  </g>
+
+  <!-- REGIONAL DATA CARDS (Surrounding the map) -->
+
+  <!-- Card 1: North Zone (Top Left) -->
+  <g transform="translate(30, 90)">
+    <rect width="210" height="95" rx="8" fill="url(#mapCardGrad)" stroke="#ef4444" stroke-width="1.5" />
+    <text x="14" y="24" fill="#fca5a5" font-size="12" font-weight="700" font-family="sans-serif">🔴 Northern Cluster</text>
+    <text x="14" y="42" fill="#cbd5e1" font-size="10.5" font-family="sans-serif">Primary: Severe Cardiometabolic</text>
+    <text x="14" y="60" fill="#94a3b8" font-size="10" font-family="monospace">T2D: 13.8% | HTN: 18.2%</text>
+    <text x="14" y="78" fill="#94a3b8" font-size="10" font-family="monospace">Airway Obstruct: 8.6% (PM2.5)</text>
+    <!-- Connector line -->
+    <line x1="210" y1="48" x2="310" y2="160" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Card 2: West Zone (Mid Left) -->
+  <g transform="translate(30, 215)">
+    <rect width="210" height="95" rx="8" fill="url(#mapCardGrad)" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="14" y="24" fill="#fde68a" font-size="12" font-weight="700" font-family="sans-serif">🟠 Western Cluster</text>
+    <text x="14" y="42" fill="#cbd5e1" font-size="10.5" font-family="sans-serif">Primary: Atherosclerotic CVD</text>
+    <text x="14" y="60" fill="#94a3b8" font-size="10" font-family="monospace">CAD: 9.1% | Dyslipidemia: 31%</text>
+    <text x="14" y="78" fill="#94a3b8" font-size="10" font-family="monospace">NAFLD Liver Index: 24.3%</text>
+    <line x1="210" y1="260" x2="270" y2="275" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Card 3: South Zone (Bottom Left/Center) -->
+  <g transform="translate(30, 340)">
+    <rect width="220" height="95" rx="8" fill="url(#mapCardGrad)" stroke="#06b6d4" stroke-width="1.5" />
+    <text x="14" y="24" fill="#67e8f9" font-size="12" font-weight="700" font-family="sans-serif">🔵 Southern Cluster</text>
+    <text x="14" y="42" fill="#cbd5e1" font-size="10.5" font-family="sans-serif">Primary: Diabetic Microvascular</text>
+    <text x="14" y="60" fill="#94a3b8" font-size="10" font-family="monospace">T2D: 15.4% | CKD St 3+: 8.4%</text>
+    <text x="14" y="78" fill="#94a3b8" font-size="10" font-family="monospace">Retinopathy Screen: 11.2%</text>
+    <line x1="220" y1="380" x2="315" y2="385" stroke="#06b6d4" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Card 4: North-East Zone (Top Right) -->
+  <g transform="translate(610, 90)">
+    <rect width="220" height="95" rx="8" fill="url(#mapCardGrad)" stroke="#a855f7" stroke-width="1.5" />
+    <text x="14" y="24" fill="#e9d5ff" font-size="12" font-weight="700" font-family="sans-serif">🟣 North-East Cluster</text>
+    <text x="14" y="42" fill="#cbd5e1" font-size="10.5" font-family="sans-serif">Primary: Upper GI Oncology</text>
+    <text x="14" y="60" fill="#94a3b8" font-size="10" font-family="monospace">Esophageal CA: 2.3× Nat Avg</text>
+    <text x="14" y="78" fill="#94a3b8" font-size="10" font-family="monospace">Gastric Malignancy: +82%</text>
+    <line x1="610" y1="135" x2="455" y2="235" stroke="#a855f7" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Card 5: East Zone (Mid Right) -->
+  <g transform="translate(610, 215)">
+    <rect width="220" height="95" rx="8" fill="url(#mapCardGrad)" stroke="#3b82f6" stroke-width="1.5" />
+    <text x="14" y="24" fill="#93c5fd" font-size="12" font-weight="700" font-family="sans-serif">🔷 Eastern Cluster</text>
+    <text x="14" y="42" fill="#cbd5e1" font-size="10.5" font-family="sans-serif">Primary: Anemia &amp; Chronic Resp</text>
+    <text x="14" y="60" fill="#94a3b8" font-size="10" font-family="monospace">Serum Ferritin Def: 28.4%</text>
+    <text x="14" y="78" fill="#94a3b8" font-size="10" font-family="monospace">COPD / Chronic Resp: 7.2%</text>
+    <line x1="610" y1="260" x2="405" y2="265" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Card 6: Central Zone (Bottom Right) -->
+  <g transform="translate(610, 340)">
+    <rect width="220" height="95" rx="8" fill="url(#mapCardGrad)" stroke="#eab308" stroke-width="1.5" />
+    <text x="14" y="24" fill="#fef08a" font-size="12" font-weight="700" font-family="sans-serif">🟡 Central Cluster</text>
+    <text x="14" y="42" fill="#cbd5e1" font-size="10.5" font-family="sans-serif">Primary: Hemoglobinopathies</text>
+    <text x="14" y="60" fill="#94a3b8" font-size="10" font-family="monospace">Sickle Cell Allele: 12.1%</text>
+    <text x="14" y="78" fill="#94a3b8" font-size="10" font-family="monospace">Beta-Thalassemia Trait: 4.8%</text>
+    <line x1="610" y1="380" x2="355" y2="245" stroke="#eab308" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Legend & Bottom Bar -->
+  <g transform="translate(80, 480)">
+    <circle cx="10" cy="10" r="5" fill="#ef4444" />
+    <text x="24" y="14" fill="#cbd5e1" font-size="11" font-family="sans-serif">Cardiometabolic</text>
+
+    <circle cx="160" cy="10" r="5" fill="#f59e0b" />
+    <text x="174" y="14" fill="#cbd5e1" font-size="11" font-family="sans-serif">Coronary CAD</text>
+
+    <circle cx="300" cy="10" r="5" fill="#06b6d4" />
+    <text x="314" y="14" fill="#cbd5e1" font-size="11" font-family="sans-serif">Renal Microvasc</text>
+
+    <circle cx="450" cy="10" r="5" fill="#3b82f6" />
+    <text x="464" y="14" fill="#cbd5e1" font-size="11" font-family="sans-serif">Hematologic</text>
+
+    <circle cx="580" cy="10" r="5" fill="#a855f7" />
+    <text x="594" y="14" fill="#cbd5e1" font-size="11" font-family="sans-serif">Oncology Surges</text>
+
+    <circle cx="710" cy="10" r="4" fill="#ffffff" stroke="#06b6d4" stroke-width="2" />
+    <text x="722" y="14" fill="#94a3b8" font-size="10" font-family="sans-serif">Edge Node</text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="radarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a151d" />
+      <stop offset="100%" stop-color="#142634" />
+    </linearGradient>
+    <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b4a7" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#00635e" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="polyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="500" rx="14" fill="url(#radarBg)" stroke="#1e3a4a" stroke-width="2" />
+
+  <text x="40" y="38" fill="#4ef3e2" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1">🕸️ RADAR CHART: MULTI-AXIS MODEL EVALUATION</text>
+  <text x="40" y="65" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="800">Biomedical Model Performance: MediPredict GB v1 vs Baseline</text>
+
+  <!-- Center: 350, 270. Radius max: 160 -->
+  <g transform="translate(350, 275)">
+    <!-- Concentric Web Polygons (20%, 40%, 60%, 80%, 100%) -->
+    <!-- 6 axes: 0, 60, 120, 180, 240, 300 deg -->
+    <!-- Angles in rad: 0, pi/3, 2pi/3, pi, 4pi/3, 5pi/3 -->
+    <!-- cos/sin for angles starting from top (angle - pi/2): -->
+    <!-- A0 (Top: AUROC): 0, -r -->
+    <!-- A1 (60 deg: Sensitivity): r*sqrt(3)/2, -r/2 -> r*0.866, -r*0.5 -->
+    <!-- A2 (120 deg: Specificity): r*0.866, r*0.5 -->
+    <!-- A3 (180 deg: F1-Score): 0, r -->
+    <!-- A4 (240 deg: Calibration): -r*0.866, r*0.5 -->
+    <!-- A5 (300 deg: Latency): -r*0.866, -r*0.5 -->
+
+    <!-- Ring 100% (r=160) -->
+    <polygon points="0,-160 138.6,-80 138.6,80 0,160 -138.6,80 -138.6,-80" fill="none" stroke="#254354" stroke-width="1.5" />
+    <!-- Ring 80% (r=128) -->
+    <polygon points="0,-128 110.8,-64 110.8,64 0,128 -110.8,64 -110.8,-64" fill="none" stroke="#1d3543" stroke-width="1" />
+    <!-- Ring 60% (r=96) -->
+    <polygon points="0,-96 83.1,-48 83.1,48 0,96 -83.1,48 -83.1,-48" fill="none" stroke="#1d3543" stroke-width="1" />
+    <!-- Ring 40% (r=64) -->
+    <polygon points="0,-64 55.4,-32 55.4,32 0,64 -55.4,32 -55.4,-32" fill="none" stroke="#1d3543" stroke-width="1" />
+    <!-- Ring 20% (r=32) -->
+    <polygon points="0,-32 27.7,-16 27.7,16 0,32 -27.7,16 -27.7,-16" fill="none" stroke="#1d3543" stroke-width="1" />
+
+    <!-- Axes Lines -->
+    <line x1="0" y1="0" x2="0" y2="-160" stroke="#2a5068" stroke-width="1.5" />
+    <line x1="0" y1="0" x2="138.6" y2="-80" stroke="#2a5068" stroke-width="1.5" />
+    <line x1="0" y1="0" x2="138.6" y2="80" stroke="#2a5068" stroke-width="1.5" />
+    <line x1="0" y1="0" x2="0" y2="160" stroke="#2a5068" stroke-width="1.5" />
+    <line x1="0" y1="0" x2="-138.6" y2="80" stroke="#2a5068" stroke-width="1.5" />
+    <line x1="0" y1="0" x2="-138.6" y2="-80" stroke="#2a5068" stroke-width="1.5" />
+
+    <!-- Baseline Model (Blue Polygon): AUROC 0.78, Sens 0.72, Spec 0.81, F1 0.74, Calib 0.70, Latency 0.85 -->
+    <!-- r values: 124.8, 115.2, 129.6, 118.4, 112.0, 136.0 -->
+    <polygon points="0,-124.8 99.8,-57.6 112.2,64.8 0,118.4 -97.0,56.0 -117.8,-68.0" fill="url(#polyGrad2)" stroke="#3b82f6" stroke-width="2" />
+
+    <!-- MediPredict Model (Teal Polygon): AUROC 0.962, Sens 0.941, Spec 0.955, F1 0.938, Calib 0.925, Latency 0.960 -->
+    <!-- r values: 153.9, 150.6, 152.8, 150.1, 148.0, 153.6 -->
+    <polygon points="0,-153.9 130.4,-75.3 132.3,76.4 0,150.1 -128.2,74.0 -133.0,-76.8" fill="url(#polyGrad1)" stroke="#00b4a7" stroke-width="2.5" />
+
+    <!-- Points MediPredict -->
+    <circle cx="0" cy="-153.9" r="4.5" fill="#4ef3e2" />
+    <circle cx="130.4" cy="-75.3" r="4.5" fill="#4ef3e2" />
+    <circle cx="132.3" cy="76.4" r="4.5" fill="#4ef3e2" />
+    <circle cx="0" cy="150.1" r="4.5" fill="#4ef3e2" />
+    <circle cx="-128.2" cy="74.0" r="4.5" fill="#4ef3e2" />
+    <circle cx="-133.0" cy="-76.8" r="4.5" fill="#4ef3e2" />
+
+    <!-- Axis Labels -->
+    <text x="0" y="-175" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">AUROC (0.962)</text>
+    <text x="155" y="-85" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="start">Sensitivity / Recall (94.1%)</text>
+    <text x="155" y="90" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="start">Specificity (95.5%)</text>
+    <text x="0" y="185" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">F1-Score (0.938)</text>
+    <text x="-155" y="90" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="end">Platt Calibration (0.925)</text>
+    <text x="-155" y="-85" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="end">Inference Latency (12ms)</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(480, 25)">
+    <rect x="0" y="0" width="16" height="12" rx="3" fill="#00b4a7" />
+    <text x="24" y="11" fill="#4ef3e2" font-family="sans-serif" font-size="11" font-weight="700">MediPredict GB Ensemble</text>
+
+    <rect x="0" y="20" width="16" height="12" rx="3" fill="#3b82f6" />
+    <text x="24" y="31" fill="#7bc4ff" font-family="sans-serif" font-size="11" font-weight="700">Baseline Logistic Classifier</text>
+  </g>
+</svg>

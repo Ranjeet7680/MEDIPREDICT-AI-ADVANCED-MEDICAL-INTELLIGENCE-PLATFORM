@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1b" />
+      <stop offset="100%" stop-color="#0f192b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="480" rx="14" fill="url(#bgGrad3)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Title & Subtitle -->
+  <text x="36" y="38" fill="#f8fafc" font-size="18" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">🎯 Epidemiological Disease Risk vs Prevalence vs Population Cohort Size</text>
+  <text x="36" y="60" fill="#94a3b8" font-size="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">Bubble Chart: X-Axis = Prevalence (%) • Y-Axis = 5-Yr Mortality Odds Ratio • Bubble Size = Patient Registry Size (N)</text>
+
+  <!-- Axes layout:
+       X-axis: 0% to 16% (X: 90 to 790, width=700px -> 43.75 px per 1%)
+       Y-axis: 1.0 to 10.0 OR (Y: 380 to 90, height=290px -> 32.2 px per 1.0 OR unit)
+  -->
+
+  <!-- Grid lines -->
+  <g stroke="#1e293b" stroke-width="1" stroke-dasharray="3,3">
+    <!-- Horizontal OR lines: 2.0, 4.0, 6.0, 8.0, 10.0 -->
+    <line x1="90" y1="380" x2="790" y2="380" />
+    <line x1="90" y1="315" x2="790" y2="315" />
+    <line x1="90" y1="251" x2="790" y2="251" />
+    <line x1="90" y1="186" x2="790" y2="186" />
+    <line x1="90" y1="122" x2="790" y2="122" />
+
+    <!-- Vertical Prevalence lines: 2%, 4%, 6%, 8%, 10%, 12%, 14%, 16% -->
+    <line x1="178" y1="90" x2="178" y2="380" />
+    <line x1="265" y1="90" x2="265" y2="380" />
+    <line x1="353" y1="90" x2="353" y2="380" />
+    <line x1="440" y1="90" x2="440" y2="380" />
+    <line x1="528" y1="90" x2="528" y2="380" />
+    <line x1="615" y1="90" x2="615" y2="380" />
+    <line x1="703" y1="90" x2="703" y2="380" />
+    <line x1="790" y1="90" x2="790" y2="380" />
+  </g>
+
+  <!-- Y-Axis Labels (OR) -->
+  <g fill="#94a3b8" font-size="11" text-anchor="end" font-family="monospace">
+    <text x="80" y="126">9.0 OR</text>
+    <text x="80" y="190">7.0 OR</text>
+    <text x="80" y="255">5.0 OR</text>
+    <text x="80" y="319">3.0 OR</text>
+    <text x="80" y="384">1.0 OR</text>
+  </g>
+
+  <!-- X-Axis Labels (Prevalence %) -->
+  <g fill="#94a3b8" font-size="11" text-anchor="middle" font-family="monospace">
+    <text x="90" y="402">0%</text>
+    <text x="178" y="402">2%</text>
+    <text x="265" y="402">4%</text>
+    <text x="353" y="402">6%</text>
+    <text x="440" y="402">8%</text>
+    <text x="528" y="402">10%</text>
+    <text x="615" y="402">12%</text>
+    <text x="703" y="402">14%</text>
+    <text x="790" y="402">16%</text>
+  </g>
+
+  <!-- Axes lines -->
+  <line x1="90" y1="90" x2="90" y2="380" stroke="#475569" stroke-width="1.5" />
+  <line x1="90" y1="380" x2="790" y2="380" stroke="#475569" stroke-width="1.5" />
+
+  <!-- BUBBLES -->
+  <!-- 1. Hypertension: Prev=15.2% (X=90 + 15.2*43.75 = 755), OR=1.62 (Y=380 - 0.62*32.2 = 360), R=34 -->
+  <g>
+    <circle cx="755" cy="360" r="34" fill="#06b6d4" fill-opacity="0.38" stroke="#06b6d4" stroke-width="2" />
+    <text x="755" y="356" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle" font-family="sans-serif">Hypertension</text>
+    <text x="755" y="369" fill="#bae6fd" font-size="9" text-anchor="middle" font-family="sans-serif">N=3.1M • OR 1.6</text>
+  </g>
+
+  <!-- 2. Type-2 Diabetes: Prev=11.4% (X=90 + 11.4*43.75 = 589), OR=1.85 (Y=380 - 0.85*32.2 = 352), R=30 -->
+  <g>
+    <circle cx="589" cy="352" r="30" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="2" />
+    <text x="589" y="348" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle" font-family="sans-serif">Type-2 Diabetes</text>
+    <text x="589" y="361" fill="#bfdbfe" font-size="9" text-anchor="middle" font-family="sans-serif">N=2.4M • OR 1.9</text>
+  </g>
+
+  <!-- 3. CKD Stage 3-5: Prev=6.8% (X=90 + 6.8*43.75 = 387), OR=3.4 (Y=380 - 2.4*32.2 = 303), R=22 -->
+  <g>
+    <circle cx="387" cy="303" r="22" fill="#f59e0b" fill-opacity="0.42" stroke="#f59e0b" stroke-width="2" />
+    <text x="387" y="300" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle" font-family="sans-serif">CKD Stage 3-5</text>
+    <text x="387" y="312" fill="#fde68a" font-size="8.5" text-anchor="middle" font-family="sans-serif">N=840k • OR 3.4</text>
+  </g>
+
+  <!-- 4. Heart Failure (HFrEF): Prev=2.9% (X=90 + 2.9*43.75 = 217), OR=4.6 (Y=380 - 3.6*32.2 = 264), R=18 -->
+  <g>
+    <circle cx="217" cy="264" r="18" fill="#14b8a6" fill-opacity="0.45" stroke="#14b8a6" stroke-width="2" />
+    <text x="217" y="261" fill="#f8fafc" font-size="9.5" font-weight="700" text-anchor="middle" font-family="sans-serif">Heart Failure</text>
+    <text x="217" y="273" fill="#99f6e4" font-size="8" text-anchor="middle" font-family="sans-serif">N=420k • OR 4.6</text>
+  </g>
+
+  <!-- 5. Colorectal Adenocarcinoma: Prev=1.4% (X=90 + 1.4*43.75 = 151), OR=5.2 (Y=380 - 4.2*32.2 = 245), R=14 -->
+  <g>
+    <circle cx="151" cy="245" r="14" fill="#fb7185" fill-opacity="0.45" stroke="#fb7185" stroke-width="2" />
+    <text x="151" y="242" fill="#f8fafc" font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">Colorectal CA</text>
+    <text x="151" y="253" fill="#fecdd3" font-size="7.5" text-anchor="middle" font-family="sans-serif">N=180k • OR 5.2</text>
+  </g>
+
+  <!-- 6. Early-Onset Alzheimer's: Prev=1.1% (X=90 + 1.1*43.75 = 138), OR=6.8 (Y=380 - 5.8*32.2 = 193), R=13 -->
+  <g>
+    <circle cx="138" cy="193" r="13" fill="#a855f7" fill-opacity="0.45" stroke="#a855f7" stroke-width="2" />
+    <text x="138" y="190" fill="#f8fafc" font-size="8.5" font-weight="700" text-anchor="middle" font-family="sans-serif">Alzheimer's</text>
+    <text x="138" y="201" fill="#e9d5ff" font-size="7.5" text-anchor="middle" font-family="sans-serif">N=160k</text>
+  </g>
+
+  <!-- 7. NSCLC Lung Carcinoma: Prev=0.8% (X=90 + 0.8*43.75 = 125), OR=8.4 (Y=380 - 7.4*32.2 = 142), R=11 -->
+  <g>
+    <circle cx="125" cy="142" r="11" fill="#ef4444" fill-opacity="0.5" stroke="#ef4444" stroke-width="2" />
+    <text x="175" y="140" fill="#fca5a5" font-size="9.5" font-weight="700" font-family="sans-serif">NSCLC Lung CA</text>
+    <text x="175" y="152" fill="#cbd5e1" font-size="8" font-family="sans-serif">N=95k • OR 8.4</text>
+    <line x1="137" y1="142" x2="170" y2="142" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2" />
+  </g>
+
+  <!-- 8. ALS Rare Neuro: Prev=0.08% (X=94), OR=9.5 (Y=106), R=7 -->
+  <g>
+    <circle cx="98" cy="106" r="7" fill="#8b5cf6" fill-opacity="0.6" stroke="#c084fc" stroke-width="1.5" />
+    <text x="135" y="104" fill="#c084fc" font-size="9" font-weight="700" font-family="sans-serif">ALS Neurodegenerative</text>
+    <text x="135" y="115" fill="#cbd5e1" font-size="8" font-family="sans-serif">N=18k • OR 9.5</text>
+    <line x1="106" y1="106" x2="130" y2="106" stroke="#c084fc" stroke-width="1" stroke-dasharray="2,2" />
+  </g>
+
+  <!-- 9. SLE Autoimmune: Prev=0.45% (X=110), OR=2.8 (Y=322), R=10 -->
+  <g>
+    <circle cx="110" cy="322" r="10" fill="#eab308" fill-opacity="0.45" stroke="#eab308" stroke-width="1.5" />
+    <text x="126" y="322" fill="#fde047" font-size="8.5" font-weight="600" font-family="sans-serif">SLE Autoimmune (N=110k)</text>
+  </g>
+
+  <!-- Legend Bottom -->
+  <g transform="translate(90, 442)">
+    <circle cx="10" cy="8" r="6" fill="#06b6d4" />
+    <text x="24" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Cardiometabolic</text>
+
+    <circle cx="150" cy="8" r="6" fill="#fb7185" />
+    <text x="164" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Oncology</text>
+
+    <circle cx="250" cy="8" r="6" fill="#f59e0b" />
+    <text x="264" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Renal / Organ Failure</text>
+
+    <circle cx="430" cy="8" r="6" fill="#a855f7" />
+    <text x="444" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Neurodegenerative</text>
+
+    <text x="630" y="12" fill="#94a3b8" font-size="10" font-family="sans-serif">Bubble Area ∝ Cohort Size (N)</text>
+  </g>
+</svg>

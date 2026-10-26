@@ -112,6 +112,33 @@ The official **[MediPredict AI GitHub Wiki](https://github.com/Ranjeet7680/MEDIP
 | **API Reference** | [18. REST API Specification](https://github.com/Ranjeet7680/MEDIPREDICT-AI-ADVANCED-MEDICAL-INTELLIGENCE-PLATFORM/wiki/18-REST-API-Specification) | Complete OpenAPI endpoints, payload schemas, and error codes |
 | **Verification** | [19. Automated Testing & Verification](https://github.com/Ranjeet7680/MEDIPREDICT-AI-ADVANCED-MEDICAL-INTELLIGENCE-PLATFORM/wiki/19-Testing-Clinical-Verification) | Pytest test execution guide and 36/36 automated test suite reports |
 | **Roadmap** | [20. Future Innovations & SaMD](https://github.com/Ranjeet7680/MEDIPREDICT-AI-ADVANCED-MEDICAL-INTELLIGENCE-PLATFORM/wiki/20-Roadmap-Future-Innovations) | Multi-center IRB clinical pilot, CDSCO SaMD, and federated learning |
+| **Data Pipelines** | [21. Medical Data Pipelines (10 PIP)](https://github.com/Ranjeet7680/MEDIPREDICT-AI-ADVANCED-MEDICAL-INTELLIGENCE-PLATFORM/wiki/21-Medical-Data-Pipelines-PIP-Architecture) | 10 end-to-end PIP clinical flowcharts (Biomarkers, Voice, ML, IoT, RAG, ReBAC, Audit, DPDP, Wearables, Triage) |
+| **Visual Atlas** | [22. Clinical Visualization Atlas](https://github.com/Ranjeet7680/MEDIPREDICT-AI-ADVANCED-MEDICAL-INTELLIGENCE-PLATFORM/wiki/22-Clinical-Data-Visualization-Atlas) | Complete 15 clinical visualization paradigms (Bar, Pie, Line, Area, Scatter, Histogram, Box Plot, Grouped Bar, Stacked Bar, Bubble, Heatmap, Radar, Doughnut, Map, Candlestick) |
+
+---
+
+## Clinical Data Visualizations & Process Pipeline Atlas
+
+MediPredict AI includes an enterprise visual intelligence atlas featuring **10 Data Ingestion Pipelines (PIP-01 to PIP-10)** and **15 Standard Clinical Visualization Paradigms**:
+
+<p align="center">
+  <img src="assets/chart-candlestick-abpm.svg" alt="24-Hour ABPM Candlestick Movements" width="49%" />
+  <img src="assets/chart-vital-anomaly-heatmap.svg" alt="7-Day Nocturnal Vital Anomaly Heatmap" width="49%" />
+</p>
+
+<p align="center">
+  <img src="assets/chart-radar-model-eval.svg" alt="Multi-Metric Biomedical Model Evaluation Radar Chart" width="49%" />
+  <img src="assets/chart-boxplot-immunoglobulins.svg" alt="Serum Immunoglobulins Box Plot" width="49%" />
+</p>
+
+<p align="center">
+  <img src="assets/chart-bubble-epidemiology.svg" alt="Epidemiological Risk Bubble Chart" width="49%" />
+  <img src="assets/chart-scatter-ferritin.svg" alt="Patient Age vs Ferritin Scatter Plot" width="49%" />
+</p>
+
+<p align="center">
+  <img src="assets/chart-map-regional-prevalence.svg" alt="India Regional Healthcare Geo-Intelligence Map" width="98%" />
+</p>
 
 ---
 

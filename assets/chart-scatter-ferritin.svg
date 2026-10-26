@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080d1a" />
+      <stop offset="100%" stop-color="#0e1726" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="480" rx="14" fill="url(#bgGrad4)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Title & Subtitle -->
+  <text x="36" y="38" fill="#f8fafc" font-size="18" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">🔵 Patient Age vs. Serum Ferritin with HFE Genetic Mutation Clusters</text>
+  <text x="36" y="60" fill="#94a3b8" font-size="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">Scatter Plot: Longitudinal Age (18–80 yrs) vs Ferritin (ng/mL) • Hereditary Hemochromatosis Penetrance</text>
+
+  <!-- Boundaries:
+       X-axis: Age 18 to 80 (Width: 700px, X: 100 to 800 -> 11.29 px per year)
+       Y-axis: Ferritin 0 to 1200 ng/mL (Height: 300px, Y: 390 to 90 -> 0.25 px per ng/mL)
+  -->
+
+  <!-- Toxicity Danger Zone (Ferritin > 1000 ng/mL: Y=90 to 140) -->
+  <rect x="100" y="90" width="700" height="50" fill="#ef4444" fill-opacity="0.08" />
+  <text x="790" y="108" fill="#f87171" font-size="10" font-weight="600" text-anchor="end" font-family="sans-serif">⚠️ Hepatosplenomegaly &amp; Toxic Overload Zone (&gt;1000 ng/mL)</text>
+
+  <!-- Grid lines -->
+  <g stroke="#1e293b" stroke-width="1" stroke-dasharray="3,3">
+    <!-- Ferritin lines: 200, 400, 600, 800, 1000, 1200 -->
+    <line x1="100" y1="90" x2="800" y2="90" />
+    <line x1="100" y1="140" x2="800" y2="140" />
+    <line x1="100" y1="190" x2="800" y2="190" />
+    <line x1="100" y1="240" x2="800" y2="240" />
+    <line x1="100" y1="290" x2="800" y2="290" />
+    <line x1="100" y1="340" x2="800" y2="340" />
+    <line x1="100" y1="390" x2="800" y2="390" />
+
+    <!-- Age lines: 20, 30, 40, 50, 60, 70, 80 -->
+    <line x1="122" y1="90" x2="122" y2="390" />
+    <line x1="235" y1="90" x2="235" y2="390" />
+    <line x1="348" y1="90" x2="348" y2="390" />
+    <line x1="461" y1="90" x2="461" y2="390" />
+    <line x1="574" y1="90" x2="574" y2="390" />
+    <line x1="687" y1="90" x2="687" y2="390" />
+    <line x1="800" y1="90" x2="800" y2="390" />
+  </g>
+
+  <!-- Reference threshold: 300 ng/mL at Y = 390 - 300*0.25 = 315 -->
+  <line x1="100" y1="315" x2="800" y2="315" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4" />
+  <text x="105" y="311" fill="#f59e0b" font-size="10" font-weight="600" font-family="sans-serif">Upper Normal Male Limit (300 ng/mL)</text>
+
+  <!-- Y-Axis Labels -->
+  <g fill="#94a3b8" font-size="11" text-anchor="end" font-family="monospace">
+    <text x="90" y="94">1200</text>
+    <text x="90" y="144">1000</text>
+    <text x="90" y="194">800</text>
+    <text x="90" y="244">600</text>
+    <text x="90" y="294">400</text>
+    <text x="90" y="344">200</text>
+    <text x="90" y="394">0 ng/mL</text>
+  </g>
+
+  <!-- X-Axis Labels -->
+  <g fill="#94a3b8" font-size="11" text-anchor="middle" font-family="monospace">
+    <text x="122" y="408">20y</text>
+    <text x="235" y="408">30y</text>
+    <text x="348" y="408">40y</text>
+    <text x="461" y="408">50y</text>
+    <text x="574" y="408">60y</text>
+    <text x="687" y="408">70y</text>
+    <text x="800" y="408">80y</text>
+  </g>
+
+  <!-- Axes lines -->
+  <line x1="100" y1="90" x2="100" y2="390" stroke="#475569" stroke-width="1.5" />
+  <line x1="100" y1="390" x2="800" y2="390" stroke="#475569" stroke-width="1.5" />
+
+  <!-- Trend lines -->
+  <!-- 1. Normal Cohort Gentle Age Trend -->
+  <path d="M 122 365 Q 461 355 800 340" fill="none" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.6" />
+  <!-- 2. HFE C282Y Homozygote Accumulation Curve (Inflects sharply after age 35) -->
+  <path d="M 122 350 Q 300 320 400 240 T 650 115 T 800 95" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5,3" />
+
+  <!-- SCATTER POINTS -->
+
+  <!-- A. Healthy Controls (Cyan dots, Ferritin 40 to 260 ng/mL, Y: 325 to 380) -->
+  <g fill="#06b6d4" opacity="0.75">
+    <circle cx="130" cy="370" r="4" /><circle cx="145" cy="365" r="4" /><circle cx="160" cy="358" r="4" />
+    <circle cx="180" cy="362" r="4" /><circle cx="205" cy="375" r="4" /><circle cx="220" cy="355" r="4" />
+    <circle cx="240" cy="350" r="4" /><circle cx="265" cy="360" r="4" /><circle cx="280" cy="345" r="4" />
+    <circle cx="310" cy="368" r="4" /><circle cx="330" cy="352" r="4" /><circle cx="355" cy="340" r="4" />
+    <circle cx="380" cy="348" r="4" /><circle cx="410" cy="360" r="4" /><circle cx="435" cy="335" r="4" />
+    <circle cx="470" cy="342" r="4" /><circle cx="495" cy="350" r="4" /><circle cx="525" cy="330" r="4" />
+    <circle cx="550" cy="338" r="4" /><circle cx="585" cy="345" r="4" /><circle cx="620" cy="328" r="4" />
+    <circle cx="650" cy="332" r="4" /><circle cx="680" cy="340" r="4" /><circle cx="715" cy="325" r="4" />
+    <circle cx="750" cy="330" r="4" /><circle cx="785" cy="335" r="4" /><circle cx="795" cy="320" r="4" />
+  </g>
+
+  <!-- B. Iron Deficiency Anemia (Blue points near bottom, Ferritin 8 to 22 ng/mL, Y: 384 to 388) -->
+  <g fill="#38bdf8" opacity="0.8">
+    <circle cx="125" cy="386" r="3.5" /><circle cx="170" cy="388" r="3.5" /><circle cx="215" cy="385" r="3.5" />
+    <circle cx="290" cy="387" r="3.5" /><circle cx="370" cy="386" r="3.5" /><circle cx="450" cy="385" r="3.5" />
+    <circle cx="530" cy="387" r="3.5" /><circle cx="610" cy="388" r="3.5" /><circle cx="690" cy="386" r="3.5" />
+  </g>
+
+  <!-- C. Metabolic Hyperferritinemia / NAFLD (Amber points, Ferritin 350 to 650 ng/mL, Y: 227 to 302) -->
+  <g fill="#f59e0b" opacity="0.8">
+    <circle cx="360" cy="295" r="4.5" /><circle cx="395" cy="285" r="4.5" /><circle cx="440" cy="270" r="4.5" />
+    <circle cx="485" cy="260" r="4.5" /><circle cx="520" cy="280" r="4.5" /><circle cx="560" cy="250" r="4.5" />
+    <circle cx="605" cy="240" r="4.5" /><circle cx="645" cy="265" r="4.5" /><circle cx="690" cy="235" r="4.5" />
+    <circle cx="730" cy="255" r="4.5" /><circle cx="770" cy="245" r="4.5" />
+  </g>
+
+  <!-- D. Hereditary Hemochromatosis HFE C282Y+/+ (Red points, surging past 40yo up to >1100 ng/mL) -->
+  <g fill="#ef4444" stroke="#ffffff" stroke-width="0.8">
+    <circle cx="220" cy="330" r="5" />
+    <circle cx="310" cy="290" r="5" />
+    <circle cx="380" cy="230" r="5.5" />
+    <circle cx="420" cy="205" r="5.5" />
+    <circle cx="460" cy="175" r="6" />
+    <circle cx="500" cy="155" r="6" />
+    <circle cx="540" cy="135" r="6.5" />
+    <circle cx="580" cy="120" r="6.5" />
+    <circle cx="620" cy="112" r="6.5" />
+    <circle cx="670" cy="104" r="7" />
+    <circle cx="720" cy="98" r="7" />
+    <circle cx="760" cy="94" r="7" />
+  </g>
+
+  <!-- Annotations -->
+  <text x="640" y="160" fill="#fca5a5" font-size="11" font-weight="700" font-family="sans-serif">HFE C282Y Homozygote Surge</text>
+  <text x="640" y="174" fill="#94a3b8" font-size="9.5" font-family="sans-serif">Iron progressive accumulation</text>
+
+  <!-- Legend Bottom -->
+  <g transform="translate(100, 442)">
+    <circle cx="10" cy="8" r="4" fill="#06b6d4" />
+    <text x="22" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Normal Genotype (Ref 20–250)</text>
+
+    <circle cx="230" cy="8" r="4" fill="#38bdf8" />
+    <text x="242" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Iron Deficiency (&lt;20 ng/mL)</text>
+
+    <circle cx="430" cy="8" r="4.5" fill="#f59e0b" />
+    <text x="444" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">Metabolic NAFLD (300–600)</text>
+
+    <circle cx="630" cy="8" r="5" fill="#ef4444" />
+    <text x="644" y="12" fill="#cbd5e1" font-size="11" font-family="sans-serif">HFE Mutation (&gt;600 ng/mL)</text>
+  </g>
+</svg>
