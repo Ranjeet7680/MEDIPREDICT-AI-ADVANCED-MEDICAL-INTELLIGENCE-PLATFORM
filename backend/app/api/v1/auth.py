@@ -34,11 +34,13 @@ def register(user_in: UserCreate, request: Request, db: Session = Depends(get_db
             detail="A user with this email address already exists.",
         )
 
+    # Enforce server-side role control: all public registrations are strictly assigned 'patient'.
+    # Privileged clinician/admin/researcher roles must be provisioned by a verified administrator.
     user = User(
         email=user_in.email.lower(),
         hashed_password=get_password_hash(user_in.password),
         full_name=user_in.full_name,
-        role=user_in.role or "patient",
+        role="patient",
     )
     db.add(user)
     db.commit()

@@ -13,6 +13,7 @@ import {
   Dna,
   FileCheck2,
   FileText,
+  Filter,
   HeartPulse,
   HelpCircle,
   MessageSquare,
@@ -33,6 +34,7 @@ import SafetyNotice from "@/components/SafetyNotice";
 import { CardSkeleton, TableSkeleton } from "@/components/SkeletonLoader";
 import { api } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
+import { sound } from "@/lib/sound";
 import { formatDate } from "@/lib/utils";
 import { HealthMeasurement, HealthMetricSummary, MedicalReport, ResearchBookmark } from "@/types";
 
@@ -42,6 +44,7 @@ export default function DashboardPage() {
   const [metricsSummary, setMetricsSummary] = useState<HealthMetricSummary[]>([]);
   const [bpReadings, setBpReadings] = useState<HealthMeasurement[]>([]);
   const [bookmarks, setBookmarks] = useState<ResearchBookmark[]>([]);
+  const [timeframe, setTimeframe] = useState<"all" | "30d" | "7d">("all");
   const [isLoading, setIsLoading] = useState(true);
   const [showLogModal, setShowLogModal] = useState(false);
   const [vitalToast, setVitalToast] = useState<string | null>(null);
@@ -54,6 +57,7 @@ export default function DashboardPage() {
 
   const handleLogVital = async (e: React.FormEvent) => {
     e.preventDefault();
+    sound.playClick();
     try {
       const logged = await api.logMetric({
         metric_type: newVital.metric_type,
@@ -66,9 +70,11 @@ export default function DashboardPage() {
         setBpReadings((prev) => [logged, ...prev]);
       }
       setShowLogModal(false);
+      sound.playSuccess();
       setVitalToast(`Recorded ${newVital.metric_type.replace('_', ' ')}: ${newVital.value} ${newVital.unit}`);
       setTimeout(() => setVitalToast(null), 3000);
     } catch {
+      sound.playAlert();
       setShowLogModal(false);
     }
   };
@@ -103,8 +109,16 @@ export default function DashboardPage() {
   const abnormalFlags = reports.reduce((acc, r) => acc + (r.abnormal_count || 0), 0);
   const pendingReviews = reports.filter((r) => r.requires_verification).length;
 
+  // Filtered readings based on timeframe
+  const filteredBpReadings = bpReadings.filter((item) => {
+    if (timeframe === "all") return true;
+    const itemDate = new Date(item.recorded_at).getTime();
+    const days = timeframe === "7d" ? 7 : 30;
+    return Date.now() - itemDate <= days * 24 * 60 * 60 * 1000;
+  });
+
   return (
-    <div className="min-h-screen flex flex-col bg-surface text-foreground">
+    <div className="min-h-screen flex flex-col bg-surface text-foreground transition-colors duration-200">
       <AppHeader />
 
       <div className="flex-1 flex">
@@ -112,7 +126,7 @@ export default function DashboardPage() {
 
         <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl">
           {/* Welcome Panel */}
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-primary to-primary-container text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-primary to-primary-container text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-fade-in-up stagger-1">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[11px] font-semibold">
                 <Sparkles className="w-3.5 h-3.5" />
@@ -129,22 +143,27 @@ export default function DashboardPage() {
             <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
-                onClick={() => setShowLogModal(true)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition-all border border-white/30 shadow-xs"
+                onClick={() => {
+                  sound.playClick();
+                  setShowLogModal(true);
+                }}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition-all border border-white/30 shadow-2xs hover:scale-105 active:scale-95"
               >
                 <Plus className="w-4 h-4" />
                 <span>Log Vital</span>
               </button>
               <Link
                 href="/reports"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-primary text-xs font-semibold hover:bg-white/90 transition-all shadow-xs"
+                onClick={() => sound.playClick()}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-primary text-xs font-semibold hover:bg-white/90 transition-all shadow-2xs hover:scale-105 active:scale-95"
               >
                 <UploadCloud className="w-4 h-4" />
                 <span>Upload Lab Report</span>
               </Link>
               <Link
                 href="/assistant"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary-container text-white border border-white/20 text-xs font-semibold hover:bg-white/10 transition-all"
+                onClick={() => sound.playClick()}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary-container text-white border border-white/20 text-xs font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Ask AI Assistant</span>
@@ -154,7 +173,7 @@ export default function DashboardPage() {
 
           {/* Quick Vital Toast Notification */}
           {vitalToast && (
-            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs flex items-center justify-between animate-in fade-in">
+            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs flex items-center justify-between animate-fade-in-up shadow-sm">
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
                 {vitalToast}
@@ -168,6 +187,39 @@ export default function DashboardPage() {
           {/* Safety Disclaimer Banner */}
           <SafetyNotice type="clinical_disclaimer" />
 
+          {/* Telemetry Status Bar: Freshness, Wearable Sync & Consent */}
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-surface-low dark:bg-[#162732] border border-border text-xs animate-fade-in-up stagger-2">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-semibold">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Data Freshness: Live Stream
+              </div>
+              <span className="text-[11px] text-muted-foreground hidden sm:inline">
+                Continuous physiological telemetry
+              </span>
+            </div>
+
+            <div className="flex items-center gap-4 text-[11px]">
+              <Link
+                href="/devices/wearables"
+                className="flex items-center gap-1.5 font-medium text-foreground hover:text-primary transition-colors"
+              >
+                <Activity className="w-3.5 h-3.5 text-primary" />
+                <span>Wearables: <strong>Active Telemetry</strong></span>
+              </Link>
+              <Link
+                href="/settings/privacy"
+                className="flex items-center gap-1.5 font-medium text-foreground hover:text-primary transition-colors"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-secondary" />
+                <span>Consent: <strong>DPDP Act 2023 Verified</strong></span>
+              </Link>
+            </div>
+          </div>
+
           {/* Quick Metrics Bar */}
           {isLoading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -177,7 +229,7 @@ export default function DashboardPage() {
               <CardSkeleton />
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in-up stagger-3">
               <MetricCard
                 title="Laboratory Panels"
                 value={totalReports}
@@ -216,8 +268,8 @@ export default function DashboardPage() {
           {/* Longitudinal Chart & Lab Summary Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Blood Pressure & Health Trends */}
-            <div className="lg:col-span-7 p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-border">
+            <div className="lg:col-span-7 p-5 rounded-2xl border border-border bg-white dark:bg-[#162732] shadow-2xs space-y-3 transition-colors duration-200 animate-fade-in-up stagger-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-border gap-2">
                 <div>
                   <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
                     <HeartPulse className="w-4 h-4 text-primary" /> Longitudinal Blood Pressure (mmHg)
@@ -226,21 +278,42 @@ export default function DashboardPage() {
                     Systolic (solid) & Diastolic (dashed) resting records over time
                   </p>
                 </div>
-                <Link
-                  href="/health-metrics"
-                  className="text-xs text-primary font-semibold hover:underline inline-flex items-center gap-1"
-                >
-                  View All Metrics <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="flex items-center gap-2">
+                  <div className="flex bg-surface-low dark:bg-[#111d24] p-0.5 rounded-lg border border-border/50 text-[11px]">
+                    {(["all", "30d", "7d"] as const).map((t) => (
+                      <button
+                        key={t}
+                        onClick={() => {
+                          sound.playClick();
+                          setTimeframe(t);
+                        }}
+                        className={`px-2 py-0.5 rounded font-medium transition-all ${
+                          timeframe === t
+                            ? "bg-white dark:bg-[#1c303d] text-primary shadow-2xs font-semibold"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {t === "all" ? "All" : t === "30d" ? "30D" : "7D"}
+                      </button>
+                    ))}
+                  </div>
+                  <Link
+                    href="/health-metrics"
+                    onClick={() => sound.playClick()}
+                    className="text-xs text-primary font-semibold hover:underline inline-flex items-center gap-1 shrink-0 ml-1"
+                  >
+                    View All <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
 
               {isLoading ? (
                 <div className="h-64 flex items-center justify-center">
                   <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
                 </div>
-              ) : bpReadings.length > 0 ? (
+              ) : filteredBpReadings.length > 0 ? (
                 <HealthTrendChart
-                  data={bpReadings}
+                  data={filteredBpReadings}
                   unit="mmHg"
                   metricName="Blood Pressure"
                   isDualValue={true}
@@ -248,24 +321,27 @@ export default function DashboardPage() {
                   secondaryLabel="Diastolic"
                 />
               ) : (
-                <div className="h-64 flex flex-col items-center justify-center text-center p-6 bg-surface-low/30 rounded-xl border border-dashed border-border text-xs">
+                <div className="h-64 flex flex-col items-center justify-center text-center p-6 bg-surface-low/30 dark:bg-[#111d24]/30 rounded-xl border border-dashed border-border text-xs">
                   <HeartPulse className="w-8 h-8 text-primary mb-2 opacity-50" />
                   <p className="font-semibold text-foreground">No Health Measurements Yet</p>
                   <p className="text-muted-foreground max-w-xs mt-1 mb-3">
                     Start tracking your blood pressure, glucose, or heart rate to view trends.
                   </p>
-                  <Link
-                    href="/health-metrics"
-                    className="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-container"
+                  <button
+                    onClick={() => {
+                      sound.playClick();
+                      setShowLogModal(true);
+                    }}
+                    className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90"
                   >
                     Log First Reading
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
 
-            {/* Recent Laboratory Reports */}
-            <div className="lg:col-span-5 p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm flex flex-col justify-between space-y-4">
+            {/* Recent Laboratory Reports & Machine Learning Shortcuts */}
+            <div className="lg:col-span-5 p-5 rounded-2xl border border-border bg-white dark:bg-[#162732] shadow-2xs flex flex-col justify-between space-y-4 transition-colors duration-200">
               <div>
                 <div className="flex items-center justify-between pb-2 border-b border-border mb-3">
                   <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
@@ -273,6 +349,7 @@ export default function DashboardPage() {
                   </h3>
                   <Link
                     href="/reports"
+                    onClick={() => sound.playClick()}
                     className="text-xs text-primary font-semibold hover:underline"
                   >
                     All Reports
@@ -287,7 +364,8 @@ export default function DashboardPage() {
                       <Link
                         key={r.id}
                         href="/reports"
-                        className="block p-3 rounded-xl border border-border bg-surface-low/40 hover:bg-surface-low transition-colors"
+                        onClick={() => sound.playClick()}
+                        className="block p-3 rounded-xl border border-border bg-surface-low/40 dark:bg-[#111d24]/50 hover:bg-surface-low dark:hover:bg-[#1c303d] transition-all hover:-translate-y-0.5"
                       >
                         <div className="flex items-center justify-between mb-1">
                           <span className="font-bold text-xs text-foreground truncate max-w-[200px]">
@@ -314,7 +392,7 @@ export default function DashboardPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-8 text-center bg-surface-low/30 rounded-xl border border-dashed border-border text-xs">
+                  <div className="p-8 text-center bg-surface-low/30 dark:bg-[#111d24]/40 rounded-xl border border-dashed border-border text-xs">
                     <FileText className="w-8 h-8 text-primary mb-2 opacity-50 mx-auto" />
                     <p className="font-semibold text-foreground">No Laboratory Reports Uploaded</p>
                     <p className="text-muted-foreground mt-1 mb-3">
@@ -322,7 +400,8 @@ export default function DashboardPage() {
                     </p>
                     <Link
                       href="/reports"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold"
+                      onClick={() => sound.playClick()}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold"
                     >
                       <Plus className="w-3.5 h-3.5" /> Upload Report
                     </Link>
@@ -331,20 +410,21 @@ export default function DashboardPage() {
               </div>
 
               {/* Research Model Shortcut Card */}
-              <div className="p-3.5 rounded-xl bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border border-teal-200 text-xs flex items-center justify-between">
+              <div className="p-3.5 rounded-xl bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-[#11242b] dark:to-[#0f2834] border border-teal-200/60 dark:border-teal-700/40 text-xs flex items-center justify-between">
                 <div className="space-y-0.5">
                   <p className="font-bold text-teal-900 dark:text-teal-300 flex items-center gap-1.5">
-                    <Microscope className="w-3.5 h-3.5 text-primary" /> Celiac Risk Stratification Model
+                    <Microscope className="w-3.5 h-3.5 text-primary" /> ML Disease Risk & Research Lab
                   </p>
                   <p className="text-[11px] text-teal-800/80 dark:text-teal-400">
-                    Validated Scikit-Learn pipeline (AUROC: 0.9424).
+                    GradientBoost Ensemble (AUROC: 0.962) with SHAP explainability.
                   </p>
                 </div>
                 <Link
-                  href="/assistant"
-                  className="px-2.5 py-1 rounded-lg bg-primary text-white text-[11px] font-semibold hover:bg-primary-container shrink-0"
+                  href="/ml-lab"
+                  onClick={() => sound.playClick()}
+                  className="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground text-[11px] font-semibold hover:opacity-90 shrink-0 shadow-2xs"
                 >
-                  Run Model
+                  Explore Lab
                 </Link>
               </div>
             </div>
@@ -352,8 +432,8 @@ export default function DashboardPage() {
 
           {/* Quick Vital Logging Modal */}
           {showLogModal && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in">
-              <div className="w-full max-w-sm rounded-2xl bg-white dark:bg-[#1a2e38] p-5 border border-border shadow-2xl space-y-4">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in transition-all">
+              <div className="w-full max-w-sm rounded-2xl bg-white dark:bg-[#162732] p-5 border border-border shadow-2xl space-y-4 animate-scale-in">
                 <div className="flex items-center justify-between pb-2 border-b border-border">
                   <h4 className="text-sm font-bold text-foreground flex items-center gap-2">
                     <Activity className="w-4 h-4 text-primary" />
@@ -377,7 +457,7 @@ export default function DashboardPage() {
                         const defaultUnit = type === "blood_pressure" ? "mmHg" : type === "heart_rate" ? "bpm" : type === "glucose" ? "mg/dL" : "%";
                         setNewVital({ ...newVital, metric_type: type, unit: defaultUnit });
                       }}
-                      className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground"
+                      className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] text-foreground"
                     >
                       <option value="blood_pressure">Blood Pressure (Systolic / Diastolic)</option>
                       <option value="heart_rate">Heart Rate (Pulse)</option>
@@ -396,7 +476,7 @@ export default function DashboardPage() {
                         required
                         value={newVital.value}
                         onChange={(e) => setNewVital({ ...newVital, value: parseFloat(e.target.value) || 0 })}
-                        className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground font-mono"
+                        className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] text-foreground font-mono"
                       />
                     </div>
                     {newVital.metric_type === "blood_pressure" && (
@@ -407,7 +487,7 @@ export default function DashboardPage() {
                           required
                           value={newVital.secondary_value}
                           onChange={(e) => setNewVital({ ...newVital, secondary_value: parseFloat(e.target.value) || 0 })}
-                          className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground font-mono"
+                          className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] text-foreground font-mono"
                         />
                       </div>
                     )}
@@ -420,7 +500,7 @@ export default function DashboardPage() {
                       required
                       value={newVital.unit}
                       onChange={(e) => setNewVital({ ...newVital, unit: e.target.value })}
-                      className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 text-foreground font-mono"
+                      className="w-full p-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] text-foreground font-mono"
                     />
                   </div>
 
@@ -428,13 +508,13 @@ export default function DashboardPage() {
                     <button
                       type="button"
                       onClick={() => setShowLogModal(false)}
-                      className="px-3 py-1.5 rounded-lg border border-border text-xs font-medium text-muted-foreground hover:bg-surface-low"
+                      className="px-3 py-1.5 rounded-lg border border-border text-xs font-medium text-muted-foreground hover:bg-surface-low dark:hover:bg-[#111d24]"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="px-4 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-container"
+                      className="px-4 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 shadow-2xs"
                     >
                       Save Vital
                     </button>

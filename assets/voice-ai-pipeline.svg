@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="vBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a151d" />
+      <stop offset="100%" stop-color="#142430" />
+    </linearGradient>
+    <linearGradient id="nodeTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00635e" />
+      <stop offset="100%" stop-color="#009688" />
+    </linearGradient>
+    <linearGradient id="nodeBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1565c0" />
+      <stop offset="100%" stop-color="#1e88e5" />
+    </linearGradient>
+    <linearGradient id="nodeAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c67d00" />
+      <stop offset="100%" stop-color="#ffa000" />
+    </linearGradient>
+    <linearGradient id="nodeRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b71c1c" />
+      <stop offset="100%" stop-color="#e53935" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="360" rx="14" fill="url(#vBg)" stroke="#1e3a4a" stroke-width="2" />
+
+  <text x="50" y="45" fill="#4ef3e2" font-family="sans-serif" font-size="12" font-weight="700" letter-spacing="1">MULTILINGUAL VOICE AI PIPELINE</text>
+  <text x="50" y="75" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="800">13 Indian Languages • Real-Time Voice-to-Voice • Medical Emergency Triage</text>
+
+  <!-- Step 1: Voice Input -->
+  <g transform="translate(40, 110)">
+    <rect width="150" height="210" rx="10" fill="#11222c" stroke="#009688" stroke-width="1.5" />
+    <rect x="10" y="10" width="130" height="28" rx="6" fill="url(#nodeTeal)" />
+    <text x="75" y="29" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">1. AUDIO INPUT</text>
+    <text x="15" y="65" fill="#4ef3e2" font-family="monospace" font-size="10" font-weight="700">Web Audio API</text>
+    <text x="15" y="90" fill="#b0c8d6" font-family="sans-serif" font-size="10">• 16kHz PCM Stream</text>
+    <text x="15" y="110" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Real-time VAD</text>
+    <text x="15" y="130" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Noise Filtering</text>
+    <text x="15" y="150" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Dynamic Equalizer</text>
+    <text x="15" y="180" fill="#4ef3e2" font-family="sans-serif" font-size="9" font-weight="600">Client-Side Mic</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 195 215 L 225 215" stroke="#009688" stroke-width="2.5" />
+  <polygon points="225,211 233,215 225,219" fill="#009688" />
+
+  <!-- Step 2: Language & ASR -->
+  <g transform="translate(240, 110)">
+    <rect width="180" height="210" rx="10" fill="#11222c" stroke="#1e88e5" stroke-width="1.5" />
+    <rect x="10" y="10" width="160" height="28" rx="6" fill="url(#nodeBlue)" />
+    <text x="90" y="29" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">2. SPEECH RECOGNITION</text>
+    <text x="15" y="65" fill="#7bc4ff" font-family="monospace" font-size="10" font-weight="700">Multilingual ASR</text>
+    <text x="15" y="90" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Auto Language Detect</text>
+    <text x="15" y="110" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Hindi, Tamil, Telugu</text>
+    <text x="15" y="130" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Bengali, Marathi, etc.</text>
+    <text x="15" y="150" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Hinglish Mixed Support</text>
+    <text x="15" y="180" fill="#7bc4ff" font-family="sans-serif" font-size="9" font-weight="600">Whisper / Cloud ASR</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 425 215 L 455 215" stroke="#1e88e5" stroke-width="2.5" />
+  <polygon points="455,211 463,215 455,219" fill="#1e88e5" />
+
+  <!-- Step 3: Emergency & Safety Filter -->
+  <g transform="translate(470, 110)">
+    <rect width="180" height="210" rx="10" fill="#11222c" stroke="#e53935" stroke-width="1.5" />
+    <rect x="10" y="10" width="160" height="28" rx="6" fill="url(#nodeRose)" />
+    <text x="90" y="29" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">3. SAFETY & EMERGENCY</text>
+    <text x="15" y="65" fill="#ff8a80" font-family="monospace" font-size="10" font-weight="700">Clinical Safety Layer</text>
+    <text x="15" y="90" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Panic Symptom Scan</text>
+    <text x="15" y="110" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Chest Pain / Stroke Alert</text>
+    <text x="15" y="130" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Dial 112 / 108 Trigger</text>
+    <text x="15" y="150" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Instant Triage Override</text>
+    <text x="15" y="180" fill="#ff8a80" font-family="sans-serif" font-size="9" font-weight="600">Zero-Delay Intercept</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <path d="M 655 215 L 685 215" stroke="#e53935" stroke-width="2.5" />
+  <polygon points="685,211 693,215 685,219" fill="#e53935" />
+
+  <!-- Step 4: Reasoning & Synthesis -->
+  <g transform="translate(700, 110)">
+    <rect width="180" height="210" rx="10" fill="#11222c" stroke="#ffa000" stroke-width="1.5" />
+    <rect x="10" y="10" width="160" height="28" rx="6" fill="url(#nodeAmber)" />
+    <text x="90" y="29" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">4. MEDICAL REASONING</text>
+    <text x="15" y="65" fill="#ffe082" font-family="monospace" font-size="10" font-weight="700">Clinical RAG + LLM</text>
+    <text x="15" y="90" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Verified Guidelines</text>
+    <text x="15" y="110" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Patient Lab Context</text>
+    <text x="15" y="130" fill="#b0c8d6" font-family="sans-serif" font-size="10">• No False Approvals</text>
+    <text x="15" y="150" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Indian Idiom Adapter</text>
+    <text x="15" y="180" fill="#ffe082" font-family="sans-serif" font-size="9" font-weight="600">Gemini / Evidence RAG</text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <path d="M 885 215 L 915 215" stroke="#ffa000" stroke-width="2.5" />
+  <polygon points="915,211 923,215 915,219" fill="#ffa000" />
+
+  <!-- Step 5: Speech Synthesis -->
+  <g transform="translate(930, 110)">
+    <rect width="140" height="210" rx="10" fill="#11222c" stroke="#009688" stroke-width="1.5" />
+    <rect x="10" y="10" width="120" height="28" rx="6" fill="url(#nodeTeal)" />
+    <text x="70" y="29" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">5. SPEECH OUTPUT</text>
+    <text x="15" y="65" fill="#4ef3e2" font-family="monospace" font-size="10" font-weight="700">Native TTS</text>
+    <text x="15" y="90" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Local Accent</text>
+    <text x="15" y="110" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Rate Control</text>
+    <text x="15" y="130" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Natural Pitch</text>
+    <text x="15" y="150" fill="#b0c8d6" font-family="sans-serif" font-size="10">• Immediate Stop</text>
+    <text x="15" y="180" fill="#4ef3e2" font-family="sans-serif" font-size="9" font-weight="600">Web Speech / Azure</text>
+  </g>
+</svg>

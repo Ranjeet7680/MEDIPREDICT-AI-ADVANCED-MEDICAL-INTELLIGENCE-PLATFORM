@@ -238,6 +238,9 @@ export interface ClinicianReportItem extends MedicalReport {
   clinician_notes?: string;
   clinician_status?: "pending" | "reviewed" | "approved" | "escalated";
   clinician_reviewed_at?: string;
+  triage_priority?: "stat_critical" | "urgent" | "routine";
+  escalation_reason?: string;
+  escalation_department?: string;
 }
 
 export interface AdminStatsItem {

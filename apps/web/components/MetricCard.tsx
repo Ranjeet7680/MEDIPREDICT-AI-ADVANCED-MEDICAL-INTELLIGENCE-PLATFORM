@@ -29,15 +29,18 @@ export default function MetricCard({
   return (
     <div
       className={cn(
-        "p-4 rounded-xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden",
+        "p-4 rounded-xl border border-border bg-white dark:bg-[#162732] shadow-2xs smooth-card relative overflow-hidden group hover:border-primary/40",
         className
       )}
     >
+      {/* Subtle top ambient glow gradient on hover */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
           {title}
         </span>
-        <div className="p-2 rounded-lg bg-surface-low dark:bg-surface-variant/30 text-primary">
+        <div className="p-2 rounded-lg bg-surface-low dark:bg-[#1c303d] text-primary group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200">
           <Icon className="w-4 h-4" />
         </div>
       </div>
@@ -53,7 +56,7 @@ export default function MetricCard({
       </div>
 
       <div className="flex items-center justify-between mt-3 pt-2 border-t border-border/50 text-[11px]">
-        {subtitle && <span className="text-muted-foreground truncate">{subtitle}</span>}
+        {subtitle && <span className="text-muted-foreground truncate max-w-[160px]">{subtitle}</span>}
         {status && <MedicalStatusBadge flag={status} />}
       </div>
     </div>

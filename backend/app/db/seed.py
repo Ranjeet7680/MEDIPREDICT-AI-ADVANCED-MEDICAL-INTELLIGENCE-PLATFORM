@@ -182,6 +182,7 @@ def seed_database(db: Session):
             db.add(g)
         db.commit()
 
+
     # 3. Seed Medical References (Grounded Literature with genuine PubMed IDs)
     if db.query(MedicalReference).count() == 0:
         references = [
@@ -255,6 +256,7 @@ def seed_database(db: Session):
             db.add(r)
         db.commit()
 
+
     # 4. Seed Demo User Account
     demo_user = db.query(User).filter(User.email == "demo@medipredict.ai").first()
     if not demo_user:
@@ -268,12 +270,14 @@ def seed_database(db: Session):
         )
         db.add(demo_user)
         db.commit()
+
         db.refresh(demo_user)
 
         # Consents
         for c_type in ["ai_data_analysis", "health_records_storage", "anonymized_research"]:
             db.add(UserConsent(user_id=demo_user.id, consent_type=c_type, granted=True, version="1.0"))
         db.commit()
+
 
         # Seed realistic baseline laboratory report
         sample_report = MedicalReport(
@@ -294,6 +298,7 @@ def seed_database(db: Session):
         )
         db.add(sample_report)
         db.commit()
+
         db.refresh(sample_report)
 
         # Measurements
@@ -327,6 +332,7 @@ def seed_database(db: Session):
             )
             db.add(meas)
         db.commit()
+
 
         # Seed Health Measurements over time for time-series charts
         now = datetime.datetime.utcnow()
@@ -403,3 +409,9 @@ def seed_database(db: Session):
         ))
 
         db.commit()
+
+    try:
+        from app.db.expand_seeds import run_seed
+        run_seed()
+    except Exception as e:
+        print(f"Expanded seeding hook: {e}")

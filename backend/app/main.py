@@ -1,9 +1,11 @@
 import logging
+import time
+from collections import defaultdict
 from contextlib import asynccontextmanager
+from typing import Dict, List
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
 
 from app.api.v1 import (
     admin,
@@ -26,6 +28,7 @@ from app.api.v1 import (
     research,
     search,
     users,
+    voice,
 )
 from app.core.config import settings
 from app.core.exceptions import (
@@ -40,6 +43,33 @@ from app.db.session import Base, SessionLocal, engine
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# In-memory sliding window rate limiter
+_request_history: Dict[str, List[float]] = defaultdict(list)
+
+def _is_rate_limited(client_ip: str, path: str) -> bool:
+    now = time.time()
+    window = 60.0  # 1 minute
+
+    # Determine rate limit bucket
+    if "/auth/login" in path:
+        limit = settings.RATE_LIMIT_LOGIN_PER_MINUTE
+    elif "/assistant" in path or "/voice" in path:
+        limit = settings.RATE_LIMIT_AI_PER_MINUTE
+    elif "/reports/upload" in path:
+        limit = settings.RATE_LIMIT_UPLOAD_PER_MINUTE
+    else:
+        limit = settings.RATE_LIMIT_GENERAL_PER_MINUTE
+
+    key = f"{client_ip}:{path}"
+    # Evict timestamps older than sliding window
+    _request_history[key] = [t for t in _request_history[key] if now - t < window]
+
+    if len(_request_history[key]) >= limit:
+        return True
+
+    _request_history[key].append(now)
+    return False
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -75,13 +105,41 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origin_regex=r"^https:\/\/.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Mount uploads directory
-app.mount("/uploads", StaticFiles(directory=str(settings.UPLOAD_DIR)), name="uploads")
+# Middleware: Enterprise Healthcare Security Headers & Rate Limiting
+@app.middleware("http")
+async def security_and_rate_limit_middleware(request: Request, call_next):
+    client_ip = request.client.host if request.client else "127.0.0.1"
+    path = request.url.path
+
+    # Apply rate limiting to sensitive routes (bypass for testclient in test runners and docs/health)
+    is_test = settings.ENVIRONMENT == "testing" or client_ip in ("testclient", "testserver")
+    if not is_test and not (path.startswith("/docs") or path.startswith("/redoc") or path == "/openapi.json" or path.endswith("/health")):
+        if _is_rate_limited(client_ip, path):
+            logger.warning(f"Rate limit exceeded for client {client_ip} on path {path}")
+            return JSONResponse(
+                status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                content={"detail": "Too many requests. Please wait before retrying."},
+                headers={"Retry-After": "60"},
+            )
+
+    response = await call_next(request)
+
+    # Enforce strict healthcare-grade security headers
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = "geolocation=(), camera=(), microphone=(self)"
+    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+    response.headers["Content-Security-Policy"] = "default-src 'self'; frame-ancestors 'none';"
+
+    return response
 
 # Centralized Error Handlers
 @app.exception_handler(NotFoundException)
@@ -129,6 +187,7 @@ app.include_router(agents.router, prefix=settings.API_V1_STR)
 app.include_router(devices.router, prefix=settings.API_V1_STR)
 app.include_router(ingestion.router, prefix=settings.API_V1_STR)
 app.include_router(analytics.router, prefix=settings.API_V1_STR)
+app.include_router(voice.router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 def root():

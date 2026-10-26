@@ -244,9 +244,54 @@ class AuditEvent(Base):
     resource_id = Column(String(100), nullable=True)
     details = Column(JSON, nullable=True)
     ip_address = Column(String(100), nullable=True)
+    outcome = Column(String(50), default="success")  # success, failure, denied
+    checksum = Column(String(64), nullable=True)  # Cryptographic HMAC/SHA256 tamper-evident digest
     timestamp = Column(DateTime, default=datetime.datetime.utcnow, index=True)
 
     user = relationship("User", back_populates="audit_events")
+
+class ClinicianPatientRelationship(Base):
+    __tablename__ = "clinician_patient_relationships"
+
+    id = Column(Integer, primary_key=True, index=True)
+    clinician_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    patient_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    relationship_type = Column(String(100), default="direct_care")  # direct_care, specialist_referral, emergency_triage
+    status = Column(String(50), default="active", index=True)  # active, revoked, pending, expired
+    authorized_until = Column(DateTime, nullable=True)
+    clinical_rationale = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
+
+    clinician = relationship("User", foreign_keys=[clinician_id])
+    patient = relationship("User", foreign_keys=[patient_id])
+
+class DataExportRequest(Base):
+    __tablename__ = "data_export_requests"
+
+    id = Column(String(100), primary_key=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    status = Column(String(50), default="pending", index=True)  # pending, completed, expired
+    export_format = Column(String(50), default="json")
+    download_token_hash = Column(String(255), nullable=True)
+    expires_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    completed_at = Column(DateTime, nullable=True)
+
+    user = relationship("User", foreign_keys=[user_id])
+
+class DataDeletionRequest(Base):
+    __tablename__ = "data_deletion_requests"
+
+    id = Column(String(100), primary_key=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    status = Column(String(50), default="pending", index=True)  # pending, verified, completed, rejected
+    verification_token = Column(String(255), nullable=True)
+    reason = Column(Text, nullable=True)
+    requested_at = Column(DateTime, default=datetime.datetime.utcnow)
+    completed_at = Column(DateTime, nullable=True)
+
+    user = relationship("User", foreign_keys=[user_id])
 
 class BackgroundJob(Base):
     __tablename__ = "background_jobs"

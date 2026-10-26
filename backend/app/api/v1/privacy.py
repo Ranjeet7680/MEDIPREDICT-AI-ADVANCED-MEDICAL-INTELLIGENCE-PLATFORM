@@ -1,11 +1,14 @@
 import datetime
-from typing import Any, Dict, List
+import uuid
+from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, Depends, Request, status
 from sqlalchemy.orm import Session
 from app.api.v1.deps import get_current_user
 from app.db.session import get_db
 from app.models.models import (
     Conversation,
+    DataDeletionRequest,
+    DataExportRequest,
     HealthMeasurement,
     MedicalReport,
     PersonalRecord,
@@ -70,6 +73,9 @@ def export_privacy_data(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    export_id = f"EXP-{uuid.uuid4().hex[:12]}"
+    now = datetime.datetime.utcnow()
+
     # 1. Profile data
     profile = {
         "id": current_user.id,
@@ -153,11 +159,25 @@ def export_privacy_data(
         for c in consents
     ]
 
+    # Record persistent DPDP Act 2023 Data Export Request
+    export_req = DataExportRequest(
+        id=export_id,
+        user_id=current_user.id,
+        status="completed",
+        export_format="json",
+        created_at=now,
+        completed_at=now,
+    )
+    db.add(export_req)
+    db.commit()
+
     AuditService.log_event(
         db,
         action="EXPORT_FULL_DATA",
         user_id=current_user.id,
-        resource_type="PrivacyExport",
+        resource_type="DataExportRequest",
+        resource_id=export_id,
+        details={"format": "json", "regulations": ["DPDP_ACT_2023", "GDPR_ARTICLE_20"]},
     )
 
     return {
@@ -167,23 +187,43 @@ def export_privacy_data(
         "personal_records": records_data,
         "conversations": convs_data,
         "consents": consents_data,
-        "exported_at": datetime.datetime.utcnow(),
+        "exported_at": now,
     }
 
 @router.post("/account-deletion")
 def request_account_deletion(
+    reason: Optional[str] = None,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     user_id = current_user.id
-    db.delete(current_user)
-    db.commit()
+    now = datetime.datetime.utcnow()
+    del_id = f"DEL-{uuid.uuid4().hex[:12]}"
+
+    # Record erasure request under Section 12 of India DPDP Act 2023
+    del_req = DataDeletionRequest(
+        id=del_id,
+        user_id=user_id,
+        status="completed",
+        reason=reason or "User-initiated privacy right to be forgotten request",
+        requested_at=now,
+        completed_at=now,
+    )
+    db.add(del_req)
 
     AuditService.log_event(
         db,
         action="ACCOUNT_PURGED",
         user_id=user_id,
         resource_type="User",
-        details={"status": "all_associated_records_purged"},
+        resource_id=str(user_id),
+        details={"status": "all_associated_records_purged", "deletion_request_id": del_id},
     )
-    return {"message": "Account and all associated records have been permanently deleted in accordance with data retention rules."}
+
+    db.delete(current_user)
+    db.commit()
+
+    return {
+        "message": "Account and all associated records have been permanently deleted in accordance with DPDP Act 2023 and medical data retention rules.",
+        "deletion_reference_id": del_id,
+    }

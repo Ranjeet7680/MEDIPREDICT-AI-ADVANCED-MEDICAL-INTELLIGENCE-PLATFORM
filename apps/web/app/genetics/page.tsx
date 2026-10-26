@@ -54,7 +54,7 @@ export default function GeneticsPage() {
       <div className="flex-1 flex overflow-hidden">
         <AppSidebar />
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl overflow-y-auto animate-fade-in-up">
           {/* Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-border">
             <div>
@@ -106,9 +106,9 @@ export default function GeneticsPage() {
                     <div
                       key={g.id}
                       onClick={() => setSelectedGene(g)}
-                      className={`p-3.5 rounded-xl border text-xs cursor-pointer transition-all ${
+                      className={`p-3.5 rounded-xl border text-xs cursor-pointer smooth-card transition-all ${
                         isSelected
-                          ? "bg-white dark:bg-[#1a2e38] border-primary shadow-sm ring-1 ring-primary/20"
+                          ? "bg-white dark:bg-[#1a2e38] border-primary shadow-sm ring-1 ring-primary/20 scale-[1.01]"
                           : "bg-surface-low/50 hover:bg-surface-low border-border"
                       }`}
                     >

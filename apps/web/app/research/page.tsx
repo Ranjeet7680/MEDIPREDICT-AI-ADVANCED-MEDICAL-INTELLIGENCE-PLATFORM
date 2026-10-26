@@ -26,6 +26,8 @@ const CATEGORIES = [
   "Endocrinology",
   "Hepatology",
   "Cardiology",
+  "Nephrology",
+  "Medical Genetics",
   "Oncology",
 ];
 
@@ -83,7 +85,7 @@ export default function ResearchPage() {
       <div className="flex-1 flex overflow-hidden">
         <AppSidebar />
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl overflow-y-auto animate-fade-in-up">
           {/* Top Bar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-border">
             <div>
@@ -153,7 +155,7 @@ export default function ResearchPage() {
                   return (
                     <div
                       key={r.id}
-                      className="p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4"
+                      className="p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm smooth-card flex flex-col justify-between space-y-4"
                     >
                       <div className="space-y-2">
                         <div className="flex items-start justify-between gap-3">

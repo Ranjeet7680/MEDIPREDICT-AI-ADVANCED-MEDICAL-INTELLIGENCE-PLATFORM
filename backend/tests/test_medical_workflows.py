@@ -137,3 +137,50 @@ def test_privacy_data_export(client, auth_headers):
     assert "reports" in export_data
     assert "health_measurements" in export_data
     assert "consents" in export_data
+
+def test_report_exports_and_custom_biomarker(client, auth_headers):
+    # 1. Create a sample report
+    lab_text = "Fasting Glucose: 110 mg/dL\nHbA1c: 5.9 %\nTotal Cholesterol: 215 mg/dL"
+    resp = client.post(
+        "/api/v1/reports/upload",
+        data={"title": "Export Test Panel", "report_type": "Biochemistry", "raw_text": lab_text},
+        headers=auth_headers,
+    )
+    assert resp.status_code == 201
+    report_id = resp.json()["id"]
+
+    # 2. Test PDF export endpoint
+    pdf_resp = client.get(f"/api/v1/reports/{report_id}/export-pdf", headers=auth_headers)
+    assert pdf_resp.status_code == 200
+    assert pdf_resp.headers["content-type"] == "application/pdf"
+    assert len(pdf_resp.content) > 500
+
+    # 3. Test CSV export endpoint
+    csv_resp = client.get(f"/api/v1/reports/{report_id}/export-csv", headers=auth_headers)
+    assert csv_resp.status_code == 200
+    assert "text/csv" in csv_resp.headers["content-type"]
+    assert "Test Name,Value,Unit,Flag" in csv_resp.text
+
+    # 4. Test adding custom biomarker measurement
+    add_resp = client.post(
+        f"/api/v1/reports/{report_id}/measurements",
+        json={"test_name": "Serum Ferritin", "value": 180.0, "unit": "ng/mL", "flag": "normal"},
+        headers=auth_headers,
+    )
+    assert add_resp.status_code == 201
+    assert add_resp.json()["test_name"] == "Serum Ferritin"
+    assert add_resp.json()["value"] == 180.0
+
+def test_empty_report_extraction(client, auth_headers):
+    # Upload meaningless text with no lab markers
+    resp = client.post(
+        "/api/v1/reports/upload",
+        data={"title": "Empty Note", "report_type": "Other", "raw_text": "Hello this is a doctor note without any tests"},
+        headers=auth_headers,
+    )
+    assert resp.status_code == 201
+    data = resp.json()
+    assert len(data["measurements"]) == 0
+    assert data["extraction_confidence"] == 0.0
+    assert "No recognized laboratory biomarkers" in data["summary"]
+

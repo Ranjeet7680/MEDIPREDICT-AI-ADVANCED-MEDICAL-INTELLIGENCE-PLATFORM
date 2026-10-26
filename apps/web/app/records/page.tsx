@@ -112,7 +112,7 @@ export default function RecordsPage() {
       <div className="flex-1 flex overflow-hidden">
         <AppSidebar />
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl overflow-y-auto animate-fade-in-up">
           {/* Top Bar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-border">
             <div>
@@ -191,7 +191,7 @@ export default function RecordsPage() {
                 {filteredRecords.map((r) => (
                   <div
                     key={r.id}
-                    className="p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4"
+                    className="p-5 rounded-2xl border border-border bg-white dark:bg-[#1a2e38] shadow-sm smooth-card flex flex-col justify-between space-y-4"
                   >
                     <div className="space-y-2">
                       <div className="flex items-start justify-between gap-2">
@@ -244,8 +244,8 @@ export default function RecordsPage() {
 
       {/* Add Record Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in">
-          <div className="w-full max-w-md rounded-2xl bg-white dark:bg-[#1a2e38] p-6 border border-border shadow-2xl space-y-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in transition-all">
+          <div className="w-full max-w-md rounded-2xl bg-white dark:bg-[#1a2e38] p-6 border border-border shadow-2xl space-y-4 animate-scale-in">
             <h3 className="text-sm font-bold text-foreground">Add Personal Health Record</h3>
 
             <form onSubmit={handleCreateRecord} className="space-y-3 text-xs">

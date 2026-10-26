@@ -35,7 +35,7 @@ export default function HealthTrendChart({
 }: HealthTrendChartProps) {
   if (!data || data.length === 0) {
     return (
-      <div className="h-64 flex items-center justify-center text-xs text-muted-foreground bg-surface-low/20 rounded-xl border border-dashed border-border">
+      <div className="h-64 flex items-center justify-center text-xs text-muted-foreground bg-surface-low/30 dark:bg-[#162732]/40 rounded-xl border border-dashed border-border">
         No measurements recorded for this timeframe.
       </div>
     );
@@ -54,26 +54,43 @@ export default function HealthTrendChart({
     <div className="w-full h-72 pt-3">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={formattedData} margin={{ top: 10, right: 20, left: -10, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(110, 121, 120, 0.15)" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="currentColor" className="text-border/60" />
           <XAxis
             dataKey="date"
-            tick={{ fontSize: 11, fill: "#6e7978" }}
-            axisLine={{ stroke: "rgba(110, 121, 120, 0.2)" }}
-            tickLine={false}
+            tick={{ fontSize: 11 }}
+            stroke="currentColor"
+            className="text-muted-foreground"
           />
           <YAxis
-            tick={{ fontSize: 11, fill: "#6e7978" }}
-            axisLine={false}
-            tickLine={false}
-            unit={` ${unit}`}
+            tick={{ fontSize: 11 }}
+            stroke="currentColor"
+            className="text-muted-foreground"
+            domain={["auto", "auto"]}
           />
           <Tooltip
-            contentStyle={{
-              backgroundColor: "rgba(255, 255, 255, 0.95)",
-              borderRadius: "0.5rem",
-              border: "1px solid #bdc9c7",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
-              fontSize: "12px",
+            content={({ active, payload, label }) => {
+              if (active && payload && payload.length) {
+                return (
+                  <div className="p-2.5 rounded-lg border border-border bg-white dark:bg-[#162732] shadow-lg text-xs space-y-1">
+                    <p className="font-semibold text-muted-foreground">{label}</p>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="font-medium text-foreground">
+                        {primaryLabel}: {payload[0]?.value} {unit}
+                      </span>
+                    </div>
+                    {isDualValue && payload[1] && (
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#167d78]" />
+                        <span className="font-medium text-foreground">
+                          {secondaryLabel}: {payload[1]?.value} {unit}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return null;
             }}
           />
           <Line
@@ -83,18 +100,18 @@ export default function HealthTrendChart({
             stroke="#00635e"
             strokeWidth={2.5}
             dot={{ r: 4, fill: "#00635e" }}
-            activeDot={{ r: 6 }}
+            activeDot={{ r: 6, fill: "#70ded4" }}
           />
           {isDualValue && (
             <Line
               type="monotone"
               dataKey="secondary"
               name={secondaryLabel}
-              stroke="#0f5a98"
-              strokeWidth={2}
+              stroke="#3573b3"
+              strokeWidth={2.5}
               strokeDasharray="4 4"
-              dot={{ r: 4, fill: "#0f5a98" }}
-              activeDot={{ r: 6 }}
+              dot={{ r: 4, fill: "#3573b3" }}
+              activeDot={{ r: 6, fill: "#9af2eb" }}
             />
           )}
         </LineChart>

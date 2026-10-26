@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   Activity,
   AlertCircle,
@@ -364,6 +365,15 @@ export default function AssistantPage() {
 
             {/* Provider and Attachment Selectors */}
             <div className="flex items-center gap-2">
+              {/* Real-time Voice Mode Launcher */}
+              <Link
+                href="/assistant/voice"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-[11px] font-semibold hover:opacity-90 shadow-2xs hover:scale-105 transition-all"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>🎙️ Real-Time Voice Mode</span>
+                <span className="text-[9px] bg-white/20 px-1.5 py-0.2 rounded-full hidden md:inline">13 Indian Languages</span>
+              </Link>
               {/* Attachment */}
               {reports.length > 0 && (
                 <div className="flex items-center gap-1.5 bg-surface-low px-2.5 py-1 rounded-lg border border-border">
@@ -435,11 +445,13 @@ export default function AssistantPage() {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                     Suggested Educational Inquiries
                   </span>
-                  {SUGGESTED_PROMPTS.map((prompt) => (
+                  {SUGGESTED_PROMPTS.map((prompt, idx) => (
                     <button
                       key={prompt}
                       onClick={() => handleSendMessage(prompt)}
-                      className="w-full p-2.5 text-xs text-left rounded-xl border border-border bg-white dark:bg-[#1a2e38] hover:bg-surface-low transition-colors text-foreground flex items-center justify-between"
+                      className={`w-full p-2.5 text-xs text-left rounded-xl border border-border bg-white dark:bg-[#1a2e38] hover:bg-surface-low hover:border-primary/40 hover:translate-x-1 transition-all duration-200 text-foreground flex items-center justify-between smooth-button ${
+                        idx < 5 ? `stagger-${idx + 1}` : ""
+                      }`}
                     >
                       <span className="line-clamp-1">{prompt}</span>
                       <ArrowRight className="w-3 h-3 text-primary shrink-0 ml-2" />
@@ -453,7 +465,7 @@ export default function AssistantPage() {
                 return (
                   <div
                     key={m.id}
-                    className={`flex gap-3 max-w-3xl ${isUser ? "ml-auto" : "mr-auto"}`}
+                    className={`flex gap-3 max-w-3xl animate-fade-in-up ${isUser ? "ml-auto" : "mr-auto"}`}
                   >
                     {!isUser && (
                       <div className="w-8 h-8 rounded-xl bg-primary text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
@@ -625,7 +637,7 @@ export default function AssistantPage() {
                 type="button"
                 onClick={toggleVoiceInput}
                 title={isListening ? "Listening... click to stop recording" : "Voice dictation (Speech-to-Text)"}
-                className={`p-2.5 rounded-xl border transition-all ${
+                className={`smooth-button p-2.5 rounded-xl border transition-all ${
                   isListening
                     ? "bg-red-500 text-white border-red-600 animate-pulse shadow-sm"
                     : "bg-surface-low border-border text-muted-foreground hover:text-foreground hover:bg-surface-container"
@@ -637,7 +649,7 @@ export default function AssistantPage() {
               <button
                 type="submit"
                 disabled={isSending || !inputText.trim()}
-                className="p-2.5 rounded-xl bg-primary text-white hover:bg-primary-container transition-all shadow-xs disabled:opacity-50"
+                className="smooth-button p-2.5 rounded-xl bg-primary text-white hover:bg-primary-container transition-all shadow-xs disabled:opacity-50"
               >
                 {isSending ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -653,7 +665,7 @@ export default function AssistantPage() {
       {/* ML Risk Model Calculator Modal */}
       {showMlModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in overflow-y-auto">
-          <div className="w-full max-w-2xl rounded-2xl bg-white dark:bg-[#1a2e38] p-6 border border-border shadow-2xl space-y-4 my-8">
+          <div className="w-full max-w-2xl rounded-2xl bg-white dark:bg-[#1a2e38] p-6 border border-border shadow-2xl space-y-4 my-8 animate-scale-in">
             <div className="flex items-center justify-between pb-3 border-b border-border">
               <div>
                 <h3 className="text-base font-bold text-foreground flex items-center gap-2">

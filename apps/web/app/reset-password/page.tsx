@@ -3,7 +3,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Activity, ArrowRight, CheckCircle2, KeyRound, Loader2, Lock, ShieldAlert } from "lucide-react";
+import { ArrowRight, CheckCircle2, Globe, KeyRound, Loader2, Lock, ShieldAlert } from "lucide-react";
 
 function ResetPasswordForm() {
   const router = useRouter();
@@ -155,7 +155,7 @@ export default function ResetPasswordPage() {
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 justify-center">
             <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-md">
-              <Activity className="w-6 h-6" />
+              <Globe className="w-6 h-6 stroke-[2.2]" />
             </div>
             <span className="font-bold text-xl tracking-tight text-foreground">
               MediPredict <span className="text-primary">AI</span>

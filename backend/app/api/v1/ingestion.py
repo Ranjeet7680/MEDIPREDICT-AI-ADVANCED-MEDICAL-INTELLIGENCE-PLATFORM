@@ -56,7 +56,20 @@ def ingest_sensor_measurement(
             rejected += 1
             continue
 
-        ts = item.timestamp or datetime.datetime.utcnow()
+        # 2. Anti-replay and timestamp freshness validation
+        now = datetime.datetime.now(datetime.timezone.utc)
+        raw_ts = item.timestamp or now
+        ts = raw_ts if raw_ts.tzinfo is not None else raw_ts.replace(tzinfo=datetime.timezone.utc)
+        if ts < now - datetime.timedelta(days=7) or ts > now + datetime.timedelta(minutes=15):
+            rejected += 1
+            continue
+
+        # 3. Device ownership boundary check
+        device = db.query(Device).filter(Device.id == item.device_id).first()
+        if device and device.user_id != current_user.id and current_user.role != "admin":
+            rejected += 1
+            continue
+
         ts_iso = ts.isoformat()
         p_hash = compute_payload_hash(item.device_id, m_type, item.value, ts_iso)
 

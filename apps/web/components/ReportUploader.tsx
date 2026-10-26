@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FileText, Loader2, Sparkles, UploadCloud } from "lucide-react";
 import { api } from "@/lib/api";
+import { sound } from "@/lib/sound";
 import { MedicalReport } from "@/types";
 
 interface ReportUploaderProps {
@@ -54,6 +55,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    sound.playClick();
     setError(null);
     setIsUploading(true);
 
@@ -71,8 +73,10 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
       }
 
       const report = await api.uploadReport(formData);
+      sound.playSuccess();
       onSuccess(report);
     } catch (err: any) {
+      sound.playAlert();
       setError(err.message || "Failed to process medical report.");
     } finally {
       setIsUploading(false);
@@ -80,13 +84,14 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
   };
 
   const loadSample = (sample: typeof SAMPLE_PANELS[0]) => {
+    sound.playClick();
     setActiveTab("text");
     setTitle(sample.name);
     setRawText(sample.text);
   };
 
   return (
-    <div className="rounded-xl border border-border bg-white dark:bg-[#1a2e38] p-5 shadow-sm">
+    <div className="rounded-xl border border-border bg-white dark:bg-[#162732] p-5 shadow-2xs transition-colors duration-200">
       <div className="flex items-center justify-between mb-4 pb-3 border-b border-border">
         <div>
           <h3 className="text-sm font-bold text-foreground">Upload & Analyze Medical Report</h3>
@@ -94,13 +99,16 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
             Supports PDF, CSV, and clinical text format. Extracted data requires verification.
           </p>
         </div>
-        <div className="flex bg-surface-low dark:bg-surface-variant/20 p-1 rounded-lg">
+        <div className="flex bg-surface-low dark:bg-[#111d24] p-1 rounded-lg border border-border/50">
           <button
             type="button"
-            onClick={() => setActiveTab("file")}
+            onClick={() => {
+              sound.playClick();
+              setActiveTab("file");
+            }}
             className={`px-3 py-1 rounded text-xs font-semibold transition-all ${
               activeTab === "file"
-                ? "bg-white dark:bg-[#20333d] text-primary shadow-xs"
+                ? "bg-white dark:bg-[#1c303d] text-primary shadow-2xs"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -108,10 +116,13 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
           </button>
           <button
             type="button"
-            onClick={() => setActiveTab("text")}
+            onClick={() => {
+              sound.playClick();
+              setActiveTab("text");
+            }}
             className={`px-3 py-1 rounded text-xs font-semibold transition-all ${
               activeTab === "text"
-                ? "bg-white dark:bg-[#20333d] text-primary shadow-xs"
+                ? "bg-white dark:bg-[#1c303d] text-primary shadow-2xs"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -121,7 +132,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
       </div>
 
       {error && (
-        <div className="p-3 mb-4 rounded-lg bg-red-50 border border-red-200 text-xs text-red-800">
+        <div className="p-3 mb-4 rounded-lg bg-red-500/10 border border-red-500/30 text-xs text-red-600 dark:text-red-400">
           {error}
         </div>
       )}
@@ -134,7 +145,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 focus:ring-1 focus:ring-primary text-foreground"
+              className="w-full px-3 py-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] focus:ring-1 focus:ring-primary text-foreground"
               required
             />
           </div>
@@ -143,7 +154,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
             <select
               value={reportType}
               onChange={(e) => setReportType(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 focus:ring-1 focus:ring-primary text-foreground"
+              className="w-full px-3 py-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] focus:ring-1 focus:ring-primary text-foreground"
             >
               <option value="Comprehensive Blood Analysis">Comprehensive Blood Analysis</option>
               <option value="Lipid & Cardiovascular Panel">Lipid & Cardiovascular Panel</option>
@@ -154,10 +165,10 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
         </div>
 
         {activeTab === "file" ? (
-          <div className="relative overflow-hidden border-2 border-dashed border-border hover:border-primary/50 transition-colors rounded-xl p-8 text-center bg-surface-low/30 dark:bg-surface-variant/10">
+          <div className="relative overflow-hidden border-2 border-dashed border-border hover:border-primary/50 transition-colors rounded-xl p-8 text-center bg-surface-low/30 dark:bg-[#111d24]/40">
             {isUploading && (
-              <div className="absolute inset-0 bg-surface-low/90 dark:bg-[#1a2e38]/90 backdrop-blur-xs flex flex-col items-center justify-center p-4 z-10 animate-in fade-in">
-                <div className="w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent absolute top-0 animate-scan shadow-[0_0_15px_#00e5ff]" />
+              <div className="absolute inset-0 bg-surface-low/95 dark:bg-[#162732]/95 backdrop-blur-xs flex flex-col items-center justify-center p-4 z-10 animate-in fade-in">
+                <div className="w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent absolute top-0 animate-laser-scan shadow-[0_0_15px_#00e5ff]" />
                 <Loader2 className="w-8 h-8 text-primary animate-spin mb-2" />
                 <span className="text-xs font-bold text-foreground">Multi-Pass OCR & Biomarker Parsing...</span>
                 <span className="text-[10px] text-muted-foreground mt-0.5">Extracting reference intervals, test values, and validating units</span>
@@ -167,7 +178,10 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
               type="file"
               id="file-upload"
               accept=".pdf,.csv,.txt,.png,.jpg,.jpeg"
-              onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
+              onChange={(e) => {
+                sound.playClick();
+                setSelectedFile(e.target.files?.[0] || null);
+              }}
               className="hidden"
             />
             <label htmlFor="file-upload" className="cursor-pointer flex flex-col items-center">
@@ -190,7 +204,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
               value={rawText}
               onChange={(e) => setRawText(e.target.value)}
               placeholder="e.g. Fasting Glucose: 110 mg/dL&#10;HbA1c: 5.8 %&#10;Total Cholesterol: 215 mg/dL"
-              className="w-full px-3 py-2 rounded-lg border border-border bg-surface-low dark:bg-surface-variant/20 font-mono text-xs text-foreground focus:ring-1 focus:ring-primary"
+              className="w-full px-3 py-2 rounded-lg border border-border bg-surface-low dark:bg-[#111d24] font-mono text-xs text-foreground focus:ring-1 focus:ring-primary"
             />
           </div>
         )}
@@ -205,7 +219,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
               key={p.name}
               type="button"
               onClick={() => loadSample(p)}
-              className="px-2.5 py-1 rounded-md border border-border bg-surface-low hover:bg-surface-container text-[11px] font-medium text-foreground transition-colors"
+              className="px-2.5 py-1 rounded-md border border-border bg-surface-low dark:bg-[#111d24] hover:bg-surface-container dark:hover:bg-[#1c303d] text-[11px] font-medium text-foreground transition-colors"
             >
               {p.name}
             </button>
@@ -216,7 +230,7 @@ export default function ReportUploader({ onSuccess }: ReportUploaderProps) {
           <button
             type="submit"
             disabled={isUploading}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-container transition-all shadow-sm disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 transition-all shadow-sm disabled:opacity-50"
           >
             {isUploading ? (
               <>

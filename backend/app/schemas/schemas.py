@@ -332,6 +332,8 @@ class NotificationResponse(BaseModel):
 class ClinicianReviewRequest(BaseModel):
     clinician_notes: str
     status: str = "approved"  # reviewed, approved, escalated
+    escalation_reason: Optional[str] = None
+    escalation_department: Optional[str] = None
 
 class ClinicianReportResponse(MedicalReportDetailResponse):
     patient_name: Optional[str] = None
@@ -339,6 +341,9 @@ class ClinicianReportResponse(MedicalReportDetailResponse):
     clinician_notes: Optional[str] = None
     clinician_status: Optional[str] = "pending"
     clinician_reviewed_at: Optional[datetime.datetime] = None
+    triage_priority: Optional[str] = "routine"
+    escalation_reason: Optional[str] = None
+    escalation_department: Optional[str] = None
 
 # --- Unified Search Schemas ---
 class UnifiedSearchResult(BaseModel):

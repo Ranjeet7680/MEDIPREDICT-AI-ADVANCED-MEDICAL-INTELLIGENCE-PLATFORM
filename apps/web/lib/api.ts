@@ -31,8 +31,11 @@ import {
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_URL ||
-  process.env.API_URL ||
-  "http://127.0.0.1:8000/api/v1";
+  (typeof window !== "undefined"
+    ? "/api/v1"
+    : process.env.BACKEND_URL
+    ? `${process.env.BACKEND_URL.replace(/\/$/, "")}/api/v1`
+    : "http://127.0.0.1:8000/api/v1");
 
 class ApiClient {
   private getToken(): string | null {
@@ -506,6 +509,19 @@ Recommended clinical investigations:
     );
   }
 
+  async addMeasurement(
+    reportId: number,
+    data: Partial<LaboratoryMeasurement>
+  ): Promise<LaboratoryMeasurement> {
+    return this.request<LaboratoryMeasurement>(
+      `/reports/${reportId}/measurements`,
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+      }
+    );
+  }
+
   async deleteReport(id: number): Promise<void> {
     return this.request<void>(`/reports/${id}`, {
       method: "DELETE",
@@ -514,6 +530,18 @@ Recommended clinical investigations:
 
   getReportExportUrl(id: number): string {
     return `${API_BASE}/reports/${id}/export`;
+  }
+
+  getReportExportPdfUrl(id: number): string {
+    return `${API_BASE}/reports/${id}/export-pdf`;
+  }
+
+  getReportExportCsvUrl(id: number): string {
+    return `${API_BASE}/reports/${id}/export-csv`;
+  }
+
+  getReportDownloadUrl(id: number): string {
+    return `${API_BASE}/reports/${id}/download`;
   }
 
   // Health Metrics Endpoints
@@ -685,11 +713,26 @@ Recommended clinical investigations:
     return this.request<any[]>(`/clinician/reports${q}`);
   }
 
-  async reviewClinicianReport(id: number, clinician_notes: string, status: string): Promise<any> {
+  async reviewClinicianReport(
+    id: number,
+    clinician_notes: string,
+    status: string,
+    escalation_reason?: string,
+    escalation_department?: string
+  ): Promise<any> {
     return this.request<any>(`/clinician/reports/${id}/review`, {
       method: "POST",
-      body: JSON.stringify({ clinician_notes, status }),
+      body: JSON.stringify({
+        clinician_notes,
+        status,
+        escalation_reason,
+        escalation_department,
+      }),
     });
+  }
+
+  async getClinicianAuditLogs(limit: number = 30): Promise<any[]> {
+    return this.request<any[]>(`/clinician/audit-logs?limit=${limit}`);
   }
 
   // Unified Search
@@ -844,6 +887,37 @@ Recommended clinical investigations:
       method: "POST",
       body: JSON.stringify(data),
     });
+  }
+
+  // Multilingual Indian Voice Assistant Methods
+  async getVoiceLanguages(): Promise<any> {
+    return this.request("/voice/languages");
+  }
+
+  async createVoiceSession(preferredLanguage: string = "hi-IN"): Promise<any> {
+    return this.request("/voice/session", {
+      method: "POST",
+      body: JSON.stringify({ preferred_language: preferredLanguage, consent_given: true }),
+    });
+  }
+
+  async processVoiceQuery(
+    queryText: string,
+    preferredLanguage?: string,
+    sessionId?: string
+  ): Promise<any> {
+    return this.request("/voice/process", {
+      method: "POST",
+      body: JSON.stringify({
+        query_text: queryText,
+        preferred_language: preferredLanguage,
+        session_id: sessionId,
+      }),
+    });
+  }
+
+  async getVoiceTools(): Promise<any[]> {
+    return this.request("/voice/tools");
   }
 }
 

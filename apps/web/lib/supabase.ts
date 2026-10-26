@@ -13,11 +13,9 @@ const supabaseAnonKey =
   process.env.SUPABASE_ANON_KEY ||
   process.env.STORAGE_ANON_KEY ||
   process.env.NEXT_PUBLIC_STORAGE_ANON_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLIC_ANON_KEY ||
-  process.env.SUPABASE_KEY ||
-  "sb_publishable_R_NWOXD6RXYOn3gGAsquNQ_Q5_OLjRO";
+  "";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+export const supabase = createClient(supabaseUrl, supabaseAnonKey || "sb_placeholder_anon_key", {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
@@ -25,7 +23,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 });
 
 /**
- * Upload a clinical report file directly to Supabase Storage bucket
+ * Upload a clinical report file directly to private Supabase Storage bucket.
+ * Generates a private path and short-lived signed URL for authorized access.
+ * NEVER creates public URLs for medical reports.
  */
 export async function uploadReportToSupabase(
   file: File,
@@ -47,14 +47,16 @@ export async function uploadReportToSupabase(
       return { path: "", url: null, error };
     }
 
-    const { data: publicUrlData } = supabase.storage
+    // Enterprise Healthcare Security: Generate short-lived signed URL (300 seconds)
+    // Never expose private medical records via public bucket URLs
+    const { data: signedUrlData, error: signError } = await supabase.storage
       .from("medical-reports")
-      .getPublicUrl(data.path);
+      .createSignedUrl(data.path, 300);
 
     return {
       path: data.path,
-      url: publicUrlData?.publicUrl || null,
-      error: null,
+      url: signedUrlData?.signedUrl || null,
+      error: signError || null,
     };
   } catch (err: any) {
     return { path: "", url: null, error: err };

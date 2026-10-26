@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Activity, ArrowRight, CheckCircle2, Loader2, Lock, Mail, ShieldAlert, User as UserIcon } from "lucide-react";
+import { ArrowRight, CheckCircle2, Globe, Loader2, Lock, Mail, ShieldAlert, User as UserIcon } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
 export default function RegisterPage() {
@@ -42,7 +42,7 @@ export default function RegisterPage() {
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 justify-center">
             <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-md">
-              <Activity className="w-6 h-6" />
+              <Globe className="w-6 h-6 stroke-[2.2]" />
             </div>
             <span className="font-bold text-xl tracking-tight text-foreground">
               MediPredict <span className="text-primary">AI</span>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Activity, ArrowRight, KeyRound, Loader2, Lock, Mail, ShieldAlert } from "lucide-react";
+import { ArrowRight, Globe, KeyRound, Loader2, Lock, Mail, ShieldAlert } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
 export default function LoginPage() {
@@ -26,8 +26,8 @@ export default function LoginPage() {
     }
   };
 
-  const fillDemoAccount = () => {
-    setEmail("demo@medipredict.ai");
+  const fillRole = (roleEmail: string) => {
+    setEmail(roleEmail);
     setPassword("MedicalAI2026!");
   };
 
@@ -38,7 +38,7 @@ export default function LoginPage() {
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 justify-center">
             <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-md">
-              <Activity className="w-6 h-6" />
+              <Globe className="w-6 h-6 stroke-[2.2]" />
             </div>
             <span className="font-bold text-xl tracking-tight text-foreground">
               MediPredict <span className="text-primary">AI</span>
@@ -50,27 +50,42 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Demo Fast Login Pill */}
-        <div className="p-3 rounded-xl border border-primary/30 bg-primary/5 flex items-center justify-between text-xs">
-          <div className="space-y-0.5">
-            <p className="font-semibold text-primary">Demo Clinician Account</p>
-            <p className="text-[11px] text-muted-foreground">demo@medipredict.ai</p>
+        {/* Demo Fast Login Pills */}
+        <div className="p-3 rounded-xl border border-primary/30 bg-primary/5 space-y-2 text-xs">
+          <div className="flex items-center justify-between">
+            <p className="font-semibold text-primary">Demo Role Profiles (Click to test):</p>
+            <span className="text-[10px] text-muted-foreground font-mono">PW: MedicalAI2026!</span>
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className="grid grid-cols-3 gap-1.5">
             <button
               type="button"
-              onClick={fillDemoAccount}
-              className="px-2.5 py-1.5 rounded-lg border border-primary/40 text-primary font-semibold text-xs hover:bg-primary/10 transition-all"
+              onClick={() => {
+                fillRole("demo@medipredict.ai");
+                login("demo@medipredict.ai", "MedicalAI2026!");
+              }}
+              className="px-2 py-1.5 rounded-lg border border-primary/30 bg-white dark:bg-[#162732] text-foreground font-medium text-[11px] hover:border-primary transition-all text-center"
             >
-              Fill
+              👩‍⚕️ Clinician
             </button>
             <button
               type="button"
-              onClick={() => login("demo@medipredict.ai", "MedicalAI2026!")}
-              className="px-3 py-1.5 rounded-lg bg-primary text-white font-semibold text-xs hover:bg-primary-container transition-all shadow-xs flex items-center gap-1"
+              onClick={() => {
+                fillRole("patient@medipredict.ai");
+                login("patient@medipredict.ai", "MedicalAI2026!");
+              }}
+              className="px-2 py-1.5 rounded-lg border border-primary/30 bg-white dark:bg-[#162732] text-foreground font-medium text-[11px] hover:border-primary transition-all text-center"
             >
-              <span>Instant Enter</span>
-              <ArrowRight className="w-3 h-3" />
+              🧑 Patient
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                fillRole("admin@medipredict.ai");
+                login("admin@medipredict.ai", "MedicalAI2026!");
+              }}
+              className="px-2 py-1.5 rounded-lg border border-primary/30 bg-white dark:bg-[#162732] text-foreground font-medium text-[11px] hover:border-primary transition-all text-center"
+            >
+              🛡️ Admin
             </button>
           </div>
         </div>
