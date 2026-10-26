@@ -1,109 +1,319 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b171e" />
-      <stop offset="100%" stop-color="#11222c" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgCanvasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030813" />
+      <stop offset="40%" stop-color="#081426" />
+      <stop offset="80%" stop-color="#050e1c" />
+      <stop offset="100%" stop-color="#02050b" />
     </linearGradient>
-    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00837b" />
-      <stop offset="100%" stop-color="#00b4a7" />
+
+    <!-- Header Banner Gradient -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00635e" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#0a2a4a" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0b172b" stop-opacity="0.6" />
     </linearGradient>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f5a98" />
-      <stop offset="100%" stop-color="#2a7bcc" />
+
+    <!-- Card Background Gradients -->
+    <linearGradient id="cardGradTeal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#082832" />
+      <stop offset="100%" stop-color="#04141a" />
     </linearGradient>
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#5a3791" />
-      <stop offset="100%" stop-color="#8e54e9" />
+    <linearGradient id="cardGradBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b243d" />
+      <stop offset="100%" stop-color="#051322" />
     </linearGradient>
-    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#b45309" />
-      <stop offset="100%" stop-color="#f59e0b" />
+    <linearGradient id="cardGradPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f1438" />
+      <stop offset="100%" stop-color="#0e081c" />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
+    <linearGradient id="cardGradAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a1d08" />
+      <stop offset="100%" stop-color="#140d03" />
+    </linearGradient>
+    <linearGradient id="cardGradRose" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2e1017" />
+      <stop offset="100%" stop-color="#17060a" />
+    </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="450" rx="16" fill="url(#bgGrad)" stroke="#1e3a4a" stroke-width="2" />
+  <!-- Canvas Background -->
+  <rect width="1200" height="680" rx="16" fill="url(#bgCanvasGrad)" stroke="#1e293b" stroke-width="2" />
 
-  <!-- Title Badge -->
-  <rect x="50" y="30" width="220" height="34" rx="17" fill="#00837b" fill-opacity="0.2" stroke="#00b4a7" stroke-width="1.5" />
-  <text x="160" y="52" fill="#4ef3e2" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">SYSTEM ARCHITECTURE</text>
-  <text x="50" y="95" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="800">MediPredict AI Enterprise Healthcare Platform</text>
-  <text x="50" y="120" fill="#8da3b0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="13">High-throughput, HIPAA & DPDP Act 2023 Compliant Biomedical Intelligence Ecosystem</text>
-
-  <!-- Layer 1: Presentation (Next.js) -->
-  <g transform="translate(50, 150)">
-    <rect width="250" height="250" rx="12" fill="#132633" stroke="#00b4a7" stroke-width="2" />
-    <rect x="15" y="15" width="220" height="32" rx="6" fill="url(#tealGrad)" />
-    <text x="125" y="36" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">PRESENTATION LAYER</text>
-    <text x="25" y="75" fill="#4ef3e2" font-family="monospace" font-size="12" font-weight="700">Next.js 14 App Router</text>
-    <text x="25" y="95" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Clinical Calm Design System</text>
-    <text x="25" y="115" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Real-Time Voice Assistant (13 Lang)</text>
-    <text x="25" y="135" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Interactive Lab Biomarker Portal</text>
-    <text x="25" y="155" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Clinician Review & Sign-Off Queue</text>
-    <text x="25" y="175" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Personal Health Records Vault</text>
-    <rect x="25" y="200" width="200" height="28" rx="6" fill="#00837b" fill-opacity="0.3" stroke="#00b4a7" stroke-width="1" />
-    <text x="125" y="218" fill="#4ef3e2" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Vercel Serverless Edge</text>
+  <!-- Grid overlay pattern -->
+  <g stroke="#1e293b" stroke-width="0.75" stroke-opacity="0.4" stroke-dasharray="4,6">
+    <line x1="40" y1="90" x2="1160" y2="90" />
+    <line x1="40" y1="215" x2="1160" y2="215" />
+    <line x1="40" y1="330" x2="1160" y2="330" />
+    <line x1="40" y1="500" x2="1160" y2="500" />
+    <line x1="40" y1="635" x2="1160" y2="635" />
   </g>
 
-  <!-- Connector 1 -->
-  <path d="M 300 275 L 340 275" stroke="#00b4a7" stroke-width="3" stroke-dasharray="4,4" />
-  <polygon points="340,270 350,275 340,280" fill="#00b4a7" />
+  <!-- ==================== HEADER SECTION ==================== -->
+  <g transform="translate(40, 24)">
+    <!-- Header Container -->
+    <rect width="1120" height="66" rx="10" fill="url(#headerGrad)" stroke="#00b4a7" stroke-width="1.2" stroke-opacity="0.4" />
 
-  <!-- Layer 2: API & Decision Engine (FastAPI) -->
-  <g transform="translate(350, 150)">
-    <rect width="250" height="250" rx="12" fill="#132633" stroke="#2a7bcc" stroke-width="2" />
-    <rect x="15" y="15" width="220" height="32" rx="6" fill="url(#blueGrad)" />
-    <text x="125" y="36" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">API & APPLICATION CORE</text>
-    <text x="25" y="75" fill="#7bc4ff" font-family="monospace" font-size="12" font-weight="700">FastAPI (Python 3.11)</text>
-    <text x="25" y="95" fill="#c4d5e0" font-family="sans-serif" font-size="11">• ReBAC Care Relationship Control</text>
-    <text x="25" y="115" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Document Magic-Byte Inspection</text>
-    <text x="25" y="135" fill="#c4d5e0" font-family="sans-serif" font-size="11">• In-Memory Sliding Rate Limiting</text>
-    <text x="25" y="155" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Emergency Triage Auto-Redirection</text>
-    <text x="25" y="175" fill="#c4d5e0" font-family="sans-serif" font-size="11">• HMAC Tamper-Evident Audit</text>
-    <rect x="25" y="200" width="200" height="28" rx="6" fill="#0f5a98" fill-opacity="0.3" stroke="#2a7bcc" stroke-width="1" />
-    <text x="125" y="218" fill="#7bc4ff" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Docker / Render / Cloud Run</text>
+    <!-- Pulse Icon Badge -->
+    <rect x="16" y="14" width="38" height="38" rx="8" fill="#00837b" fill-opacity="0.3" stroke="#00b4a7" stroke-width="1.5" />
+    <path d="M 23 33 L 28 33 L 31 22 L 35 44 L 39 27 L 43 35 L 47 33" fill="none" stroke="#4ef3e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Title & Subtitle -->
+    <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="800" letter-spacing="0.5">MEDIPREDICT AI &#8226; ENTERPRISE HEALTHCARE ARCHITECTURE</text>
+    <text x="68" y="50" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">End-to-End Clinical Intelligence Mesh, Multilingual Voice, Predictive ML &amp; Zero-Trust Governance</text>
+
+    <!-- Certification Badges Right -->
+    <g transform="translate(685, 16)">
+      <!-- Badge 1: LOINC / SNOMED -->
+      <rect x="0" y="0" width="105" height="22" rx="4" fill="#0369a1" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1" />
+      <text x="52" y="15" fill="#bae6fd" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">LOINC / SNOMED</text>
+
+      <!-- Badge 2: FHIR R4 -->
+      <rect x="112" y="0" width="85" height="22" rx="4" fill="#047857" fill-opacity="0.3" stroke="#34d399" stroke-width="1" />
+      <text x="154" y="15" fill="#a7f3d0" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">HL7 FHIR R4</text>
+
+      <!-- Badge 3: DPDP 2023 -->
+      <rect x="204" y="0" width="95" height="22" rx="4" fill="#b45309" fill-opacity="0.3" stroke="#fbbf24" stroke-width="1" />
+      <text x="251" y="15" fill="#fde68a" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">DPDP ACT 2023</text>
+
+      <!-- Badge 4: HIPAA -->
+      <rect x="306" y="0" width="115" height="22" rx="4" fill="#6d28d9" fill-opacity="0.3" stroke="#c084fc" stroke-width="1" />
+      <text x="363" y="15" fill="#e9d5ff" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">HIPAA &#167; 164.312</text>
+
+      <text x="210" y="32" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Verified Zero-Trust Architecture &#8226; AES-256 / Ed25519 Encrypted</text>
+    </g>
   </g>
 
-  <!-- Connector 2 -->
-  <path d="M 600 275 L 640 275" stroke="#2a7bcc" stroke-width="3" stroke-dasharray="4,4" />
-  <polygon points="640,270 650,275 640,280" fill="#2a7bcc" />
 
-  <!-- Layer 3: AI & Machine Learning -->
-  <g transform="translate(650, 150)">
-    <rect width="250" height="250" rx="12" fill="#132633" stroke="#8e54e9" stroke-width="2" />
-    <rect x="15" y="15" width="220" height="32" rx="6" fill="url(#purpleGrad)" />
-    <text x="125" y="36" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">AI & ML RESEARCH LAB</text>
-    <text x="25" y="75" fill="#c499ff" font-family="monospace" font-size="12" font-weight="700">Predictive & Generative AI</text>
-    <text x="25" y="95" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Celiac Gradient Booster (AUC 0.962)</text>
-    <text x="25" y="115" fill="#c4d5e0" font-family="sans-serif" font-size="11">• TreeSHAP Factor Explainability</text>
-    <text x="25" y="135" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Clinical Evidence RAG Engine</text>
-    <text x="25" y="155" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Google Gemini 1.5 Multimodal</text>
-    <text x="25" y="175" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Multilingual Speech Engine</text>
-    <rect x="25" y="200" width="200" height="28" rx="6" fill="#5a3791" fill-opacity="0.3" stroke="#8e54e9" stroke-width="1" />
-    <text x="125" y="218" fill="#c499ff" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Scikit-Learn • Vertex AI</text>
+  <!-- ==================== TIER 1: CLIENT PRESENTATION & WORKSPACES ==================== -->
+  <g transform="translate(40, 105)">
+    <!-- Tier Label -->
+    <rect x="0" y="0" width="230" height="20" rx="4" fill="#00837b" fill-opacity="0.25" stroke="#00b4a7" stroke-width="1" />
+    <text x="8" y="14" fill="#4ef3e2" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.5">TIER 1 &#8226; PRESENTATION &amp; WORKSPACES</text>
+
+    <!-- 4 Presentation Cards -->
+    <!-- Card 1.1: Web App Portal -->
+    <g transform="translate(0, 26)">
+      <rect width="265" height="84" rx="8" fill="url(#cardGradTeal)" stroke="#00b4a7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Next.js 14 Web Application</text>
+      <text x="14" y="36" fill="#00e5ff" font-family="monospace" font-size="9.5" font-weight="700">29 App Routes &#8226; TypeScript 5.5</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Clinical Calm Design System &amp; Tokens</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Interactive Lab Portal &amp; Telemetry Charts</text>
+      <rect x="180" y="10" width="75" height="15" rx="3" fill="#00837b" fill-opacity="0.4" />
+      <text x="217" y="21" fill="#4ef3e2" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">VERCEL EDGE</text>
+    </g>
+
+    <!-- Card 1.2: Multilingual Voice Assistant -->
+    <g transform="translate(285, 26)">
+      <rect width="265" height="84" rx="8" fill="url(#cardGradTeal)" stroke="#00b4a7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Multilingual Voice Assistant</text>
+      <text x="14" y="36" fill="#00e5ff" font-family="monospace" font-size="9.5" font-weight="700">13 Indian Languages + Hinglish</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Streaming WebRTC &amp; Opus Audio Frames</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Silero VAD with Zero-Latency Barge-In</text>
+      <rect x="180" y="10" width="75" height="15" rx="3" fill="#00837b" fill-opacity="0.4" />
+      <text x="217" y="21" fill="#4ef3e2" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">BHASHINI / ASR</text>
+    </g>
+
+    <!-- Card 1.3: Clinician Decision Workspace -->
+    <g transform="translate(570, 26)">
+      <rect width="265" height="84" rx="8" fill="url(#cardGradTeal)" stroke="#00b4a7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Clinician Review Workspace</text>
+      <text x="14" y="36" fill="#00e5ff" font-family="monospace" font-size="9.5" font-weight="700">STAT Triage &amp; MDT Sign-Off</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Non-Bypassable Critical Result Gate</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; PKI Electronic Signature &amp; Audit Trail</text>
+      <rect x="180" y="10" width="75" height="15" rx="3" fill="#00837b" fill-opacity="0.4" />
+      <text x="217" y="21" fill="#4ef3e2" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">PHYSICIAN CDS</text>
+    </g>
+
+    <!-- Card 1.4: Medical Sensors & Wearables -->
+    <g transform="translate(855, 26)">
+      <rect width="265" height="84" rx="8" fill="url(#cardGradTeal)" stroke="#00b4a7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Connected Sensors &amp; IoT</text>
+      <text x="14" y="36" fill="#00e5ff" font-family="monospace" font-size="9.5" font-weight="700">ESP32, HealthKit &amp; Health Connect</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Continuous SpO2, Single-Lead ECG, CGM</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">&#8226; Ed25519 Signed Telemetry Packets</text>
+      <rect x="180" y="10" width="75" height="15" rx="3" fill="#00837b" fill-opacity="0.4" />
+      <text x="217" y="21" fill="#4ef3e2" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">BLE / MQTT</text>
+    </g>
   </g>
 
-  <!-- Connector 3 -->
-  <path d="M 900 275 L 940 275" stroke="#8e54e9" stroke-width="3" stroke-dasharray="4,4" />
-  <polygon points="940,270 950,275 940,280" fill="#8e54e9" />
 
-  <!-- Layer 4: Data & Storage -->
-  <g transform="translate(950, 150)">
-    <rect width="200" height="250" rx="12" fill="#132633" stroke="#f59e0b" stroke-width="2" />
-    <rect x="15" y="15" width="170" height="32" rx="6" fill="url(#amberGrad)" />
-    <text x="100" y="36" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">DATA & STORAGE</text>
-    <text x="20" y="75" fill="#fcd34d" font-family="monospace" font-size="12" font-weight="700">PostgreSQL + RLS</text>
-    <text x="20" y="95" fill="#c4d5e0" font-family="sans-serif" font-size="11">• 20+ Tables with RLS</text>
-    <text x="20" y="115" fill="#c4d5e0" font-family="sans-serif" font-size="11">• ReBAC Relationship Table</text>
-    <text x="20" y="135" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Supabase Private Storage</text>
-    <text x="20" y="155" fill="#c4d5e0" font-family="sans-serif" font-size="11">• 300s Signed Short URLs</text>
-    <text x="20" y="175" fill="#c4d5e0" font-family="sans-serif" font-size="11">• Append-Only Audit Logs</text>
-    <rect x="20" y="200" width="160" height="28" rx="6" fill="#b45309" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1" />
-    <text x="100" y="218" fill="#fcd34d" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Supabase / Managed PG</text>
+  <!-- Protocol Divider 1 -->
+  <g transform="translate(560, 222)">
+    <rect x="-100" y="-8" width="200" height="16" rx="8" fill="#0b243d" stroke="#1d4ed8" stroke-width="1" />
+    <text x="0" y="4" fill="#93c5fd" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">&#8693; TLS 1.3 &#8226; WSS DUPLEX &#8226; REST JSON &#8693;</text>
+  </g>
+
+
+  <!-- ==================== TIER 2: GATEWAY & ZERO-TRUST SECURITY ==================== -->
+  <g transform="translate(40, 236)">
+    <rect x="0" y="0" width="260" height="20" rx="4" fill="#1e40af" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1" />
+    <text x="8" y="14" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.5">TIER 2 &#8226; GATEWAY &amp; ZERO-TRUST INGRESS</text>
+
+    <!-- 4 Security Gateway Blocks -->
+    <!-- 2.1: Cloudflare WAF -->
+    <g transform="translate(0, 26)">
+      <rect width="265" height="74" rx="8" fill="url(#cardGradBlue)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">Cloudflare Edge WAF &amp; Ingress</text>
+      <text x="14" y="35" fill="#60a5fa" font-family="monospace" font-size="9" font-weight="600">DDoS Shield &amp; TLS 1.3 Termination</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Enterprise Geo-Fencing &amp; IP Reputation</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Magic-Byte Document MIME Validation</text>
+    </g>
+
+    <!-- 2.2: Serverless API Gateway -->
+    <g transform="translate(285, 26)">
+      <rect width="265" height="74" rx="8" fill="url(#cardGradBlue)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">Serverless Gateway Router</text>
+      <text x="14" y="35" fill="#60a5fa" font-family="monospace" font-size="9" font-weight="600">/api/v1/[[...slug]] Reverse Proxy</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; JWT Signature &amp; Session Fingerprinting</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Dynamic Fallback &amp; Regional Route Cache</text>
+    </g>
+
+    <!-- 2.3: Anti-Replay & Rate Limiter -->
+    <g transform="translate(570, 26)">
+      <rect width="265" height="74" rx="8" fill="url(#cardGradBlue)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">Anti-Replay &amp; Token Limiter</text>
+      <text x="14" y="35" fill="#60a5fa" font-family="monospace" font-size="9" font-weight="600">Sliding Window: 60 req / min</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; 64-bit Nonce Window Barrier (&#177;30s drift)</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Duplicate Packet Suppression Engine</text>
+    </g>
+
+    <!-- 2.4: ReBAC Access Engine -->
+    <g transform="translate(855, 26)">
+      <rect width="265" height="74" rx="8" fill="url(#cardGradBlue)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">ReBAC Policy Engine</text>
+      <text x="14" y="35" fill="#60a5fa" font-family="monospace" font-size="9" font-weight="600">Relationship-Based Authorization</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Clinician-Patient Linkage Verification</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Time-Bounded Break-Glass Override</text>
+    </g>
+  </g>
+
+
+  <!-- Protocol Divider 2 -->
+  <g transform="translate(560, 345)">
+    <rect x="-105" y="-8" width="210" height="16" rx="8" fill="#1f1438" stroke="#7c3aed" stroke-width="1" />
+    <text x="0" y="4" fill="#d8b4fe" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">&#8693; ASYNCIO IPC &#8226; PYDANTIC V2 &#8693;</text>
+  </g>
+
+
+  <!-- ==================== TIER 3: CORE AI & MEDICAL SERVICES ==================== -->
+  <g transform="translate(40, 358)">
+    <rect x="0" y="0" width="280" height="20" rx="4" fill="#581c87" fill-opacity="0.25" stroke="#a855f7" stroke-width="1" />
+    <text x="8" y="14" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.5">TIER 3 &#8226; CORE INTELLIGENCE &amp; AI MESH</text>
+
+    <!-- 4 Core Service Blocks -->
+    <!-- 3.1: Lab Intelligence & OCR -->
+    <g transform="translate(0, 26)">
+      <rect width="265" height="114" rx="8" fill="url(#cardGradPurple)" stroke="#a855f7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Lab Diagnostic Engine</text>
+      <text x="14" y="36" fill="#c084fc" font-family="monospace" font-size="9" font-weight="700">PIP-01: Multi-Pass OCR &amp; LOINC</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; PyMuPDF vector &amp; Tesseract 5.3 OCR</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Gemini 1.5 few-shot tabular parser</text>
+      <text x="14" y="80" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; 18-biomarker LOINC ontology resolver</text>
+      <text x="14" y="94" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Panic threshold auto-flagging (&lt;2.5s)</text>
+      <rect x="175" y="10" width="80" height="15" rx="3" fill="#581c87" />
+      <text x="215" y="21" fill="#e9d5ff" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">OCR + LOINC</text>
+    </g>
+
+    <!-- 3.2: ML Research Lab -->
+    <g transform="translate(285, 26)">
+      <rect width="265" height="114" rx="8" fill="url(#cardGradPurple)" stroke="#a855f7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">ML Research Laboratory</text>
+      <text x="14" y="36" fill="#c084fc" font-family="monospace" font-size="9" font-weight="700">PIP-03: Stacking Ensemble GB</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Diagnostic AUROC: 0.962 (Celiac/T2D)</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; TreeSHAP factor decomposition</text>
+      <text x="14" y="80" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Platt scaling Bayesian calibration</text>
+      <text x="14" y="94" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; SHA-256 weight checksum registry</text>
+      <rect x="175" y="10" width="80" height="15" rx="3" fill="#581c87" />
+      <text x="215" y="21" fill="#e9d5ff" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">AUC 0.962</text>
+    </g>
+
+    <!-- 3.3: Clinical Evidence RAG -->
+    <g transform="translate(570, 26)">
+      <rect width="265" height="114" rx="8" fill="url(#cardGradPurple)" stroke="#a855f7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Medical Evidence RAG</text>
+      <text x="14" y="36" fill="#c084fc" font-family="monospace" font-size="9" font-weight="700">PIP-05: PubMed &amp; Cochrane Hub</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; BioLinkBERT 768-dim pgvector index</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Reciprocal Rank Fusion (Dense + BM25)</text>
+      <text x="14" y="80" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; OCEBM Level 1-4 citation scoring</text>
+      <text x="14" y="94" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Strict anti-hallucination verification</text>
+      <rect x="175" y="10" width="80" height="15" rx="3" fill="#581c87" />
+      <text x="215" y="21" fill="#e9d5ff" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">RAG HYBRID</text>
+    </g>
+
+    <!-- 3.4: Telemetry & Arrhythmia Triage -->
+    <g transform="translate(855, 26)">
+      <rect width="265" height="114" rx="8" fill="url(#cardGradPurple)" stroke="#a855f7" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700">Continuous Vitals Triage</text>
+      <text x="14" y="36" fill="#c084fc" font-family="monospace" font-size="9" font-weight="700">PIP-09: Arrhythmia &amp; NEWS2</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Pan-Tompkins R-peak QRS detector</text>
+      <text x="14" y="66" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; RMSSD / SDNN HRV calculation</text>
+      <text x="14" y="80" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Sustained AFib &amp; VTach urgent alarms</text>
+      <text x="14" y="94" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; NEWS2 / MEWS automated scoring</text>
+      <rect x="175" y="10" width="80" height="15" rx="3" fill="#581c87" />
+      <text x="215" y="21" fill="#e9d5ff" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle">REAL-TIME CDS</text>
+    </g>
+  </g>
+
+
+  <!-- Protocol Divider 3 -->
+  <g transform="translate(560, 508)">
+    <rect x="-115" y="-8" width="230" height="16" rx="8" fill="#2a1d08" stroke="#d97706" stroke-width="1" />
+    <text x="0" y="4" fill="#fde68a" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">&#8693; SQL / RLS &#8226; SSE-KMS &#8226; HMAC &#8693;</text>
+  </g>
+
+
+  <!-- ==================== TIER 4: STORAGE & REGULATORY COMPLIANCE ==================== -->
+  <g transform="translate(40, 520)">
+    <rect x="0" y="0" width="290" height="20" rx="4" fill="#78350f" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1" />
+    <text x="8" y="14" fill="#fde68a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.5">TIER 4 &#8226; PERSISTENCE, STORAGE &amp; COMPLIANCE</text>
+
+    <!-- 4 Storage Blocks -->
+    <!-- 4.1: PostgreSQL with RLS -->
+    <g transform="translate(0, 26)">
+      <rect width="265" height="82" rx="8" fill="url(#cardGradAmber)" stroke="#f59e0b" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">PostgreSQL + pgvector</text>
+      <text x="14" y="35" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="600">20+ Tables with Forced RLS</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Strict User UID &amp; ReBAC Isolation</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; HNSW Vector Indexes for BioLinkBERT</text>
+    </g>
+
+    <!-- 4.2: TimescaleDB -->
+    <g transform="translate(285, 26)">
+      <rect width="265" height="82" rx="8" fill="url(#cardGradAmber)" stroke="#f59e0b" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">TimescaleDB Hypertables</text>
+      <text x="14" y="35" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="600">Longitudinal Vitals &amp; Metrics</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; 28-day partition chunking &amp; rollups</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; 90% Columnar Storage Compression</text>
+    </g>
+
+    <!-- 4.3: Encrypted Document Vault -->
+    <g transform="translate(570, 26)">
+      <rect width="265" height="82" rx="8" fill="url(#cardGradAmber)" stroke="#f59e0b" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">AES-256 S3 Document Vault</text>
+      <text x="14" y="35" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="600">Private Bucket &amp; 300s URLs</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; ClamAV Antivirus Quarantine Pipe</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; Non-Public Presigned Read Policies</text>
+    </g>
+
+    <!-- 4.4: HMAC Audit & DPDP 2023 -->
+    <g transform="translate(855, 26)">
+      <rect width="265" height="82" rx="8" fill="url(#cardGradAmber)" stroke="#f59e0b" stroke-width="1.2" />
+      <text x="14" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">Audit Ledger &amp; DPDP 2023</text>
+      <text x="14" y="35" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="600">PIP-07 &amp; PIP-08 Governance</text>
+      <text x="14" y="50" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; HMAC-SHA256 Chained Hash Ledger</text>
+      <text x="14" y="64" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">&#8226; DPDP Consent Directives &amp; Portability</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== FOOTER CERTIFICATION & STATUS ==================== -->
+  <g transform="translate(40, 642)">
+    <circle cx="6" cy="4" r="3.5" fill="#10b981" />
+    <text x="18" y="8" fill="#10b981" font-family="monospace" font-size="9.5" font-weight="700">STATUS: OPERATIONAL</text>
+    <text x="160" y="8" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5">&#8226; 36/36 Automated Pytest Unit &amp; Integration Tests Passing (100%)</text>
+    <text x="590" y="8" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5">&#8226; High-Availability Dual Cloud: Vercel Edge + Render / Railway Containers</text>
+    <text x="1120" y="8" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="600" text-anchor="end">v2.4.0-ENTERPRISE</text>
   </g>
 </svg>
