@@ -36,9 +36,10 @@ export default function GeneticsPage() {
     setIsLoading(true);
     try {
       const data = await api.listGenes(searchQuery || undefined);
-      setGenes(data);
-      if (data.length > 0 && !selectedGene) {
-        setSelectedGene(data[0]);
+      const safeData = Array.isArray(data) ? data : [];
+      setGenes(safeData);
+      if (safeData.length > 0 && !selectedGene) {
+        setSelectedGene(safeData[0]);
       }
     } catch (err) {
       console.error("Load genes error:", err);
@@ -46,6 +47,8 @@ export default function GeneticsPage() {
       setIsLoading(false);
     }
   };
+
+  const safeGenes = Array.isArray(genes) ? genes : [];
 
   return (
     <div className="min-h-screen flex flex-col bg-surface text-foreground">
@@ -87,7 +90,7 @@ export default function GeneticsPage() {
             {/* Gene Symbols Catalog */}
             <div className="lg:col-span-4 space-y-2.5">
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block px-1">
-                Genetic Loci & Markers ({genes.length})
+                Genetic Loci & Markers ({safeGenes.length})
               </span>
 
               {isLoading ? (
@@ -95,12 +98,12 @@ export default function GeneticsPage() {
                   <CardSkeleton />
                   <CardSkeleton />
                 </div>
-              ) : genes.length === 0 ? (
+              ) : safeGenes.length === 0 ? (
                 <div className="p-8 text-center bg-white dark:bg-[#1a2e38] rounded-xl border border-dashed border-border text-xs text-muted-foreground">
                   No matching genetic loci found.
                 </div>
               ) : (
-                genes.map((g) => {
+                safeGenes.map((g) => {
                   const isSelected = selectedGene?.id === g.id;
                   return (
                     <div

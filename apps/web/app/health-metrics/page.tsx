@@ -208,9 +208,12 @@ export default function HealthMetricsPage() {
     }
   };
 
+  const safeMetrics = Array.isArray(metrics) ? metrics : [];
+  const safeSummaries = Array.isArray(summaries) ? summaries : [];
+
   // Filtered readings for chart
-  const chartData = metrics.filter(
-    (m) => activeMetricTab === "all" || m.metric_type === activeMetricTab
+  const chartData = safeMetrics.filter(
+    (m) => m && (activeMetricTab === "all" || m.metric_type === activeMetricTab)
   );
 
   return (
@@ -320,8 +323,8 @@ export default function HealthMetricsPage() {
                 <CardSkeleton />
                 <CardSkeleton />
               </>
-            ) : summaries.length > 0 ? (
-              summaries.map((s) => (
+            ) : safeSummaries.length > 0 ? (
+              safeSummaries.map((s) => (
                 <div
                   key={s.metric_type}
                   onClick={() => {

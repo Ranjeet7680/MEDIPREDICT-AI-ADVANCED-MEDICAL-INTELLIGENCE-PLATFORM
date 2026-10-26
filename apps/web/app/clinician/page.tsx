@@ -83,12 +83,13 @@ export default function ClinicianWorkspacePage() {
     try {
       const filter = statusFilter === "all" ? undefined : statusFilter;
       const data = await api.listClinicianReports(filter);
-      setReports(data);
-      if (data.length > 0 && !selectedReport) {
-        setSelectedReport(data[0]);
-        setClinicianNotes(data[0].clinician_notes || "");
+      const safeData = Array.isArray(data) ? data : [];
+      setReports(safeData);
+      if (safeData.length > 0 && !selectedReport) {
+        setSelectedReport(safeData[0]);
+        setClinicianNotes(safeData[0].clinician_notes || "");
       } else if (selectedReport) {
-        const found = data.find((r: ClinicianReportItem) => r.id === selectedReport.id);
+        const found = safeData.find((r: ClinicianReportItem) => r.id === selectedReport.id);
         if (found) setSelectedReport(found);
       }
     } catch (err) {

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   CartesianGrid,
   Line,
@@ -33,16 +33,30 @@ export default function HealthTrendChart({
   primaryLabel = "Value",
   secondaryLabel = "Diastolic",
 }: HealthTrendChartProps) {
-  if (!data || data.length === 0) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const validData = Array.isArray(data)
+    ? data.filter((item) => item && item.recorded_at && typeof item.value === "number")
+    : [];
+
+  if (!isMounted || validData.length === 0) {
     return (
       <div className="h-64 flex items-center justify-center text-xs text-muted-foreground bg-surface-low/30 dark:bg-[#162732]/40 rounded-xl border border-dashed border-border">
-        No measurements recorded for this timeframe.
+        {!isMounted ? (
+          <div className="w-6 h-6 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+        ) : (
+          "No measurements recorded for this timeframe."
+        )}
       </div>
     );
   }
 
   // Format and sort chronological
-  const formattedData = [...data]
+  const formattedData = [...validData]
     .sort((a, b) => new Date(a.recorded_at).getTime() - new Date(b.recorded_at).getTime())
     .map((item) => ({
       date: formatDate(item.recorded_at),

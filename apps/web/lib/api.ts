@@ -56,6 +56,14 @@ class ApiClient {
     }
   }
 
+  private ensureArray<T>(val: any): T[] {
+    if (Array.isArray(val)) return val;
+    if (val && Array.isArray(val.data)) return val.data;
+    if (val && Array.isArray(val.items)) return val.items;
+    if (val && Array.isArray(val.results)) return val.results;
+    return [];
+  }
+
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}
@@ -430,7 +438,8 @@ Recommended clinical investigations:
   }
 
   async listConversations(): Promise<Conversation[]> {
-    return this.request<Conversation[]>("/assistant/conversations");
+    const res = await this.request<any>("/assistant/conversations");
+    return this.ensureArray<Conversation>(res);
   }
 
   async createConversation(title?: string): Promise<Conversation> {
@@ -468,7 +477,8 @@ Recommended clinical investigations:
 
   // Reports Endpoints
   async listReports(): Promise<MedicalReport[]> {
-    return this.request<MedicalReport[]>("/reports");
+    const res = await this.request<any>("/reports");
+    return this.ensureArray<MedicalReport>(res);
   }
 
   async getReport(id: number): Promise<MedicalReport> {
@@ -547,7 +557,8 @@ Recommended clinical investigations:
   // Health Metrics Endpoints
   async listMetrics(metricType?: string): Promise<HealthMeasurement[]> {
     const q = metricType ? `?metric_type=${encodeURIComponent(metricType)}` : "";
-    return this.request<HealthMeasurement[]>(`/metrics${q}`);
+    const res = await this.request<any>(`/metrics${q}`);
+    return this.ensureArray<HealthMeasurement>(res);
   }
 
   async createMetric(data: {
@@ -576,7 +587,8 @@ Recommended clinical investigations:
   }
 
   async getMetricsSummary(): Promise<HealthMetricSummary[]> {
-    return this.request<HealthMetricSummary[]>("/metrics/summary");
+    const res = await this.request<any>("/metrics/summary");
+    return this.ensureArray<HealthMetricSummary>(res);
   }
 
   async deleteMetric(id: number): Promise<void> {
@@ -594,7 +606,8 @@ Recommended clinical investigations:
     const params = new URLSearchParams();
     if (search) params.append("search", search);
     if (specialty) params.append("specialty", specialty);
-    return this.request<DiseaseCondition[]>(`/diseases?${params.toString()}`);
+    const res = await this.request<any>(`/diseases?${params.toString()}`);
+    return this.ensureArray<DiseaseCondition>(res);
   }
 
   async getDisease(id: number): Promise<DiseaseCondition> {
@@ -605,7 +618,8 @@ Recommended clinical investigations:
     const params = new URLSearchParams();
     if (symbol) params.append("symbol", symbol);
     if (condition) params.append("condition", condition);
-    return this.request<GeneAssociation[]>(`/genes?${params.toString()}`);
+    const res = await this.request<any>(`/genes?${params.toString()}`);
+    return this.ensureArray<GeneAssociation>(res);
   }
 
   // Research Endpoints
@@ -613,11 +627,13 @@ Recommended clinical investigations:
     const params = new URLSearchParams();
     if (q) params.append("q", q);
     if (category) params.append("category", category);
-    return this.request<MedicalReference[]>(`/research/search?${params.toString()}`);
+    const res = await this.request<any>(`/research/search?${params.toString()}`);
+    return this.ensureArray<MedicalReference>(res);
   }
 
   async listBookmarks(): Promise<ResearchBookmark[]> {
-    return this.request<ResearchBookmark[]>("/research/bookmarks");
+    const res = await this.request<any>("/research/bookmarks");
+    return this.ensureArray<ResearchBookmark>(res);
   }
 
   async addBookmark(referenceId: number, notes?: string): Promise<ResearchBookmark> {
@@ -636,7 +652,8 @@ Recommended clinical investigations:
   // Personal Records Endpoints
   async listRecords(category?: string): Promise<PersonalRecord[]> {
     const q = category ? `?category=${encodeURIComponent(category)}` : "";
-    return this.request<PersonalRecord[]>(`/records${q}`);
+    const res = await this.request<any>(`/records${q}`);
+    return this.ensureArray<PersonalRecord>(res);
   }
 
   async createRecord(data: {
@@ -660,7 +677,8 @@ Recommended clinical investigations:
 
   // Privacy Endpoints
   async getConsents(): Promise<UserConsent[]> {
-    return this.request<UserConsent[]>("/privacy/consent");
+    const res = await this.request<any>("/privacy/consent");
+    return this.ensureArray<UserConsent>(res);
   }
 
   async updateConsent(consentType: string, granted: boolean): Promise<UserConsent> {
@@ -692,7 +710,8 @@ Recommended clinical investigations:
 
   // Notifications
   async listNotifications(): Promise<any[]> {
-    return this.request<any[]>("/notifications");
+    const res = await this.request<any>("/notifications");
+    return this.ensureArray<any>(res);
   }
 
   async markNotificationRead(id: number): Promise<any> {
@@ -710,7 +729,8 @@ Recommended clinical investigations:
   // Clinician Workspace
   async listClinicianReports(statusFilter?: string): Promise<any[]> {
     const q = statusFilter ? `?status_filter=${encodeURIComponent(statusFilter)}` : "";
-    return this.request<any[]>(`/clinician/reports${q}`);
+    const res = await this.request<any>(`/clinician/reports${q}`);
+    return this.ensureArray<any>(res);
   }
 
   async reviewClinicianReport(
@@ -732,12 +752,14 @@ Recommended clinical investigations:
   }
 
   async getClinicianAuditLogs(limit: number = 30): Promise<any[]> {
-    return this.request<any[]>(`/clinician/audit-logs?limit=${limit}`);
+    const res = await this.request<any>(`/clinician/audit-logs?limit=${limit}`);
+    return this.ensureArray<any>(res);
   }
 
   // Unified Search
   async search(query: string): Promise<any[]> {
-    return this.request<any[]>(`/search?q=${encodeURIComponent(query)}`);
+    const res = await this.request<any>(`/search?q=${encodeURIComponent(query)}`);
+    return this.ensureArray<any>(res);
   }
 
   // Admin Portal
@@ -750,11 +772,13 @@ Recommended clinical investigations:
     if (actionFilter) {
       url += `&action_filter=${encodeURIComponent(actionFilter)}`;
     }
-    return this.request<any[]>(url);
+    const res = await this.request<any>(url);
+    return this.ensureArray<any>(res);
   }
 
   async getAdminUsers(): Promise<any[]> {
-    return this.request<any[]>("/admin/users");
+    const res = await this.request<any>("/admin/users");
+    return this.ensureArray<any>(res);
   }
 
   async updateUserRole(userId: number, newRole: string): Promise<any> {
@@ -766,7 +790,8 @@ Recommended clinical investigations:
   // Connected Devices Endpoints
   async listDevices(deviceType?: string): Promise<Device[]> {
     const q = deviceType ? `?device_type=${encodeURIComponent(deviceType)}` : "";
-    return this.request<Device[]>(`/devices${q}`);
+    const res = await this.request<any>(`/devices${q}`);
+    return this.ensureArray<Device>(res);
   }
 
   async registerDevice(data: DeviceCreate): Promise<Device> {
@@ -830,7 +855,8 @@ Recommended clinical investigations:
   }
 
   async getDeviceHealth(): Promise<DeviceHealthItem[]> {
-    return this.request<DeviceHealthItem[]>("/analytics/device-health");
+    const res = await this.request<any>("/analytics/device-health");
+    return this.ensureArray<DeviceHealthItem>(res);
   }
 
   async getDataQuality(): Promise<DataQualityReport> {
@@ -854,7 +880,8 @@ Recommended clinical investigations:
   }
 
   async listAgentRuns(): Promise<AgentRun[]> {
-    return this.request<AgentRun[]>("/agents/runs");
+    const res = await this.request<any>("/agents/runs");
+    return this.ensureArray<AgentRun>(res);
   }
 
   async getAgentRun(id: string): Promise<AgentRun> {
@@ -863,11 +890,13 @@ Recommended clinical investigations:
 
   // Machine Learning Research & Experimentation Endpoints
   async listMLModels(): Promise<any[]> {
-    return this.request<any[]>("/ml/models");
+    const res = await this.request<any>("/ml/models");
+    return this.ensureArray<any>(res);
   }
 
   async listMLExperiments(): Promise<MLExperiment[]> {
-    return this.request<MLExperiment[]>("/ml/experiments");
+    const res = await this.request<any>("/ml/experiments");
+    return this.ensureArray<MLExperiment>(res);
   }
 
   async getMLExperiment(id: string): Promise<MLExperiment> {

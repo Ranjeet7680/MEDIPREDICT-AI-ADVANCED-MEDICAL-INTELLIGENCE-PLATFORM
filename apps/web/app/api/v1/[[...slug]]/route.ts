@@ -128,6 +128,128 @@ const MOCK_REPORTS = [
   },
 ];
 
+const MOCK_METRICS = [
+  { id: 1, user_id: 1, metric_type: "blood_pressure", value: 122, secondary_value: 78, unit: "mmHg", recorded_at: new Date(Date.now() - 3600000 * 2).toISOString(), source: "Omron Evolv Wireless", notes: "Resting, seated" },
+  { id: 2, user_id: 1, metric_type: "blood_pressure", value: 118, secondary_value: 76, unit: "mmHg", recorded_at: new Date(Date.now() - 86400000).toISOString(), source: "Omron Evolv Wireless", notes: "Morning resting" },
+  { id: 3, user_id: 1, metric_type: "blood_pressure", value: 124, secondary_value: 80, unit: "mmHg", recorded_at: new Date(Date.now() - 2 * 86400000).toISOString(), source: "Manual Clinical", notes: "Evening reading" },
+  { id: 4, user_id: 1, metric_type: "blood_pressure", value: 120, secondary_value: 78, unit: "mmHg", recorded_at: new Date(Date.now() - 3 * 86400000).toISOString(), source: "Omron Evolv Wireless", notes: "Resting" },
+  { id: 5, user_id: 1, metric_type: "blood_pressure", value: 126, secondary_value: 82, unit: "mmHg", recorded_at: new Date(Date.now() - 5 * 86400000).toISOString(), source: "Manual Clinical", notes: "Post light walk" },
+  { id: 6, user_id: 1, metric_type: "blood_pressure", value: 119, secondary_value: 75, unit: "mmHg", recorded_at: new Date(Date.now() - 7 * 86400000).toISOString(), source: "Omron Evolv Wireless", notes: "Morning resting" },
+  { id: 7, user_id: 1, metric_type: "blood_pressure", value: 121, secondary_value: 77, unit: "mmHg", recorded_at: new Date(Date.now() - 10 * 86400000).toISOString(), source: "Omron Evolv Wireless", notes: "Resting" },
+  { id: 8, user_id: 1, metric_type: "blood_pressure", value: 125, secondary_value: 79, unit: "mmHg", recorded_at: new Date(Date.now() - 14 * 86400000).toISOString(), source: "Omron Evolv Wireless", notes: "Resting" },
+  { id: 9, user_id: 1, metric_type: "blood_glucose", value: 96.0, unit: "mg/dL", recorded_at: new Date(Date.now() - 3600000 * 4).toISOString(), source: "Accu-Chek Guide", notes: "Fasting" },
+  { id: 10, user_id: 1, metric_type: "heart_rate", value: 72, unit: "bpm", recorded_at: new Date(Date.now() - 3600000 * 1).toISOString(), source: "MediWatch Pro V4", notes: "Resting pulse" },
+  { id: 11, user_id: 1, metric_type: "spo2", value: 98.4, unit: "%", recorded_at: new Date(Date.now() - 3600000 * 1).toISOString(), source: "Pulse Oximeter", notes: "Room air" },
+  { id: 12, user_id: 1, metric_type: "hba1c", value: 5.4, unit: "%", recorded_at: new Date(Date.now() - 15 * 86400000).toISOString(), source: "Venipuncture Lab", notes: "Quarterly review" },
+  { id: 13, user_id: 1, metric_type: "weight", value: 68.5, unit: "kg", recorded_at: new Date(Date.now() - 86400000).toISOString(), source: "Withings Body+", notes: "Morning" },
+];
+
+const MOCK_METRICS_SUMMARY = [
+  { metric_type: "blood_pressure", unit: "mmHg", latest_value: 122, latest_secondary: 78, latest_date: new Date().toISOString(), min_value: 116, max_value: 126, average: 121, status: "normal" as const },
+  { metric_type: "blood_glucose", unit: "mg/dL", latest_value: 96, latest_date: new Date().toISOString(), min_value: 88, max_value: 104, average: 95, status: "normal" as const },
+  { metric_type: "heart_rate", unit: "bpm", latest_value: 72, latest_date: new Date().toISOString(), min_value: 62, max_value: 84, average: 71, status: "normal" as const },
+  { metric_type: "spo2", unit: "%", latest_value: 98.4, latest_date: new Date().toISOString(), min_value: 97, max_value: 100, average: 98.6, status: "normal" as const },
+  { metric_type: "hba1c", unit: "%", latest_value: 5.4, latest_date: new Date().toISOString(), min_value: 5.2, max_value: 5.6, average: 5.4, status: "normal" as const },
+  { metric_type: "weight", unit: "kg", latest_value: 68.5, latest_date: new Date().toISOString(), min_value: 68.0, max_value: 69.2, average: 68.6, status: "normal" as const },
+];
+
+const MOCK_RESEARCH = [
+  {
+    id: 1,
+    title: "ACG Clinical Guidelines: Diagnosis and Management of Celiac Disease",
+    authors: "Rubio-Tapia A, Hill ID, Semrad C, Kelly CP, et al.",
+    journal: "American Journal of Gastroenterology",
+    year: 2023,
+    pmid: "36598285",
+    evidence_level: "Level 1A Guideline",
+    category: "Gastroenterology",
+    abstract_snippet:
+      "Updated evidence-based guidelines for initial screening with anti-tTG IgA, indications for intestinal biopsy, and monitoring mucosal healing on a strict gluten-free diet.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/36598285/",
+  },
+  {
+    id: 2,
+    title: "Standards of Care in Diabetes — 2024",
+    authors: "American Diabetes Association Professional Practice Committee",
+    journal: "Diabetes Care",
+    year: 2024,
+    pmid: "38078580",
+    evidence_level: "Level 1A Guideline",
+    category: "Endocrinology",
+    abstract_snippet:
+      "Comprehensive clinical guidance detailing diagnostic thresholds for diabetes (HbA1c >= 6.5%), continuous glucose monitoring, and cardiovascular risk reduction.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/38078580/",
+  },
+];
+
+const MOCK_BOOKMARKS = [
+  {
+    id: 1,
+    user_id: 1,
+    reference_id: 1,
+    notes: "Core guideline for celiac screening algorithm and duodenal biopsy criteria.",
+    created_at: new Date(Date.now() - 2 * 86400000).toISOString(),
+    reference: MOCK_RESEARCH[0],
+  },
+  {
+    id: 2,
+    user_id: 1,
+    reference_id: 2,
+    notes: "Diagnostic thresholds and ADA glycemic targets reference.",
+    created_at: new Date(Date.now() - 5 * 86400000).toISOString(),
+    reference: MOCK_RESEARCH[1],
+  },
+];
+
+const MOCK_NOTIFICATIONS = [
+  {
+    id: 1,
+    user_id: 1,
+    title: "Critical Lab Flag Detected",
+    message: "Elevated Fasting Glucose (186.4 mg/dL) identified in Comprehensive Metabolic Panel.",
+    type: "alert",
+    priority: "stat_critical",
+    is_read: false,
+    link: "/reports",
+    created_at: new Date(Date.now() - 3600000).toISOString(),
+  },
+  {
+    id: 2,
+    user_id: 1,
+    title: "Continuous Telemetry Sync Active",
+    message: "MediWatch Pro V4 synced 482 resting pulse measurements successfully.",
+    type: "info",
+    priority: "routine",
+    is_read: true,
+    link: "/devices/wearables",
+    created_at: new Date(Date.now() - 4 * 3600000).toISOString(),
+  },
+  {
+    id: 3,
+    user_id: 1,
+    title: "Consent Preference Audited",
+    message: "Your zero-trust data segregation and DPDP Act 2023 telemetry consents were verified.",
+    type: "success",
+    priority: "routine",
+    is_read: true,
+    link: "/settings/privacy",
+    created_at: new Date(Date.now() - 24 * 3600000).toISOString(),
+  },
+];
+
+const MOCK_CONSENTS = [
+  { consent_type: "clinical_ai_processing", description: "Allow evidence-grounded AI model reasoning on uploaded lab panels", is_granted: true, updated_at: new Date().toISOString() },
+  { consent_type: "wearable_telemetry_sync", description: "Continuous streaming from smartwatches and medical Bluetooth biosensors", is_granted: true, updated_at: new Date().toISOString() },
+  { consent_type: "research_data_donation", description: "De-identified genomic and metabolic telemetry contribution to clinical research", is_granted: false, updated_at: new Date().toISOString() },
+  { consent_type: "emergency_clinician_access", description: "Automated alert dispatch to attending physician for STAT critical biomarkers", is_granted: true, updated_at: new Date().toISOString() },
+];
+
+const MOCK_DEVICES_HEALTH = [
+  { id: "DEV-WATCH-01", device_name: "MediWatch Pro V4", status: "online", battery: 84, signal: -58, last_packet: "2s ago", errors_24h: 0 },
+  { id: "DEV-OXI-02", device_name: "Continuous Pulse Oximeter", status: "online", battery: 92, signal: -62, last_packet: "5s ago", errors_24h: 0 },
+  { id: "DEV-GATEWAY-03", device_name: "BLE Medical Hub Edge", status: "online", battery: 100, signal: -45, last_packet: "1s ago", errors_24h: 0 },
+];
+
 const MOCK_AUDIT_LOGS = [
   {
     id: 1,
@@ -217,6 +339,22 @@ export async function GET(req: NextRequest, { params }: { params: { slug?: strin
     return NextResponse.json(MOCK_USER);
   }
 
+  if (path === "users/consents" || path === "privacy/consent") {
+    return NextResponse.json(MOCK_CONSENTS);
+  }
+
+  if (path === "users/export-data" || path === "privacy/export") {
+    return NextResponse.json({
+      export_version: "2.4",
+      user: MOCK_USER,
+      reports: MOCK_REPORTS,
+      metrics: MOCK_METRICS,
+      consents: MOCK_CONSENTS,
+      generated_at: new Date().toISOString(),
+      compliance: "DPDP Act 2023 / HIPAA Sec. 164.312",
+    });
+  }
+
   if (path === "assistant/providers") {
     return NextResponse.json({
       current_provider: "clinical_evidence",
@@ -281,6 +419,16 @@ export async function GET(req: NextRequest, { params }: { params: { slug?: strin
 
   if (path === "reports") {
     return NextResponse.json(MOCK_REPORTS);
+  }
+
+  if (path.startsWith("reports/") && path.endsWith("/export/csv")) {
+    const csvContent = "Test Name,Value,Unit,Reference,Status\nFasting Blood Glucose,186.4,mg/dL,70.0 - 99.0,critical\nHbA1c,8.9,%,4.0 - 5.6,high\nSerum Creatinine,0.92,mg/dL,0.6 - 1.2,normal";
+    return new NextResponse(csvContent, {
+      headers: {
+        "Content-Type": "text/csv",
+        "Content-Disposition": 'attachment; filename="medipredict_lab_report.csv"',
+      },
+    });
   }
 
   if (path.startsWith("reports/")) {
@@ -374,7 +522,7 @@ export async function GET(req: NextRequest, { params }: { params: { slug?: strin
     ]);
   }
 
-  if (path === "genetics") {
+  if (path === "genetics" || path === "genes") {
     return NextResponse.json([
       {
         id: 1,
@@ -419,34 +567,11 @@ export async function GET(req: NextRequest, { params }: { params: { slug?: strin
   }
 
   if (path === "research") {
-    return NextResponse.json([
-      {
-        id: 1,
-        title: "ACG Clinical Guidelines: Diagnosis and Management of Celiac Disease",
-        authors: "Rubio-Tapia A, Hill ID, Semrad C, Kelly CP, et al.",
-        journal: "American Journal of Gastroenterology",
-        year: 2023,
-        pmid: "36598285",
-        evidence_level: "Level 1A Guideline",
-        category: "Gastroenterology",
-        abstract_snippet:
-          "Updated evidence-based guidelines for initial screening with anti-tTG IgA, indications for intestinal biopsy, and monitoring mucosal healing on a strict gluten-free diet.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/36598285/",
-      },
-      {
-        id: 2,
-        title: "Standards of Care in Diabetes — 2024",
-        authors: "American Diabetes Association Professional Practice Committee",
-        journal: "Diabetes Care",
-        year: 2024,
-        pmid: "38078580",
-        evidence_level: "Level 1A Guideline",
-        category: "Endocrinology",
-        abstract_snippet:
-          "Comprehensive clinical guidance detailing diagnostic thresholds for diabetes (HbA1c >= 6.5%), continuous glucose monitoring, and cardiovascular risk reduction.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/38078580/",
-      },
-    ]);
+    return NextResponse.json(MOCK_RESEARCH);
+  }
+
+  if (path === "research/bookmarks") {
+    return NextResponse.json(MOCK_BOOKMARKS);
   }
 
   if (path === "devices") {
@@ -476,6 +601,10 @@ export async function GET(req: NextRequest, { params }: { params: { slug?: strin
     ]);
   }
 
+  if (path === "devices/health") {
+    return NextResponse.json(MOCK_DEVICES_HEALTH);
+  }
+
   if (path === "analytics/overview") {
     return NextResponse.json({
       total_patients: 1240,
@@ -487,19 +616,80 @@ export async function GET(req: NextRequest, { params }: { params: { slug?: strin
     });
   }
 
-  if (path === "metrics/summary") {
+  if (path === "analytics/data-quality") {
     return NextResponse.json({
-      heart_rate: { value: 72, unit: "bpm", status: "normal", timestamp: new Date().toISOString() },
-      blood_pressure: { systolic: 118, diastolic: 78, unit: "mmHg", status: "optimal", timestamp: new Date().toISOString() },
-      blood_glucose: { value: 94, unit: "mg/dL", status: "normal", timestamp: new Date().toISOString() },
-      oxygen_saturation: { value: 98.4, unit: "%", status: "normal", timestamp: new Date().toISOString() },
-      body_temperature: { value: 98.6, unit: "°F", status: "normal", timestamp: new Date().toISOString() },
-      respiratory_rate: { value: 16, unit: "breaths/min", status: "normal", timestamp: new Date().toISOString() },
+      completeness: 98.6,
+      accuracy: 99.1,
+      timeliness: 99.8,
+      consistency: 97.4,
+      overall_score: 98.7,
     });
   }
 
-  // Catch-all for unrecognized GET requests
-  return NextResponse.json({ status: "ok", path, data: [] });
+  if (path === "metrics/summary") {
+    return NextResponse.json(MOCK_METRICS_SUMMARY);
+  }
+
+  if (path === "metrics" || path.startsWith("metrics?")) {
+    const metricType = req.nextUrl.searchParams.get("metric_type");
+    if (metricType) {
+      return NextResponse.json(MOCK_METRICS.filter((m) => m.metric_type === metricType));
+    }
+    return NextResponse.json(MOCK_METRICS);
+  }
+
+  if (path === "metrics/export/csv") {
+    const csvContent = "Date,Metric Type,Value,Secondary Value,Unit,Source\n" +
+      MOCK_METRICS.map((m) => `${m.recorded_at},${m.metric_type},${m.value},${m.secondary_value || ""},${m.unit},${m.source || ""}`).join("\n");
+    return new NextResponse(csvContent, {
+      headers: {
+        "Content-Type": "text/csv",
+        "Content-Disposition": 'attachment; filename="medipredict_health_metrics.csv"',
+      },
+    });
+  }
+
+  if (path === "notifications") {
+    return NextResponse.json(MOCK_NOTIFICATIONS);
+  }
+
+  if (path === "admin/stats") {
+    return NextResponse.json({
+      total_users: 148,
+      active_patients: 124,
+      clinicians_on_duty: 12,
+      processed_panels_24h: 53,
+      mean_latency_ms: 18.4,
+      uptime_percentage: 99.98,
+    });
+  }
+
+  if (path === "admin/users") {
+    return NextResponse.json([
+      MOCK_USER,
+      {
+        id: 2,
+        email: "patient@medipredict.ai",
+        full_name: "Priya Sharma",
+        role: "patient",
+        is_active: true,
+        is_verified: true,
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: 3,
+        email: "admin@medipredict.ai",
+        full_name: "System Administrator",
+        role: "admin",
+        is_active: true,
+        is_verified: true,
+        created_at: new Date().toISOString(),
+      },
+    ]);
+  }
+
+  // Catch-all for unrecognized GET requests - return empty array for collection safety
+  return NextResponse.json([]);
 }
 
 export async function POST(req: NextRequest, { params }: { params: { slug?: string[] } }) {
@@ -527,6 +717,27 @@ export async function POST(req: NextRequest, { params }: { params: { slug?: stri
         email: body.email || MOCK_USER.email,
         full_name: body.full_name || MOCK_USER.full_name,
       },
+    });
+  }
+
+  if (path === "privacy/export" || path === "users/export-data") {
+    return NextResponse.json({
+      export_version: "2.4",
+      user: MOCK_USER,
+      reports: MOCK_REPORTS,
+      metrics: MOCK_METRICS,
+      consents: MOCK_CONSENTS,
+      generated_at: new Date().toISOString(),
+      compliance: "DPDP Act 2023 / HIPAA Sec. 164.312",
+    });
+  }
+
+  if (path === "privacy/consent" || path === "users/consents") {
+    return NextResponse.json({
+      status: "updated",
+      consent_type: body.consent_type,
+      is_granted: body.is_granted,
+      updated_at: new Date().toISOString(),
     });
   }
 
@@ -584,6 +795,15 @@ Based on ACG & ESPGHAN diagnostic guidelines:
     });
   }
 
+  if (path === "assistant/voice/query") {
+    return NextResponse.json({
+      audio_url: null,
+      transcript: body.transcript || "Voice query processed",
+      response_text: "According to clinical guidelines, regular blood pressure tracking is recommended to monitor cardiovascular risk.",
+      detected_language: body.language || "en-IN",
+    });
+  }
+
   if (path === "reports/upload") {
     return NextResponse.json({
       id: Date.now(),
@@ -614,10 +834,35 @@ Based on ACG & ESPGHAN diagnostic guidelines:
     });
   }
 
-  if (path === "ml/predict-risk") {
+  if (path.startsWith("reports/") && path.endsWith("/analyze")) {
+    const reportId = parseInt(slug[1]);
+    const found = MOCK_REPORTS.find((r) => r.id === reportId) || MOCK_REPORTS[0];
+    return NextResponse.json({
+      report_id: reportId,
+      status: "completed",
+      summary: found.ai_interpretation,
+      findings: found.measurements,
+    });
+  }
+
+  if (path.startsWith("reports/") && path.endsWith("/measurements")) {
+    return NextResponse.json({
+      id: Date.now(),
+      test_name: body.test_name || "New Biomarker",
+      value: body.value || 0,
+      unit: body.unit || "mg/dL",
+      reference_text: body.reference_text || "Standard Range",
+      is_abnormal: body.is_abnormal || false,
+      flag: body.flag || "normal",
+      confidence: 1.0,
+      user_verified: true,
+    });
+  }
+
+  if (path === "ml/predict-risk" || path === "ml/predict/celiac") {
     const age = body.age || 28;
     const iga = body.iga || 2.4;
-    const isDiabetes = body.diabetes === "yes" || body.diabetes === "Yes";
+    const isDiabetes = body.diabetes === "yes" || body.diabetes === "Yes" || body.has_type1_diabetes;
     const riskProb = Math.min(0.96, Math.max(0.04, (isDiabetes ? 0.35 : 0.1) + (iga > 10 ? 0.45 : 0.05)));
 
     return NextResponse.json({
@@ -670,11 +915,62 @@ Based on ACG & ESPGHAN diagnostic guidelines:
   if (path === "metrics") {
     return NextResponse.json({
       id: Date.now(),
-      metric_type: body.metric_type || "heart_rate",
-      value: body.value || 72,
-      unit: body.unit || "bpm",
+      metric_type: body.metric_type || "blood_pressure",
+      value: body.value || 120,
+      secondary_value: body.secondary_value || undefined,
+      unit: body.unit || "mmHg",
+      source: body.source || "manual_dashboard",
       recorded_at: new Date().toISOString(),
     });
+  }
+
+  if (path === "research/bookmarks") {
+    const ref = MOCK_RESEARCH.find((r) => r.id === body.reference_id) || MOCK_RESEARCH[0];
+    return NextResponse.json({
+      id: Date.now(),
+      user_id: 1,
+      reference_id: body.reference_id || 1,
+      notes: body.notes || "",
+      created_at: new Date().toISOString(),
+      reference: ref,
+    });
+  }
+
+  if (path === "devices") {
+    return NextResponse.json({
+      id: `DEV-${Date.now().toString().slice(-4)}`,
+      device_name: body.device_name || "Connected Biosensor",
+      device_type: body.device_type || "wearable",
+      model_number: body.model_number || "GEN-2026",
+      serial_number: body.serial_number || `SN-${Date.now().toString().slice(-6)}`,
+      battery_level: 100,
+      is_active: true,
+      firmware_version: "v1.0.0",
+      last_sync: new Date().toISOString(),
+    });
+  }
+
+  if (path.startsWith("devices/") && (path.endsWith("/connect") || path.endsWith("/disconnect"))) {
+    return NextResponse.json({
+      status: path.endsWith("/connect") ? "connected" : "disconnected",
+      device_id: slug[1],
+    });
+  }
+
+  if (path === "devices/wearables/ingest" || path === "devices/sensors/ingest" || path === "devices/iot/telemetry") {
+    return NextResponse.json({
+      status: "success",
+      records_processed: Array.isArray(body.measurements) ? body.measurements.length : 1,
+      received_at: new Date().toISOString(),
+    });
+  }
+
+  if (path === "notifications/read-all") {
+    return NextResponse.json({ status: "success", all_read: true });
+  }
+
+  if (path.startsWith("notifications/") && path.endsWith("/read")) {
+    return NextResponse.json({ status: "success", read: true, id: parseInt(slug[1]) });
   }
 
   // Catch-all POST
@@ -706,6 +1002,22 @@ export async function PUT(req: NextRequest, { params }: { params: { slug?: strin
       escalation_reason: body.reason,
     };
     return NextResponse.json(updated);
+  }
+
+  if (path === "users/consents") {
+    return NextResponse.json({
+      status: "updated",
+      consent_type: body.consent_type,
+      is_granted: body.is_granted,
+      updated_at: new Date().toISOString(),
+    });
+  }
+
+  if (path === "users/me") {
+    return NextResponse.json({
+      ...MOCK_USER,
+      ...body,
+    });
   }
 
   return NextResponse.json({ status: "success", updated: true, data: body });

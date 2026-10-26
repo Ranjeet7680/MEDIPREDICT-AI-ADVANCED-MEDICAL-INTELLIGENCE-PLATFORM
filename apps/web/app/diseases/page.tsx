@@ -80,9 +80,10 @@ export default function DiseasesPage() {
       const specialtyParam =
         selectedSpecialty === "All Specialties" ? undefined : selectedSpecialty;
       const data = await api.listDiseases(searchQuery || undefined, specialtyParam);
-      setDiseases(data);
-      if (data.length > 0 && !selectedDisease) {
-        setSelectedDisease(data[0]);
+      const safeList = Array.isArray(data) ? data : [];
+      setDiseases(safeList);
+      if (safeList.length > 0 && !selectedDisease) {
+        setSelectedDisease(safeList[0]);
       }
     } catch (err) {
       console.error("Load diseases error:", err);
@@ -90,6 +91,8 @@ export default function DiseasesPage() {
       setIsLoading(false);
     }
   };
+
+  const safeDiseases = Array.isArray(diseases) ? diseases : [];
 
   return (
     <div className="min-h-screen flex flex-col bg-surface text-foreground transition-colors duration-200">
@@ -279,7 +282,7 @@ export default function DiseasesPage() {
             {/* Condition List */}
             <div className="lg:col-span-4 space-y-2.5">
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block px-1">
-                Medical Conditions ({diseases.length})
+                Medical Conditions ({safeDiseases.length})
               </span>
 
               {isLoading ? (
@@ -287,12 +290,12 @@ export default function DiseasesPage() {
                   <CardSkeleton />
                   <CardSkeleton />
                 </div>
-              ) : diseases.length === 0 ? (
+              ) : safeDiseases.length === 0 ? (
                 <div className="p-8 text-center bg-white dark:bg-[#162732] rounded-xl border border-dashed border-border text-xs text-muted-foreground">
                   No matching medical conditions found.
                 </div>
               ) : (
-                diseases.map((d) => {
+                safeDiseases.map((d) => {
                   const isSelected = selectedDisease?.id === d.id;
                   return (
                     <div

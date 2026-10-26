@@ -8,6 +8,18 @@ export const metadata: Metadata = {
   title: "MediPredict AI — Advanced Medical Intelligence Platform",
   description:
     "Intelligent Healthcare. Earlier Insights. Better Decisions. Evidence-grounded medical RAG, laboratory report intelligence, and clinical research risk models.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/logo-icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -18,6 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/logo-icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#00635e" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

@@ -101,18 +101,27 @@ export default function DashboardPage() {
 
     if (user) {
       loadDashboardData();
+    } else if (!authLoading) {
+      // If demo mode or guest user viewing dashboard
+      loadDashboardData();
     }
-  }, [user]);
+  }, [user, authLoading]);
 
-  // Derived stats
-  const totalReports = reports.length;
-  const abnormalFlags = reports.reduce((acc, r) => acc + (r.abnormal_count || 0), 0);
-  const pendingReviews = reports.filter((r) => r.requires_verification).length;
+  // Safe arrays and derived stats
+  const safeReports = Array.isArray(reports) ? reports : [];
+  const safeBpReadings = Array.isArray(bpReadings) ? bpReadings : [];
+  const safeBookmarks = Array.isArray(bookmarks) ? bookmarks : [];
+
+  const totalReports = safeReports.length;
+  const abnormalFlags = safeReports.reduce((acc, r) => acc + (r?.abnormal_count || 0), 0);
+  const pendingReviews = safeReports.filter((r) => Boolean(r?.requires_verification)).length;
 
   // Filtered readings based on timeframe
-  const filteredBpReadings = bpReadings.filter((item) => {
+  const filteredBpReadings = safeBpReadings.filter((item) => {
+    if (!item || !item.recorded_at) return false;
     if (timeframe === "all") return true;
     const itemDate = new Date(item.recorded_at).getTime();
+    if (isNaN(itemDate)) return false;
     const days = timeframe === "7d" ? 7 : 30;
     return Date.now() - itemDate <= days * 24 * 60 * 60 * 1000;
   });
@@ -256,7 +265,7 @@ export default function DashboardPage() {
               />
               <MetricCard
                 title="Saved Literature"
-                value={bookmarks.length}
+                value={safeBookmarks.length}
                 unit="citations"
                 status="normal"
                 icon={BookOpen}
@@ -358,9 +367,9 @@ export default function DashboardPage() {
 
                 {isLoading ? (
                   <TableSkeleton />
-                ) : reports.length > 0 ? (
+                ) : safeReports.length > 0 ? (
                   <div className="space-y-2.5">
-                    {reports.slice(0, 3).map((r) => (
+                    {safeReports.slice(0, 3).map((r) => (
                       <Link
                         key={r.id}
                         href="/reports"

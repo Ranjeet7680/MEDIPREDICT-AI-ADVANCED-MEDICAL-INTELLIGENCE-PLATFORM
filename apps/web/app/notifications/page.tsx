@@ -37,8 +37,9 @@ export default function NotificationsPage() {
     setIsLoading(true);
     try {
       const data = await api.listNotifications();
+      const safeData = Array.isArray(data) ? data : [];
       // If user has no notifications yet, provide realistic seeded notifications
-      if (!data || data.length === 0) {
+      if (safeData.length === 0) {
         setNotifications([
           {
             id: 1,
@@ -102,13 +103,16 @@ export default function NotificationsPage() {
     }
   };
 
-  const filteredNotifs = notifications.filter((n) => {
+  const safeNotifs = Array.isArray(notifications) ? notifications : [];
+
+  const filteredNotifs = safeNotifs.filter((n) => {
+    if (!n) return false;
     if (filter === "unread") return !n.is_read;
     if (filter === "critical") return n.type === "critical" || n.type === "warning";
     return true;
   });
 
-  const unreadCount = notifications.filter((n) => !n.is_read).length;
+  const unreadCount = safeNotifs.filter((n) => n && !n.is_read).length;
 
   return (
     <div className="min-h-screen bg-background">

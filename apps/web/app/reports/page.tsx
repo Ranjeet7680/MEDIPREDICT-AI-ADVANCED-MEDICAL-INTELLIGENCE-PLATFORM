@@ -70,9 +70,10 @@ export default function ReportsPage() {
     setIsLoading(true);
     try {
       const data = await api.listReports();
-      setReports(data);
-      if (data.length > 0) {
-        selectReport(data[0].id);
+      const safeData = Array.isArray(data) ? data : [];
+      setReports(safeData);
+      if (safeData.length > 0) {
+        selectReport(safeData[0].id);
       } else {
         setSelectedReport(null);
       }
@@ -242,6 +243,8 @@ export default function ReportsPage() {
     return true;
   });
 
+  const safeReports = Array.isArray(reports) ? reports : [];
+
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -304,7 +307,7 @@ export default function ReportsPage() {
             {/* Left: Report History List */}
             <div className="lg:col-span-4 space-y-3">
               <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
-                <span className="font-semibold text-foreground">Report History ({reports.length})</span>
+                <span className="font-semibold text-foreground">Report History ({safeReports.length})</span>
                 <span>Sorted by Date</span>
               </div>
 
@@ -313,7 +316,7 @@ export default function ReportsPage() {
                   <CardSkeleton />
                   <CardSkeleton />
                 </div>
-              ) : reports.length === 0 ? (
+              ) : safeReports.length === 0 ? (
                 <EmptyState
                   title="No Laboratory Reports Found"
                   description="Upload a medical report in PDF, image, CSV, or text format to begin automated clinical biomarker extraction."
@@ -323,7 +326,7 @@ export default function ReportsPage() {
                 />
               ) : (
                 <div className="space-y-2 max-h-[700px] overflow-y-auto pr-1">
-                  {reports.map((r) => {
+                  {safeReports.map((r) => {
                     const isSelected = selectedReport?.id === r.id;
                     return (
                       <div

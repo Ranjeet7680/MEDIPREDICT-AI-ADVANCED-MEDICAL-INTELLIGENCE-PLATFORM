@@ -95,11 +95,14 @@ export default function RecordsPage() {
     }
   };
 
-  const filteredRecords = records.filter((r) => {
+  const safeRecords = Array.isArray(records) ? records : [];
+
+  const filteredRecords = safeRecords.filter((r) => {
+    if (!r) return false;
     if (!searchQuery) return true;
     const q = searchQuery.toLowerCase();
     return (
-      r.title.toLowerCase().includes(q) ||
+      (r.title && r.title.toLowerCase().includes(q)) ||
       (r.summary && r.summary.toLowerCase().includes(q)) ||
       (r.doctor_or_facility && r.doctor_or_facility.toLowerCase().includes(q))
     );

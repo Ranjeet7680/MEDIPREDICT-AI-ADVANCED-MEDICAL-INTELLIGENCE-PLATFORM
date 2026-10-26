@@ -60,11 +60,11 @@ export default function ResearchPage() {
   };
 
   const isBookmarked = (refId: number) => {
-    return bookmarks.some((b) => b.reference_id === refId);
+    return Array.isArray(bookmarks) ? bookmarks.some((b) => b?.reference_id === refId) : false;
   };
 
   const toggleBookmark = async (refId: number) => {
-    const existing = bookmarks.find((b) => b.reference_id === refId);
+    const existing = Array.isArray(bookmarks) ? bookmarks.find((b) => b?.reference_id === refId) : undefined;
     try {
       if (existing) {
         await api.removeBookmark(existing.id);
@@ -77,6 +77,8 @@ export default function ResearchPage() {
       console.error("Toggle bookmark error:", err);
     }
   };
+
+  const safeRefs = Array.isArray(references) ? references : [];
 
   return (
     <div className="min-h-screen flex flex-col bg-surface text-foreground">
@@ -134,7 +136,7 @@ export default function ResearchPage() {
           {/* Research Articles Grid */}
           <div className="space-y-4">
             <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block px-1">
-              Curated Scientific Literature ({references.length})
+              Curated Scientific Literature ({safeRefs.length})
             </span>
 
             {isLoading ? (
@@ -144,13 +146,13 @@ export default function ResearchPage() {
                 <CardSkeleton />
                 <CardSkeleton />
               </div>
-            ) : references.length === 0 ? (
+            ) : safeRefs.length === 0 ? (
               <div className="p-12 text-center bg-white dark:bg-[#1a2e38] rounded-xl border border-dashed border-border text-xs text-muted-foreground">
                 No matching research articles found. Try a different search term.
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {references.map((r) => {
+                {safeRefs.map((r) => {
                   const bookmarked = isBookmarked(r.id);
                   return (
                     <div

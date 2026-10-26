@@ -1,0 +1,37 @@
+{
+  "name": "MediPredict AI — Medical Intelligence Platform",
+  "short_name": "MediPredict AI",
+  "description": "Intelligent Healthcare. Earlier Insights. Better Decisions.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#f4faff",
+  "theme_color": "#00635e",
+  "icons": [
+    {
+      "src": "/logo-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

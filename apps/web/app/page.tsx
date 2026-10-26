@@ -311,9 +311,11 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="mt-auto py-10 bg-surface-container-high/40 border-t border-border text-xs text-muted-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-primary stroke-[2.2]" />
-            <span className="font-bold text-foreground">MediPredict AI</span>
+          <div className="flex items-center gap-2.5">
+            <div className="w-6 h-6 rounded-lg bg-primary text-primary-foreground flex items-center justify-center shadow-xs">
+              <Globe className="w-3.5 h-3.5 stroke-[2.2]" />
+            </div>
+            <span className="font-bold text-foreground">MediPredict <span className="text-primary font-bold">AI</span></span>
             <span>• Intelligent Healthcare Platform</span>
           </div>
 
